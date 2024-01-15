@@ -1,0 +1,43 @@
+Area_name,Description,Latitude,Longitude,Fast_charger,Opening-Closing_time,No_of_chargers
+Malleswaram,Bustling old Bangalore area known for temples and markets.,12.98694264,77.57541058,1,00:00-00:00,2
+Indiranagar,"Trendy neighborhood with pubs, cafes, and upscale living.",12.97556838,77.63327868,1,00:00-00:00,1
+Rajajinagar,Well-planned residential area with parks and good connectivity.,13.00295562,77.53247918,1,00:00-00:00,2
+Ashok Nagar,"Commercial hub with offices, shops, and restaurants.",12.99072842,77.60929842,1,06:00-22:00,2
+Shanthi Nagar,Popular for its shopping streets and lively markets.,13.01175127,77.57319579,1,00:00-00:00,4
+Domlur,IT hub with corporate offices and upscale apartments.,12.9621763,77.64404571,1,00:00-00:00,3
+Koramangala,"Popular nightlife spot with pubs, clubs, and restaurants.",12.92933021,77.62788138,0,06:00-22:00,2
+BTM Layout,Bustling area with a mix of residential and commercial spaces.,12.91688453,77.61043089,1,00:00-00:00,4
+HSR Layout,Residential area known for its parks and community events.,12.91208496,77.6500607,0,00:00-00:00,7
+Indira Nagar,Up-and-coming area with IT companies and cafes.,12.98230594,77.62464202,1,00:00-00:00,2
+Banaswadi,"Traditional area with markets, temples, and old houses.",13.01939761,77.64512299,0,08:00-22:00,1
+Fraser Town,Colonial-era neighborhood with charming bungalows.,12.9882716,77.59469139,1,00:00-00:00,4
+Cox Town,Quiet residential area with tree-lined streets.,12.99263475,77.66076199,0,00:00-00:00,1
+St. John's Road,Bustling commercial street with shops and restaurants.,12.97623417,77.61946684,0,00:00-00:00,2
+Peenya,Major industrial hub with factories and warehouses.,13.04233211,77.51551499,1,06:00-22:00,2
+Yelahanka,Planned township with IT companies and apartments.,13.10428639,77.60449213,1,00:00-00:00,2
+Hebbal,Residential area with good connectivity and proximity to the airport.,13.04144447,77.62049243,1,00:00-00:00,1
+Sahakarnagar,"Well-developed area with parks, schools, and hospitals",13.06365518,77.58296646,0,00:00-00:00,8
+Bharathi Nagar,Quiet residential area with a strong community feel.,13.00797845,77.71763726,0,08:30-22:00,1
+Jaynagar,"Upmarket area with parks, wide roads, and upscale living",12.93610866,77.57444123,1,00:00-00:00,2
+J P Nagar,"Well-developed area with good schools, hospitals, and shops.",12.9051149,77.5736287,1,00:00-00:00,1
+Banashankari,Large residential area with a mix of old and new neighborhoods.,12.93748892,77.5743554,1,00:00-00:00,2
+Basavanagudi,"Traditional area known for its temples, markets, and old houses.",12.94451952,77.56554283,0,00:00-00:00,1
+Lalbagh,Home to the famous Lalbagh Botanical Garden.,12.96456268,77.5824653,1,00:00-00:00,2
+HSR Layout Bellandur,"Residential area with lakes, parks, and IT companies",12.91418807,77.64685234,1,00:00-00:00,2
+Koramangala 3rd Block,"Popular nightlife spot with pubs, restaurants, and cafes.",12.94369785,77.60808605,1,00:00-00:00,2
+BTM Layout 2nd Stage,Bustling area with a mix of residential and commercial spaces.,12.91795392,77.61061562,1,00:00-00:00,4
+Electronic City,Major IT hub with corporate offices and residential townships.,12.91089618,77.57223129,0,00:00-00:00,1
+JP Nagar 8th Phase,Up-and-coming area with IT companies and apartments.,12.91411837,77.59129147,0,00:00-00:00,1
+Rajajinagar 5th Block,"Bustling area with markets, shops, and restaurants.",12.99963801,77.5539663,1,00:00-00:00,2
+Vasanthapura,"Upscale residential area with parks, good schools, and hospitals",12.88928604,77.56262269,1,00:00-00:00,2
+Jayanagar 4th Block,"Well-developed area with markets, shops, and temples",12.93192422,77.57591128,0,00:00-00:00,1
+Basaveshwaranagar,Traditional area with a strong community feel.,12.96980701,77.69325299,0,00:00-00:00,1
+Uttarahalli,Large residential area with good connectivity and proximity to the airport.,12.92848369,77.54817951,1,00:00-00:00,2
+Whitefield,"IT hub with corporate offices, apartments, and shopping malls.",12.97577295,77.72966592,1,00:00-00:00,2
+Marathahalli,Up-and-coming IT hub with residential townships and good connectivity.,12.94769376,77.69183419,1,00:00-00:00,2
+Sarjapur,"Residential area with lakes, parks, and IT companies.",12.9196595,77.67561435,1,00:00-00:00,1
+Kanakapura,Picturesque town known for its temples and natural beauty.,12.57342875,77.41281569,1,00:00-00:00,2
+Devanahalli,Home to the Kempegowda International Airport,13.2706917,77.7177705,1,00:00-00:00,2
+Rama Nagar,,12.97610202,77.58824922,1,06:00-22:00,8
+Mutthugadahalli,,13.18183877,77.6710945,1,00:00-00:00,24
+Mahadevpura,,12.99584208,77.69210414,1,00:00-00:00,25
