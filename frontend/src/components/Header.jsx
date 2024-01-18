@@ -22,8 +22,8 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav class="ms-auto">
-                            <Nav.Link href="/history" ><FaTimeline className='navbar-icons'/><br/>Travel Diary</Nav.Link>
-                            <Nav.Link href="/user" ><RiAccountPinBoxLine className='navbar-icons'/><br/>Sign In</Nav.Link>
+                            <Nav.Link href="/history" ><FaTimeline className='navbar-icons'/><br/><p>Travel Log</p></Nav.Link>
+                            <Nav.Link href="/user" ><RiAccountPinBoxLine className='navbar-icons'/><br/><p>Sign In</p></Nav.Link>
                             
                         </Nav>
                     </Navbar.Collapse>
