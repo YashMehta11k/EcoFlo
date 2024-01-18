@@ -9,8 +9,9 @@ const Transport = ({transport}) => {
             <Card.Title as="div">
               <Card.Img src={transport.IMAGES} variant='left'/>
               <h1>{transport.APPS}</h1>
-              <a href={transport.LINK}><h3 className="book-button">Book Service</h3></a>   
-              <h3 className="contact-details">Contact:<br/>{transport.CONTACT_NUMBER}</h3>     
+              <a href={transport.LINK}><h3 id="book-button">Book Service</h3></a>
+              <a href="/"><h3 id="confirm-button">Confirm Ride</h3></a>      
+              <h3 className="contact-details">Contact: {transport.CONTACT_NUMBER}</h3>     
             </Card.Title>
           </a>
           <h2>{transport.MODE_OF_TRANSPORT}</h2>

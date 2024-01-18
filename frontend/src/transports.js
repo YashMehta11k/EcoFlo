@@ -224,7 +224,7 @@ const transports=[
     "GREEN_POWER": false
   },
   {
-    "APPS": "Carzonrent",
+    "APPS": "Carzon Rent",
     "CONTACT_NUMBER": "9555997650",
     "MODE_OF_TRANSPORT": "Rental Electric Cars",
     "CARBON_INDEX_PER_KM": 16,
