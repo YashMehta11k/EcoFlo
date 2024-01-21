@@ -293,9 +293,9 @@ body {
   background: #d0d0ff;
   border-radius: 25px;
   margin-right: 1%;
-  height: 225px;
+  height: 15rem;
   padding: 1%;
-  padding-top: 4%;
+  padding-top: 6%;
 }
 
 #book-button{
@@ -307,8 +307,8 @@ body {
   width: 26%;
   height: 10%;
   border-radius: 14px;
-  top: 35%;
-  right: 9%;
+  top: 32%;
+  right: 10%;
   line-height: 241%;
   font-family: revert;
 }
@@ -320,10 +320,10 @@ body {
   color: white;
   background: black;
   width: 26%;
-  height: 10%;
+  height: 9%;
   border-radius: 14px;
-  top: 47%;
-  right: 9%;
+  top: 45%;
+  right: 10%;
   line-height: 241%;
   font-family: revert;
 }
@@ -331,7 +331,7 @@ body {
 #book-button:hover{
     background-color: white;
     color: rgb(114, 114, 255);
-    transition: 0.5s;
+    transition: 0.5s ease-out;
     font-size: 17px;
     line-height: 200%;
     right: 7%;
@@ -342,7 +342,7 @@ body {
 #confirm-button:hover{
     background-color: white;
     color: rgb(114, 114, 255);
-    transition: 0.5s;
+    transition: 0.5s ease-out;
     font-size: 17px;
     line-height: 200%;
     right: 7%;
@@ -377,26 +377,33 @@ body {
   margin-bottom: 4%;
 }
 
+.rating{
+    font-size: 1.5rem;
+  margin-left: 1.5rem;
+  margin-top: -1rem;
+  margin-bottom: 0.75rem;
+}
+
 .card-body h2{
     font-size: 24px;
   color: #6fffff;
   background: #01267df5;
   width: 55%;
-  height: 13%;
-  border-radius: 12px;
+  height: 12%;
+  border-radius: 1rem;
   text-align: center;
-  line-height: 50px;
+  line-height: 3rem;
   margin-left: 2%;
-  margin-bottom: 3%;
-  margin-top: -12%;
+  margin-bottom: 5%;
+  margin-top: -15%;
 }
 .headerdiv img{
     position: relative;
   height: 105px;
   border-radius: 0px 0px 10px 0px;
-  border: 6px double white;
+  border: 6px double #b6b6ff;
   margin-top: 2%;
-  box-shadow: 10px 11px 10px;
+  box-shadow: 5px 5px 15px #e0e0ff;
   background: black;
 }
 hr {
@@ -565,7 +572,7 @@ sup {
 
 a {
   color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:hover {
   --bs-link-color-rgb: var(--bs-link-hover-color-rgb);
@@ -4112,7 +4119,7 @@ fieldset:disabled .btn {
     text-align: -moz-center;
     width: 115px;
     line-height: 126%;
-    margin: 6% 0 0 18%;
+    margin: 3% 0 0 0%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -4261,7 +4268,7 @@ fieldset:disabled .btn {
   align-items: center;
   justify-content: space-between;
 }
-.navbar-brand {
+.navbar-brand::before{
   padding-top: var(--bs-navbar-brand-padding-y);
   padding-bottom: var(--bs-navbar-brand-padding-y);
   margin-right: var(--bs-navbar-brand-margin-end);
@@ -4269,10 +4276,16 @@ fieldset:disabled .btn {
   color: var(--bs-navbar-brand-color);
   text-decoration: none;
   white-space: nowrap;
+  content: "EcoFlo";
 }
-.navbar-brand:hover,
-.navbar-brand:focus {
+
+
+.navbar-brand:hover::before,
+.navbar-brand:focus::before{
   color: var(--bs-navbar-brand-hover-color);
+  content: "Your Personalised Sustainable \A Travel Recommendator";
+  transition-duration: content 3s ease;
+  font-size: 20px;
 }
 
 .navbar-nav {
@@ -8549,7 +8562,7 @@ fieldset:disabled .btn {
 .ms-auto {
     display: flex;
     flex-direction: row;
-    margin-left: 75%;
+    margin-left: 65%;
     color: #000;
 }
 

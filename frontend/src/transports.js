@@ -9,9 +9,11 @@ const transports=[
     "AVG_SPEED": "45kmh",
     "COST_PER_KM": 6,
     "NUMBER_OF_SEATS": 300,
-    "LINK": "https://www.nammametro.in",
-    "IMAGES": "/images/img1.webp",
-    "GREEN_POWER": false
+    "LINK": "https://play.google.com/store/apps/details?id=com.aum.nammametro&hl=en_IN",
+    "IMAGES": "/images/namma-metro.webp",
+    "GREEN_POWER": false,
+    "RATINGS": 4.5,
+    "NUM_REVIEWS": 15
   },
   {
     "APPS": "Namma yatri",
@@ -23,9 +25,11 @@ const transports=[
     "AVG_SPEED": "50kmh",
     "COST_PER_KM": 15,
     "NUMBER_OF_SEATS": 3,
-    "LINK": "https://www.nammayatri.com",
-    "IMAGES": "/images/namma_yatri2.avif",
-    "GREEN_POWER": false
+    "LINK": "https://play.google.com/store/apps/details?id=in.juspay.nammayatri&hl=en&gl=US",
+    "IMAGES": "/images/namma-yatri.png",
+    "GREEN_POWER": false,
+    "RATINGS": 4.2,
+    "NUM_REVIEWS": 8
   },
   {
     "APPS": "Rapido Auto",
@@ -37,9 +41,11 @@ const transports=[
     "AVG_SPEED": "50kmh",
     "COST_PER_KM": 12,
     "NUMBER_OF_SEATS": 2,
-    "LINK": "https://www.rapido.com",
-    "IMAGES": "/images/img2.png",
-    "GREEN_POWER": false
+    "LINK": "https://www.rapido.bike/routes/[route]",
+    "IMAGES": "/images/rapido-auto.jpg",
+    "GREEN_POWER": false,
+    "RATINGS": 4.0,
+    "NUM_REVIEWS": 10
   },
   {
     "APPS": "Uber Auto",
@@ -51,9 +57,11 @@ const transports=[
     "AVG_SPEED": "50kmh",
     "COST_PER_KM": 13,
     "NUMBER_OF_SEATS": 2,
-    "LINK": "https://www.uber.com",
-    "IMAGES": "/images/img3.png",
-    "GREEN_POWER": false
+    "LINK": "https://www.uber.com/in/en/ride/uber-auto/",
+    "IMAGES": "/images/uber-auto.webp",
+    "GREEN_POWER": false,
+    "RATINGS": 3.8,
+    "NUM_REVIEWS": 12
   },
   {
     "APPS": "Uber",
@@ -65,9 +73,11 @@ const transports=[
     "AVG_SPEED": "18kmh",
     "COST_PER_KM": 20,
     "NUMBER_OF_SEATS": 4,
-    "LINK": "https://www.uber.com",
-    "IMAGES": "/images/img4.png",
-    "GREEN_POWER": false
+    "LINK": "https://www.uber.com/in/en/ride/ubertaxi/",
+    "IMAGES": "/images/uber-taxi.jpg",
+    "GREEN_POWER": false,
+    "RATINGS": 4.1,
+    "NUM_REVIEWS": 15
   },
   {
     "APPS": "Ola Cabs",
@@ -79,9 +89,11 @@ const transports=[
     "AVG_SPEED": "17kmh",
     "COST_PER_KM": 18,
     "NUMBER_OF_SEATS": 4,
-    "LINK": "https://www.olacabs.com",
-    "IMAGES": "/images/img5.png",
-    "GREEN_POWER": false
+    "LINK": "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwixsff94-2DAxXd4TgGHVpHAHYQjBB6BAgIEAE&url=https%3A%2F%2Fbook.olacabs.com%2F%3FserviceType%3Dp2p%26when%3DNOW%26pickup_name%3DPlease%2520select%2520the%2520location%26drop_lat%3D16.3105174%26drop_lng%3D80.428896%26drop_name%3DInspirepath%2520Overseas%2520Consultancy%252C%2520Lakshmipuram%2520Main%2520Road%2520Ashok%2520Nagar%2520Guntur%2520Andhra%2520Pradesh%2520India%26pickup%3D%26lat%3D16.5321909%26lng%3D80.5327988&usg=AOvVaw1BA2GLlMbSUXYHW9cNwMu5&opi=89978449",
+    "IMAGES": "/images/ola-cab.jpg",
+    "GREEN_POWER": false,
+    "RATINGS": 4.0,
+    "NUM_REVIEWS": 10
   },
   {
     "APPS": "Ola Auto",
@@ -93,9 +105,11 @@ const transports=[
     "AVG_SPEED": "50kmh",
     "COST_PER_KM": 14,
     "NUMBER_OF_SEATS": 3,
-    "LINK": "https://www.olacabs.com",
-    "IMAGES": "/images/img6.png",
-    "GREEN_POWER": false
+    "LINK": "https://book.olacabs.com/",
+    "IMAGES": "/images/ola-auto.jpg",
+    "GREEN_POWER": false,
+    "RATINGS": 3.7,
+    "NUM_REVIEWS": 8
   },
   {
     "APPS": "Meru Cabs",
@@ -107,9 +121,11 @@ const transports=[
     "AVG_SPEED": "27kmh",
     "COST_PER_KM": 19,
     "NUMBER_OF_SEATS": 4,
-    "LINK": "https://www.merucabs.com",
-    "IMAGES": "/images/img7.png",
-    "GREEN_POWER": false
+    "LINK": "https://www.meru.in/",
+    "IMAGES": "/images/meru-cabs.jpg",
+    "GREEN_POWER": false,
+    "RATINGS": 4.2,
+    "NUM_REVIEWS": 12
   },
   {
     "APPS": "Fasttrack",
@@ -121,9 +137,11 @@ const transports=[
     "AVG_SPEED": "25kmh",
     "COST_PER_KM": 17,
     "NUMBER_OF_SEATS": 4,
-    "LINK": "https://www.fasttrack.in",
-    "IMAGES": "/images/img8.png",
-    "GREEN_POWER": true
+    "LINK": "https://fasttrackdroptaxi.com/",
+    "IMAGES": "/images/fasttrack.png",
+    "GREEN_POWER": true,
+    "RATINGS": 4.8,
+    "NUM_REVIEWS": 18
   },
   {
     "APPS": "Mega Cabs",
@@ -135,9 +153,11 @@ const transports=[
     "AVG_SPEED": "35kmh",
     "COST_PER_KM": 16,
     "NUMBER_OF_SEATS": 4,
-    "LINK": "https://www.megacabs.com",
-    "IMAGES": "/images/img9.png",
-    "GREEN_POWER": true
+    "LINK": "https://stg.megacabs.com/",
+    "IMAGES": "/images/mega.png",
+    "GREEN_POWER": true,
+    "RATINGS": 4.5,
+    "NUM_REVIEWS": 15
   },
   {
     "APPS": "Yulu",
@@ -149,12 +169,14 @@ const transports=[
     "AVG_SPEED": "23kmh",
     "COST_PER_KM": 5,
     "NUMBER_OF_SEATS": 1,
-    "LINK": "https://www.yulu.bike",
-    "IMAGES": "/images/img10.png",
-    "GREEN_POWER": true
+    "LINK": "https://www.yulu.bike/",
+    "IMAGES": "/images/yulu.webp",
+    "GREEN_POWER": true,
+    "RATINGS": 4.3,
+    "NUM_REVIEWS": 14
   },
   {
-    "APPS": "Bounce",
+    "APPS": "ByKe Mania",
     "CONTACT_NUMBER": "8668437211",
     "MODE_OF_TRANSPORT": "Pedal Cycles",
     "CARBON_INDEX_PER_KM": 10,
@@ -163,12 +185,14 @@ const transports=[
     "AVG_SPEED": "20kmh",
     "COST_PER_KM": 3,
     "NUMBER_OF_SEATS": 1,
-    "LINK": "https://www.bounce.bike",
-    "IMAGES": "/images/img11.png",
-    "GREEN_POWER": true
+    "LINK": "https://www.bykemania.com/",
+    "IMAGES": "/images/byke-mania.webp",
+    "GREEN_POWER": true,
+    "RATINGS": 4.6,
+    "NUM_REVIEWS": 20
   },
   {
-    "APPS": "Cyclops",
+    "APPS": "Cycle2Go",
     "CONTACT_NUMBER": "8099860061",
     "MODE_OF_TRANSPORT": "Pedal Cycles",
     "CARBON_INDEX_PER_KM": 12,
@@ -177,9 +201,11 @@ const transports=[
     "AVG_SPEED": "21kmh",
     "COST_PER_KM": 4,
     "NUMBER_OF_SEATS": 1,
-    "LINK": "https://www.cyclops.com",
-    "IMAGES": "/images/img12.png",
-    "GREEN_POWER": true
+    "LINK": "https://www.cycle2go.in/home",
+    "IMAGES": "/images/cycle2go.svg",
+    "GREEN_POWER": true,
+    "RATINGS": 4.1,
+    "NUM_REVIEWS": 16
   },
   {
     "APPS": "Zoomcar",
@@ -191,12 +217,14 @@ const transports=[
     "AVG_SPEED": "35kmh",
     "COST_PER_KM": 25,
     "NUMBER_OF_SEATS": 5,
-    "LINK": "https://www.zoomcar.com",
-    "IMAGES": "/images/img14.png",
-    "GREEN_POWER": false
+    "LINK": "https://www.zoomcar.com/in/bangalore",
+    "IMAGES": "/images/zoomcar.svg",
+    "GREEN_POWER": false,
+    "RATINGS": 3.8,
+    "NUM_REVIEWS": 9
   },
   {
-    "APPS": "Revv",
+    "APPS": "SparkCars",
     "CONTACT_NUMBER": "9250035555",
     "MODE_OF_TRANSPORT": "Rental Electric Cars",
     "CARBON_INDEX_PER_KM": 18,
@@ -205,12 +233,14 @@ const transports=[
     "AVG_SPEED": "35kmh",
     "COST_PER_KM": 28,
     "NUMBER_OF_SEATS": 5,
-    "LINK": "https://www.revv.co.in",
-    "IMAGES": "/images/img15.png",
-    "GREEN_POWER": true
+    "LINK": "https://sparkcars.in/",
+    "IMAGES": "/images/spark-cars.png",
+    "GREEN_POWER": true,
+    "RATINGS": 4.4,
+    "NUM_REVIEWS": 11
   },
   {
-    "APPS": "Drivezy",
+    "APPS": "Revv It",
     "CONTACT_NUMBER": "08061933715",
     "MODE_OF_TRANSPORT": "Rental Cars",
     "CARBON_INDEX_PER_KM": 22,
@@ -219,12 +249,14 @@ const transports=[
     "AVG_SPEED": "35kmh",
     "COST_PER_KM": 24,
     "NUMBER_OF_SEATS": 5,
-    "LINK": "https://www.drivezy.com",
-    "IMAGES": "/images/img16.png",
-    "GREEN_POWER": false
+    "LINK": "https://www.revv.co.in/car-rental/bangalore",
+    "IMAGES": "/images/revv.jpg",
+    "GREEN_POWER": false,
+    "RATINGS": 4.0,
+    "NUM_REVIEWS": 7
   },
   {
-    "APPS": "Carzon Rent",
+    "APPS": "ECO Mobility",
     "CONTACT_NUMBER": "9555997650",
     "MODE_OF_TRANSPORT": "Rental Electric Cars",
     "CARBON_INDEX_PER_KM": 16,
@@ -233,9 +265,11 @@ const transports=[
     "AVG_SPEED": "35kmh",
     "COST_PER_KM": 26,
     "NUMBER_OF_SEATS": 5,
-    "LINK": "https://www.carzonrent.com",
-    "IMAGES": "/images/img17.png",
-    "GREEN_POWER": true
+    "LINK": "https://www.ecorentacar.com/cities/bengaluru-rental-service/",
+    "IMAGES": "/images/ecorent.png",
+    "GREEN_POWER": true,
+    "RATINGS": 4.2,
+    "NUM_REVIEWS": 13
   },
   {
     "APPS": "BMTC",
@@ -247,12 +281,14 @@ const transports=[
     "AVG_SPEED": "88kmh",
     "COST_PER_KM": 8,
     "NUMBER_OF_SEATS": 50,
-    "LINK": "https://www.mybmtc.com",
-    "IMAGES": "/images/img18.png",
-    "GREEN_POWER": false
+    "LINK": "https://blog.tummoc.com/book-bmtc-bus-passes-online-on-tummoc/",
+    "IMAGES": "/images/bmtc.png",
+    "GREEN_POWER": false,
+    "RATINGS": 4.5,
+    "NUM_REVIEWS": 18
   },
   {
-    "APPS": "Vogo",
+    "APPS": "ONN Bikes",
     "CONTACT_NUMBER": "8099860061",
     "MODE_OF_TRANSPORT": "Rental Bikes",
     "CARBON_INDEX_PER_KM": 10,
@@ -261,9 +297,11 @@ const transports=[
     "AVG_SPEED": "18kmh",
     "COST_PER_KM": 5,
     "NUMBER_OF_SEATS": 2,
-    "LINK": "https://www.vogo.in",
-    "IMAGES": "/images/img20.png",
-    "GREEN_POWER": false
+    "LINK": "https://www.onnbikes.com/bike-rental-bangalore.html#",
+    "IMAGES": "/images/onn-bikes.jpg",
+    "GREEN_POWER": false,
+    "RATINGS": 3.9,
+    "NUM_REVIEWS": 10
   },
   {
     "APPS": "Royal Brothers",
@@ -275,12 +313,14 @@ const transports=[
     "AVG_SPEED": "18kmh",
     "COST_PER_KM": 5,
     "NUMBER_OF_SEATS": 2,
-    "LINK": "https://www.royalbrothers.com",
-    "IMAGES": "/images/img21.png",
-    "GREEN_POWER": false
+    "LINK": "https://www.royalbrothers.com/bangalore/bike-rentals?utm_source=google&utm_medium=cpc&utm_campaign=Search-Daily-Rental-Bangalore-Brand&utm_campaign=Search+Daily+Rental+Bangalore+Brand&utm_medium=ppc&utm_source=adwords&utm_term=royal%20brothers%20bike%20rentals&hsa_mt=e&hsa_ad=442095758873&hsa_cam=10289128712&hsa_kw=royal%20brothers%20bike%20rentals&hsa_src=g&hsa_grp=97811531410&hsa_net=adwords&hsa_tgt=aud-874218889105:kwd-389968982636&hsa_acc=8196859737&hsa_ver=3&gad_source=1&gclid=Cj0KCQiA-62tBhDSARIsAO7twbZTBh4pnRO3rqXI6kglhe7_OgTD4OmAM-p4FDggdIiyARe6kNSg54saAizKEALw_wcB",
+    "IMAGES": "/images/royal-bro.avif",
+    "GREEN_POWER": false,
+    "RATINGS": 4.1,
+    "NUM_REVIEWS": 15
   },
   {
-    "APPS": "ONN Bikes",
+    "APPS": "Scoo EV",
     "CONTACT_NUMBER": "08378007800",
     "MODE_OF_TRANSPORT": "Electric Rental Bikes",
     "CARBON_INDEX_PER_KM": 7,
@@ -289,12 +329,14 @@ const transports=[
     "AVG_SPEED": "18kmh",
     "COST_PER_KM": 6,
     "NUMBER_OF_SEATS": 2,
-    "LINK": "https://www.onnbikes.com",
-    "IMAGES": "/images/img22.png",
-    "GREEN_POWER": true
+    "LINK": "https://scooev.com/",
+    "IMAGES": "/images/scoo.jpg",
+    "GREEN_POWER": true,
+    "RATINGS": 4.3,
+    "NUM_REVIEWS": 12
   },
   {
-    "APPS": "Drivezy",
+    "APPS": "Zypp Electric",
     "CONTACT_NUMBER": "08061933715",
     "MODE_OF_TRANSPORT": "Electric Rental Bikes",
     "CARBON_INDEX_PER_KM": 6,
@@ -303,9 +345,11 @@ const transports=[
     "AVG_SPEED": "18kmh",
     "COST_PER_KM": 7,
     "NUMBER_OF_SEATS": 2,
-    "LINK": "https://www.drivezy.com",
-    "IMAGES": "/images/img23.png",
-    "GREEN_POWER": true
+    "LINK": "https://zypp.app/escooter-rental",
+    "IMAGES": "/images/zypp.webp",
+    "GREEN_POWER": true,
+    "RATINGS": 4.2,
+    "NUM_REVIEWS": 10
   },
   {
     "APPS": "Rapido Scooter",
@@ -317,9 +361,11 @@ const transports=[
     "AVG_SPEED": "50kmh",
     "COST_PER_KM": 18,
     "NUMBER_OF_SEATS": 2,
-    "LINK": "https://www.rapido.com",
-    "IMAGES": "/images/img24.png",
-    "GREEN_POWER": false
+    "LINK": "https://www.rapido.bike/",
+    "IMAGES": "/images/rapido.gif",
+    "GREEN_POWER": false,
+    "RATINGS": 3.8,
+    "NUM_REVIEWS": 8
   },
   {
     "APPS": "BMTC Electric",
@@ -331,9 +377,11 @@ const transports=[
     "AVG_SPEED": "30kmh",
     "COST_PER_KM": 10,
     "NUMBER_OF_SEATS": 50,
-    "LINK": "https://www.mybmtc.com",
-    "IMAGES": "/images/img25.png",
-    "GREEN_POWER": true
+    "LINK": "https://blog.tummoc.com/how-to-find-bmtc-bus-timings-routes-more-on-the-tummoc-app/",
+    "IMAGES": "/images/bmtc-e.webp",
+    "GREEN_POWER": true,
+    "RATINGS": 4.5,
+    "NUM_REVIEWS": 15
   }
 ]
 export default transports 
