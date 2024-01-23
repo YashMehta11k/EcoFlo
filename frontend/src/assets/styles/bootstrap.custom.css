@@ -203,7 +203,7 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -257,6 +257,31 @@ body {
     font-size: larger;
 }
 
+#transport-confirm .list-group-item{
+  background-color: #9e9eff;
+  color: white;
+  width: 125%;
+}
+
+#transport-confirm .col{
+  font-family: 'Koulen';
+  font-size: 1.15rem;
+}
+
+#transport-confirm .list-group-flush{
+  box-shadow: 0px 0px 0px;
+}
+
+#confirm-transport{
+  background-color: black;
+  font-family: 'Handjet';
+  color: white;
+  font-size: 2.25rem;
+  border-radius: 0 0 1rem 1rem;
+  width: 60%;
+  margin-top: 0.5rem;
+}
+
 .card a img{
     height: 175px;
   width: 250px;
@@ -278,12 +303,14 @@ body {
 }
 
 .card-title h1{
-    font-size: 35px;
+  font-size: 45px;
   text-align: center;
   width: 40%;
   margin: 1%;
     margin-right: 1%;
     margin-left: 1%;
+  margin-right: 1%;
+  margin-left: 1%;
   margin-right: 1%;
   margin-left: 1%;
   margin-left: 5%;
@@ -295,59 +322,33 @@ body {
   margin-right: 1%;
   height: 15rem;
   padding: 1%;
-  padding-top: 6%;
-}
-
-#book-button{
-    position: absolute;
-  text-align: center;
-  font-size: 15px;
-  color: white;
-  background: black;
-  width: 26%;
-  height: 10%;
-  border-radius: 14px;
-  top: 32%;
-  right: 10%;
-  line-height: 241%;
-  font-family: revert;
+    padding-top: 1%;
+  padding-top: 7%;
+  font-family: 'Bebas Neue';
 }
 
 #confirm-button{
-    position: absolute;
+  position: absolute;
   text-align: center;
-  font-size: 15px;
+  font-size: 18px;
   color: white;
   background: black;
   width: 26%;
-  height: 9%;
-  border-radius: 14px;
-  top: 45%;
-  right: 10%;
-  line-height: 241%;
-  font-family: revert;
+  height: 14%;
+  border-radius: 17px;
+  top: 40%;
+  right: 9.5%;
+  line-height: 125%;
+  font-family: 'Handjet';
+  padding-top: 0.5rem;
 }
 
-#book-button:hover{
-    background-color: white;
-    color: rgb(114, 114, 255);
-    transition: 0.5s ease-out;
-    font-size: 17px;
-    line-height: 200%;
-    right: 7%;
-    height: 9%;
-    width: 30%;
-}
 
 #confirm-button:hover{
     background-color: white;
     color: rgb(114, 114, 255);
-    transition: 0.5s ease-out;
-    font-size: 17px;
-    line-height: 200%;
-    right: 7%;
-    height: 9%;
-    width: 30%;
+    transition: 0.3s ease-out;
+    font-size: 18px;
 }
 
 .contact-details{
@@ -366,7 +367,7 @@ body {
 }
 .card-text h3{
     font-size: 20px;
-  background: greenyellow;
+  background: #6ddea4;
   width: 45%;
   text-align: center;
   border-radius: 15px;
@@ -375,6 +376,7 @@ body {
   font-weight: revert-layer;
   color: #6c6c6c;
   margin-bottom: 4%;
+  font-family: 'Advent Pro';
 }
 
 .rating{
@@ -384,10 +386,34 @@ body {
   margin-bottom: 0.75rem;
 }
 
+#Transport-desc h3{
+  font-family: 'Monoton';
+  font-size: 3.5rem;
+  color: teal;
+}
+
+#Transport-desc .rating{
+  font-size: 1.75rem;
+}
+
+#Transport-desc .rating-text{
+  font-size: 1rem;
+}
+
+
+#Transport-desc b{
+  font-size: 1.25rem;
+  margin: 1rem;
+  color: #6d6dff;
+  text-align: center;
+  font-family: 'Unica One';
+  line-height: 2.25rem;
+}
+
 .card-body h2{
-    font-size: 24px;
+    font-size: 27px;
   color: #6fffff;
-  background: #01267df5;
+  background: #1c3f91f5;
   width: 55%;
   height: 12%;
   border-radius: 1rem;
@@ -396,15 +422,13 @@ body {
   margin-left: 2%;
   margin-bottom: 5%;
   margin-top: -15%;
+  font-family: 'Unica One';
 }
 .headerdiv img{
-    position: relative;
-  height: 105px;
-  border-radius: 0px 0px 10px 0px;
-  border: 6px double #b6b6ff;
-  margin-top: 2%;
-  box-shadow: 5px 5px 15px #e0e0ff;
-  background: black;
+  position: relative;
+  height: 185px;
+  margin-top: 5%;
+  margin-left: -1rem;
 }
 hr {
   margin: 1.2rem 0;
@@ -926,10 +950,38 @@ progress {
   content: '— ';
 }
 
-.img-fluid {
-  max-width: 100%;
-  height: auto;
+.prev-page{
+  margin: 2rem 3rem;
+  background-color: #000000;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 0.75rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.4rem;
+  font-family: 'Handjet';
+  font-size: 1.25rem;
+  font-weight: 700;
 }
+
+.prev-page:hover{
+  background-color: rgb(255, 255, 255);
+  color:black;
+  border: 3px solid #4646ff;
+}
+
+#arrow-icon{
+  font-size: 2rem;
+  margin-right: -0.35rem;
+  margin-top: -0.1rem;
+}
+
+
+.img-fluid {
+  width: 30rem;
+  height: 35rem;
+  border-radius: 2rem;
+  margin-top: 4%;
+}  
 
 .img-thumbnail {
   padding: 0.25rem;
@@ -1457,15 +1509,15 @@ progress {
   }
   .col-md-3 {
     flex: 0 0 auto;
-    width: 25%;
+    width: 31%;
   }
   .col-md-4 {
     flex: 0 0 auto;
-    width: 33.33333333%;
+    width: 30%;
   }
   .col-md-5 {
     flex: 0 0 auto;
-    width: 41.66666667%;
+    width: 38.667%;
   }
   .col-md-6 {
     flex: 0 0 auto;
@@ -4271,21 +4323,26 @@ fieldset:disabled .btn {
 .navbar-brand::before{
   padding-top: var(--bs-navbar-brand-padding-y);
   padding-bottom: var(--bs-navbar-brand-padding-y);
-  margin-right: var(--bs-navbar-brand-margin-end);
-  font-size: var(--bs-navbar-brand-font-size);
-  color: var(--bs-navbar-brand-color);
+  margin-right: -8.5rem;
+  font-size: 3rem;
+  color: rgb(0, 255, 195);
   text-decoration: none;
   white-space: nowrap;
   content: "EcoFlo";
+  font-family: "Bungee Inline";
+  padding-right: 5rem;
+  margin-left: -1.25rem;
 }
 
 
 .navbar-brand:hover::before,
 .navbar-brand:focus::before{
   color: var(--bs-navbar-brand-hover-color);
-  content: "Your Personalised Sustainable \A Travel Recommendator";
-  transition-duration: content 3s ease;
+  content: "Your Personalised Sustainable Travel Recommendator";
+  transition: content 3s ease;
   font-size: 20px;
+  margin-right: -38rem;
+  font-weight: 300;
 }
 
 .navbar-nav {
@@ -4677,11 +4734,8 @@ fieldset:disabled .btn {
   --bs-card-border-width: var(--bs-border-width);
   --bs-card-border-color: var(--bs-border-color-translucent);
   --bs-card-border-radius: var(--bs-border-radius);
-  --bs-card-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
-    0 2px 4px rgba(255, 20, 20, 0.06);
-  --bs-card-inner-border-radius: calc(
-    var(--bs-border-radius) - (var(--bs-border-width))
-  );
+  --bs-card-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(255, 20, 20, 0.06);
+  --bs-card-inner-border-radius: calc( var(--bs-border-radius) - (var(--bs-border-width)) );
   --bs-card-cap-padding-y: 0.6rem;
   --bs-card-cap-padding-x: 1.2rem;
   --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
@@ -4695,13 +4749,11 @@ fieldset:disabled .btn {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  height: var(--bs-card-height);
   word-wrap: break-word;
-  background-color: var(--bs-card-bg);
+  background-color: rgba(227, 227, 227, 0.38);
   background-clip: border-box;
-  border: var(--bs-card-border-width) solid var(--bs-card-border-color);
-  border-radius: var(--bs-card-border-radius);
-  box-shadow: var(--bs-card-box-shadow);
+  border: none;
+  box-shadow: 0px 2px 35px;
   width: 82%;
   margin: 4% 0 0 0;
   border-radius: 50px;
@@ -8562,7 +8614,7 @@ fieldset:disabled .btn {
 .ms-auto {
     display: flex;
     flex-direction: row;
-    margin-left: 65%;
+    margin-left: 62%;
     color: #000;
 }
 
@@ -9142,9 +9194,9 @@ fieldset:disabled .btn {
 
 .bg-dark {
     background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(3, 80, 117) 52%, rgba(37, 255, 122, 0.63) 100%);
+    background: linear-gradient(344deg, rgba(55,200,171,0.8726890414368873) 14%, rgba(82,82,255,0.8726890414368873) 50%, rgba(198,198,255,0.9707282571231618) 75%);
     width: 100%;
-    box-shadow: 34px 22px 27px black;
+    box-shadow: 34px 22px 27px #546ca6;
 }
 
 .bg-black {
