@@ -1,0 +1,15 @@
+{
+  "name": "ecoflo",
+  "version": "1.0.0",
+  "description": "Sustainable Transportation Database Management System and Recommendation",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "author": "Yash P Mehta",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
