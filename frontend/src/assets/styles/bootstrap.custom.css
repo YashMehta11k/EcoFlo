@@ -261,6 +261,9 @@ body {
   background-color: #9e9eff;
   color: white;
   width: 125%;
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 5px 5px 0px black;
 }
 
 #transport-confirm .col{
@@ -268,8 +271,8 @@ body {
   font-size: 1.15rem;
 }
 
-#transport-confirm .list-group-flush{
-  box-shadow: 0px 0px 0px;
+#transport-confirm{
+  margin-right: 5rem;
 }
 
 #confirm-transport{

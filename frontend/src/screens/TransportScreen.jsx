@@ -1,14 +1,26 @@
-import { useParams } from "react-router-dom";
+import { useParams} from "react-router-dom";
+import { useEffect,useState } from "react";
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Row,Col,Image,ListGroup,Card,Button, ListGroupItem} from 'react-bootstrap';
-import transports from "../transports";
+import axios from 'axios';
 import Rating from '../components/Rating';
 import { TbArrowBadgeLeft } from "react-icons/tb";
 
+
+
 const TransportScreen = () => {
+
+  const[transport,setTransport]=useState({});
+
   const{id: transportId }=useParams();  
-  const transport=transports.find((p)=>p.APPS===transportId);
+  useEffect(()=>{
+    const fetchTransport=async()=>{
+      const {data}=await axios.get(`/api/transports/${transportId}`);
+      setTransport(data)
+    }
+    fetchTransport();
+  },[transportId])
   
   return<>
     <Link className="prev-page" to='/'>
