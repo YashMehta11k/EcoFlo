@@ -272,7 +272,9 @@ body {
 }
 
 #transport-confirm{
+  box-shadow: 0 0 0 0;
   margin-right: 5rem;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 #confirm-transport{
@@ -283,6 +285,36 @@ body {
   border-radius: 0 0 1rem 1rem;
   width: 60%;
   margin-top: 0.5rem;
+}
+
+#confirm-transport:hover{
+  background-color: white;
+  color: rgb(114, 114, 255);
+  transition: 0.3s ease-out;
+  border: 3px solid black;
+  box-shadow: 5px 4px 3px teal;
+}
+
+#book-transport{
+  background-color: black;
+  font-family: 'Handjet';
+  color: white;
+  font-size: 5rem;
+  border-radius: 1rem;
+  width: 100%;
+  margin: 1rem;
+}
+
+#book-transport li{
+  font-size: 1.5rem;
+}
+
+#book-transport:hover{
+  background-color: white;
+  color: rgb(114, 114, 255);
+  transition: 0.45s ease-out;
+  border: 3px solid black;
+  box-shadow: 0px 0px 36px teal;
 }
 
 .card a img{
@@ -389,6 +421,10 @@ body {
   margin-bottom: 0.75rem;
 }
 
+#Transport-desc{
+  margin-top: 2rem;
+}
+
 #Transport-desc h3{
   font-family: 'Monoton';
   font-size: 3.5rem;
@@ -407,7 +443,7 @@ body {
 #Transport-desc b{
   font-size: 1.25rem;
   margin: 1rem;
-  color: #6d6dff;
+  color:#3333d2;
   text-align: center;
   font-family: 'Unica One';
   line-height: 2.25rem;
@@ -954,7 +990,6 @@ progress {
 }
 
 .prev-page{
-  margin: 2rem 3rem;
   background-color: #000000;
   color: white;
   padding: 0.25rem;
@@ -962,8 +997,10 @@ progress {
   padding-right: 0.5rem;
   padding-bottom: 0.4rem;
   font-family: 'Handjet';
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   font-weight: 700;
+  position: relative;
+  top: 1.75rem;
 }
 
 .prev-page:hover{
@@ -981,7 +1018,7 @@ progress {
 
 .img-fluid {
   width: 30rem;
-  height: 35rem;
+  height: 30rem;
   border-radius: 2rem;
   margin-top: 4%;
 }  

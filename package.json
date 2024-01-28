@@ -13,7 +13,9 @@
   "author": "Yash P Mehta",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",

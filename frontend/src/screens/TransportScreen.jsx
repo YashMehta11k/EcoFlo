@@ -12,8 +12,14 @@ import { TbArrowBadgeLeft } from "react-icons/tb";
 const TransportScreen = () => {
 
   const[transport,setTransport]=useState({});
+  const [confirmationMade, setConfirmationMade] = useState(false);
 
-  const{id: transportId }=useParams();  
+  const{id: transportId }=useParams();
+  
+  const handleConfirmRide = () => {
+    setConfirmationMade(true);
+  };
+
   useEffect(()=>{
     const fetchTransport=async()=>{
       const {data}=await axios.get(`/api/transports/${transportId}`);
@@ -49,37 +55,50 @@ const TransportScreen = () => {
           </ListGroup>
         </Col>
         <Col md={3}>
-          <Card id="transport-confirm">
-            <ListGroup variant="flush">
-              <ListGroup.Item>
-                <Row>
-                  <Col>Price:</Col>
-                  <Col><strong>${transport.COST_PER_KM}</strong></Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Time Taken:</Col>
-                  <Col><strong>Distance/speed</strong></Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Points you recieve:</Col>
-                  <Col><strong>{transport.REWARD_POINTS}<br/>after the proof uploaded is scanned by us</strong></Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Sustainability:</Col>
-                  <Col><strong>{transport.CARBON_INDEX_PER_KM<=50?'Yes, it is very environmental friendly, we prefer you to use this transport':'No, it pollutes out environment ,we prefer you to not use this transport'}</strong></Col>
-                </Row>
-              </ListGroup.Item>
+          {!confirmationMade &&(
+            <Card id="transport-confirm">
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Price:</Col>
+                    <Col><strong>${transport.COST_PER_KM}</strong></Col>
+                  </Row>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Time Taken:</Col>
+                    <Col><strong>Distance/speed</strong></Col>
+                  </Row>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Points you recieve:</Col>
+                    <Col><strong>{transport.REWARD_POINTS}<br/>after the proof uploaded is scanned by us</strong></Col>
+                  </Row>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Sustainability:</Col>
+                    <Col><strong>{transport.CARBON_INDEX_PER_KM<=50?'Yes, it is very environmental friendly, we prefer you to use this transport':'No, it pollutes out environment ,we prefer you to not use this transport'}</strong></Col>
+                  </Row>
+                </ListGroup.Item>
+                <Button id="confirm-transport" type="button" onClick={handleConfirmRide}>Comfirm Ride</Button>
+              </ListGroup>
+            </Card>   
+          )}  
+          {confirmationMade &&(
+              <Link to={transport.LINK}>
+              <Button type="button" id="book-transport">
+                Book Transport
+                <ul>
+                  <li>This will take you to the app to book your ride</li>
+                  <li>You will get a span of 20 hours to upload the proof of your travel (can include bill invoice or a selfie in the transport)</li>
+                  <li>Have a safe and green travel to your destination</li>
+                </ul>
+              </Button>
               
-              <Button id="confirm-transport" type="button">Comfirm Ride</Button>
-              
-            </ListGroup>
-          </Card>
+            </Link>
+          )}
         </Col>
 
     </Row>
