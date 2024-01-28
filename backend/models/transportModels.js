@@ -6,7 +6,7 @@ const reviewSchema=mongoose.Schema({
         required:true,
         ref:"User",
     },
-    APP:{
+    APPS:{
         type:String,
         required:true,
     },
@@ -27,7 +27,7 @@ const transportSchema=new mongoose.Schema({
         required:true,
         ref:"User",
     },
-    APP:{
+    APPS:{
         type:String,
         required:true,
     },
@@ -47,7 +47,7 @@ const transportSchema=new mongoose.Schema({
         type:Number,
         required:true,
     },
-    GREEEN_POWER:{
+    GREEN_POWER:{
         type:Boolean,
         required:true,
     },
@@ -89,4 +89,4 @@ const transportSchema=new mongoose.Schema({
 });
 
 const Transport =mongoose.model("Transport",transportSchema);
-export default CSSMathProduct;
+export default Transport;

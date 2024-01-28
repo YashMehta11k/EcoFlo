@@ -12,7 +12,7 @@ const travelLogSchema=new mongoose.Schema({
         transport:{
             type:mongoose.Schema.Types.ObjectId,
             required:true,
-            ref:"Product",
+            ref:"Transport",
         },
     }],
     startpoint:{

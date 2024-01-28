@@ -61,7 +61,7 @@ const TransportScreen = () => {
                 <ListGroup.Item>
                   <Row>
                     <Col>Price:</Col>
-                    <Col><strong>${transport.COST_PER_KM}</strong></Col>
+                    <Col><strong>₹{transport.COST_PER_KM}</strong></Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>

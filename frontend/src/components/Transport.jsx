@@ -18,7 +18,7 @@ const Transport = ({transport}) => {
           <Rating value={transport.RATINGS} text={`${transport.NUM_REVIEWS} reviews` } />
           <Card.Text as="div">
               <h3>₹{transport.COST_PER_KM}</h3>
-              <h3>{transport.AVG_SPEED}</h3>
+              <h3>{transport.AVG_SPEED}Km/h</h3>
               <h3>{transport.NUMBER_OF_SEATS} seats</h3>
               <h3>{transport.REWARD_POINTS} points</h3>
           </Card.Text>     
@@ -33,4 +33,4 @@ const Transport = ({transport}) => {
   )
 }
 
-export default Transport
+export default Transport;
