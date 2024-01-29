@@ -14,8 +14,10 @@ router.get('/:id',asyncHandler(async(req,res)=>{
     const transport=await Transport.findById(req.params.id);
     if(transport){
         res.json(transport);
+    }else{
+        res.status(404);
+        throw new Error('Transport Resourse not found');
     }
-    res.status(404).json({message:'Transport not found'});
 }));
 
 export default router;

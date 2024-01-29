@@ -170,7 +170,7 @@ const transports=[
   "COST_PER_KM": 5,
   "NUMBER_OF_SEATS": 1,
   "LINK": "https://www.yulu.bike/",
-  "IMAGES": "/images/yulu.webp",
+  "IMAGES": "/images/yulu.png",
   "GREEN_POWER": true,
   "RATINGS": 4.3,
   "NUM_REVIEWS": 14

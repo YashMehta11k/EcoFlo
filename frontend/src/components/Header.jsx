@@ -6,6 +6,7 @@ import logo from '../assets/logo-4.png';
 import { MdOutlineEnergySavingsLeaf } from "react-icons/md";
 import { TbMapSearch } from "react-icons/tb";
 import {LinkContainer} from 'react-router-bootstrap';
+import { TbInfoHexagon } from "react-icons/tb";
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
@@ -26,7 +27,9 @@ const Header = () => {
                         <Nav class="ms-auto">
                             <LinkContainer to="/city"><Nav.Link><b><TbMapSearch className='navbar-icons'/><br/><p>Bengaluru</p></b></Nav.Link></LinkContainer>
                             <LinkContainer to="/history"><Nav.Link><b><FaTimeline className='navbar-icons'/><br/><p>Travel Log</p></b></Nav.Link></LinkContainer>
+                            <LinkContainer to="/about"><Nav.Link><b><TbInfoHexagon className='navbar-icons'/><br/><p>About Us</p></b></Nav.Link></LinkContainer>
                             <LinkContainer to="/login"><Nav.Link href="/user" ><b><RiAccountPinBoxLine className='navbar-icons'/><br/><p>Sign In</p></b></Nav.Link></LinkContainer>
+                            
                         </Nav>
                     </Navbar.Collapse>
                     <div class="navbar-points"><MdOutlineEnergySavingsLeaf className='navbar-point-icon'/><h2>0</h2></div>
