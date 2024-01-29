@@ -20,7 +20,7 @@ const HomeScreen = () => {
       <h1 id="home-head">Sustainable transports on your way</h1>
       <Row>
         {transports.map((transport) => (
-          <Col key={transport.APPS} sm={5} md={5} lg={5} xl={5}>
+          <Col key={transport._id} sm={5} md={5} lg={5} xl={5}>
             <Transport transport={transport} />
           </Col>
         ))}

@@ -7,7 +7,7 @@ const Transport = ({transport}) => {
   return (
     <Card>
         <Card.Body>
-          <Link to={`/transport/${transport.APPS}`}>
+          <Link to={`/transport/${transport._id}`}>
             <Card.Title as="div">
               <Card.Img src={transport.IMAGES} variant='left'/>
               <h1>{transport.APPS}</h1>  
