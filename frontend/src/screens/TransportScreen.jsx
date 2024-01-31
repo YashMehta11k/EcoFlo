@@ -1,38 +1,48 @@
 import { useParams} from "react-router-dom";
-import { useEffect,useState } from "react";
+import {useState,useEffect} from "react";
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Row,Col,Image,ListGroup,Card,Button, ListGroupItem} from 'react-bootstrap';
-import axios from 'axios';
+//import axios from 'axios';
 import Rating from '../components/Rating';
 import { TbArrowBadgeLeft } from "react-icons/tb";
-
+import { useGetTransportDetailsQuery } from "../slices/TransportsApiSlice";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
 
 
 const TransportScreen = () => {
 
-  const[transport,setTransport]=useState({});
   const [confirmationMade, setConfirmationMade] = useState(false);
+  const [showContent,setShowContent]=useState(false);
+
+  useEffect(()=>{
+    const timer=setTimeout(()=>{
+      setShowContent(true);
+    },2000);
+
+    return()=>clearTimeout(timer);
+  },[]);
 
   const{id: transportId }=useParams();
   
   const handleConfirmRide = () => {
     setConfirmationMade(true);
   };
-
-  useEffect(()=>{
-    const fetchTransport=async()=>{
-      const {data}=await axios.get(`/api/transports/${transportId}`);
-      setTransport(data)
-    }
-    fetchTransport();
-  },[transportId])
   
-  return<>
+  const {data:transport,isLoading,error}=useGetTransportDetailsQuery(transportId);
+  
+  return(
+  <>
     <Link className="prev-page" to='/'>
       <TbArrowBadgeLeft  id="arrow-icon"/> Go Back
     </Link>
-    <Row id="Transport-desc">
+    {isLoading||!showContent?(
+      <Loader/>
+    ):error?(
+      <Message variant='danger'>{error?.data?.message || error.error}</Message>
+    ):(
+      <Row id="Transport-desc">
         <Col md={5}>
             <Image src={transport.IMAGES} alt={transport.APPS} fluid />  
         </Col>
@@ -102,7 +112,8 @@ const TransportScreen = () => {
         </Col>
 
     </Row>
-  </>
+    )}
+  </>)
       
 }
 

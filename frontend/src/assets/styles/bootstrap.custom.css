@@ -465,9 +465,10 @@ body {
 }
 .headerdiv img{
   position: relative;
-  height: 185px;
-  margin-top: 5%;
-  margin-left: -1rem;
+  height: 138%;
+  margin-top: -0.35%;
+  margin-left: -1%;
+  margin-right: -1%;
 }
 hr {
   margin: 1.2rem 0;
@@ -475,6 +476,160 @@ hr {
   border: 0;
   border-top: var(--bs-border-width) solid;
   opacity: 0.25;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width:25%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+}
+
+.dash {
+  margin: 0 12px;
+  width: 35px;
+  height: 15px;
+  border-radius: 8px;
+  background: #5c5fff;
+  box-shadow: 0 0 10px 0 #05d9ff;
+}
+
+#load-text{
+  font-size: 2rem;
+  position: absolute;
+  margin-top: 3rem;
+  text-align: center;
+  font-family: 'Unica One';
+  color: rgb(0, 116, 62);
+}
+
+.uno {
+  margin-right: -15px;
+  transform-origin: center left;
+  animation: spin 3s linear infinite;  
+}
+
+.dos {
+  transform-origin: center right;
+  animation: spin2 3s linear infinite;
+  animation-delay: .2s;
+}
+
+.tres {
+  transform-origin: center right;
+  animation: spin3 3s linear infinite;
+  animation-delay: .3s;
+}
+
+.cuatro {
+  transform-origin: center right;
+  animation: spin4 3s linear infinite;
+  animation-delay: .4s;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(360deg);
+  }
+  30% {
+    transform: rotate(370deg);
+  }
+  35% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-180deg);
+  }
+  35% {
+    transform: rotate(-190deg);
+  }
+  40% {
+    transform: rotate(-180deg);
+  }
+  78% {
+    transform: rotate(-180deg);
+  }
+  95% {
+    transform: rotate(-360deg);
+  }
+  98% {
+    transform: rotate(-370deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes spin3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  27% {
+    transform: rotate(0deg);  
+  }
+  40% {
+    transform: rotate(180deg);
+  }
+  45% {
+    transform: rotate(190deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  62% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(360deg);
+  }
+  80% {
+    transform: rotate(370deg);
+  }
+  85% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin4 {
+  0% {
+    transform: rotate(0deg);
+  }
+  38% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(-360deg);
+  }
+  65% {
+    transform: rotate(-370deg);
+  }
+  75% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
 }
 
 h6,
@@ -4365,14 +4520,14 @@ fieldset:disabled .btn {
   padding-bottom: var(--bs-navbar-brand-padding-y);
   margin-right: -8.5rem;
   font-size: 3rem;
-  color: rgb(0, 255, 195);
+  color: rgb(0, 140, 107);
   text-decoration: none;
   white-space: nowrap;
   content: "EcoFlo";
   font-family: "Bungee Inline";
   padding-right: 5rem;
   margin-left: -1.25rem;
-}
+}  
 
 
 .navbar-brand:hover::before,
