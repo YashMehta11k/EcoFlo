@@ -237,6 +237,8 @@ body {
 
 .nav-link p{
     color: white;
+    font-family: "Righteous";
+    margin-top: 0.2rem;
 }
 
 .emmision-saved{
@@ -479,7 +481,7 @@ hr {
 }
 
 .loading {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   width:25%;
@@ -504,6 +506,13 @@ hr {
   text-align: center;
   font-family: 'Unica One';
   color: rgb(0, 116, 62);
+}
+
+#trip-count{
+  position: absolute;
+  margin: 0.5rem;
+  color: lightseagreen;
+  font-family: "Audiowide";
 }
 
 .uno {
@@ -1155,7 +1164,7 @@ progress {
   font-size: 1.75rem;
   font-weight: 700;
   position: relative;
-  top: 1.75rem;
+  top: 0rem;
 }
 
 .prev-page:hover{
@@ -1175,7 +1184,6 @@ progress {
   width: 30rem;
   height: 30rem;
   border-radius: 2rem;
-  margin-top: 4%;
 }  
 
 .img-thumbnail {
@@ -4519,12 +4527,12 @@ fieldset:disabled .btn {
   padding-top: var(--bs-navbar-brand-padding-y);
   padding-bottom: var(--bs-navbar-brand-padding-y);
   margin-right: -8.5rem;
-  font-size: 3rem;
+  font-size: 3.25rem;
   color: rgb(0, 140, 107);
   text-decoration: none;
   white-space: nowrap;
   content: "EcoFlo";
-  font-family: "Bungee Inline";
+  font-family: "Silkscreen";
   padding-right: 5rem;
   margin-left: -1.25rem;
 }  
@@ -5615,6 +5623,7 @@ fieldset:disabled .btn {
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
+  margin-top: -3rem;
   border-radius: var(--bs-list-group-border-radius);
 }
 

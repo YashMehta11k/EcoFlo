@@ -1,7 +1,7 @@
 import { Row, Col } from 'react-bootstrap';
 import { useEffect,useState } from 'react';
 import Transport from '../components/Transport';
-import { useGetTransportsQuery } from '../slices/TransportsApiSlice';
+import { useGetTransportsQuery } from '../slices/transportsApiSlice';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 
@@ -13,7 +13,7 @@ const HomeScreen = () => {
   useEffect(()=>{
     const timer=setTimeout(()=>{
       setShowContent(true);
-    },2000);
+    },750);
 
     return()=>clearTimeout(timer);
   },[]);
