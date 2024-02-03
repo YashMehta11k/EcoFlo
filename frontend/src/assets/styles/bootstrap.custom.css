@@ -488,6 +488,7 @@ hr {
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
+  margin-bottom: 5rem;
 }
 
 .dash {
@@ -779,10 +780,6 @@ mark,
 .mark {
   padding: 0.1875em;
   background-color: var(--bs-highlight-bg);
-}
-
-#city-confirm{
-
 }
 
 #footer-details{
@@ -1254,12 +1251,27 @@ progress {
   margin: 1rem 0;
 }
 
+#recent-mode{
+  font-family: "Kanit";
+  font-size: 1.6rem;
+  text-align: center;
+  color: teal;
+  margin: 0.5rem;
+  background: #71ffeb;
+  border-radius: 0.75rem;
+  height: 4rem;
+  width: 8rem;
+  align-items: center;
+  display: grid;
+  opacity: 0.85;
+}
+
 #trips-app{
   font-size: 1.75rem;
   font-family: "Bungee";
   color: #3f64a9;
   margin: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .container,
@@ -4578,7 +4590,7 @@ fieldset:disabled .btn {
   color: rgb(0, 140, 107);
   text-decoration: none;
   white-space: nowrap;
-  content: "EcoFlo";
+  content: "EFlo";
   font-family: "Silkscreen";
   padding-right: 5rem;
   margin-left: -1.25rem;

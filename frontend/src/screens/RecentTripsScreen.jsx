@@ -24,7 +24,7 @@ const RecentTripsScreen = () => {
             You have no recent trips. Please Go Back and choose your trip
           </Message>
         ):(
-          <ListGroup variant='flush'>
+          <ListGroup variant='flush' className='recent-trip-container'>
             {recentTrips.map((item)=>(
               <ListGroup.Item key={item._id}>
                 <Row>
@@ -33,9 +33,9 @@ const RecentTripsScreen = () => {
                   </Col>
                   <Col md={2}>
                     <Link to={`/transport/${item._id}`}><h3 id='trips-app'>{item.APPS}</h3></Link>
-                    
+                    Transport Type:
+                    <h5 id='recent-mode'>{item.MODE_OF_TRANSPORT}</h5>
                   </Col>
-                  <Col md={2}>{item.COST_PER_KM}</Col>
                 </Row>
               </ListGroup.Item>
             ))}

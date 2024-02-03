@@ -22,11 +22,6 @@ const ChooseCityScreen = () => {
       setShowModal(true);
     };
   
-    const handleCloseModal = () => {
-      setShowModal(false);
-      
-    };
-  
     return (
       <div style={{ position: 'relative', height: '83vh',marginLeft:'-5rem',marginRight:'-5rem'}}>
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: selectedCity ? `url(${selectedCity.imageUrl})` : 'black', backgroundSize: 'cover'}}>
