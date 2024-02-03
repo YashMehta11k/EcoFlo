@@ -467,9 +467,9 @@ body {
 }
 .headerdiv img{
   position: relative;
-  height: 138%;
-  margin-top: -0.35%;
-  margin-left: -1%;
+  height: 72px;
+  margin-top: -0.15%;
+  margin-left: 0.5%;
   margin-right: -1%;
 }
 hr {
@@ -779,6 +779,35 @@ mark,
 .mark {
   padding: 0.1875em;
   background-color: var(--bs-highlight-bg);
+}
+
+#city-confirm{
+
+}
+
+#footer-details{
+  background: linear-gradient(339deg, rgba(55,200,171,0.7998599097842262) 32%, rgba(169, 169, 255, 0.82) 49%);
+  color: white;
+  font-family: "Unica One";
+  border-radius: 1rem;
+  box-shadow: -20px -15px 16px #6969ff;
+  margin-top: 5rem;
+}
+
+
+#footer-img{
+  height: 150px;
+  position: relative;
+  right: 1rem;
+}
+
+#footer-brand{
+  font-size: 3rem;
+}
+
+.footer-heading{
+  font-family: "Monoton";
+  font-size: 1.5rem;
 }
 
 sub,
@@ -1165,6 +1194,7 @@ progress {
   font-weight: 700;
   position: relative;
   top: 0rem;
+  margin-left: 1.2rem;
 }
 
 .prev-page:hover{
@@ -1210,9 +1240,26 @@ progress {
   color: var(--bs-secondary-color);
 }
 
-#home-head{
-    font-size: 25px;
-    margin: 0% 0% 0% 20%;
+.screen-head{
+  font-size: 2rem;
+  font-family: "Unica One";
+  margin-left: 21rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+#trips-img{
+  width: 15rem;
+  height: 12rem;
+  margin: 1rem 0;
+}
+
+#trips-app{
+  font-size: 1.75rem;
+  font-family: "Bungee";
+  color: #3f64a9;
+  margin: 0.5rem;
+  margin-top: 1rem;
 }
 
 .container,
@@ -5623,7 +5670,7 @@ fieldset:disabled .btn {
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
-  margin-top: -3rem;
+  margin-top: -2rem;
   border-radius: var(--bs-list-group-border-radius);
 }
 
@@ -7707,7 +7754,7 @@ fieldset:disabled .btn {
 }
 
 .link-secondary {
-  color: #7b8a8b !important;
+  color: #2d2f2f !important;
 }
 .link-secondary:hover,
 .link-secondary:focus {
@@ -9398,9 +9445,9 @@ fieldset:disabled .btn {
 
 .bg-dark {
     background: rgb(0,0,0);
-    background: linear-gradient(344deg, rgba(55,200,171,0.8726890414368873) 14%, rgba(82,82,255,0.8726890414368873) 50%, rgba(198,198,255,0.9707282571231618) 75%);
-    width: 100%;
-    box-shadow: 34px 22px 27px #546ca6;
+    background: linear-gradient(344deg, rgba(55,200,171,0.8726890414368873) 14%, rgba(82,82,255,0.8726890414368873) 50%, rgba(183, 183, 235, 0.97) 75%);
+  width: 100%;
+  box-shadow: 34px 22px 27px #546ca6;
 }
 
 .bg-black {

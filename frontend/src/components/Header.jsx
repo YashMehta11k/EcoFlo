@@ -1,7 +1,7 @@
 import {Badge,Navbar,Nav,Container} from 'react-bootstrap';
 import { RiAccountPinBoxLine } from "react-icons/ri";
 import {FaTimeline} from 'react-icons/fa6';
-import logo from '../assets/logo3.gif';
+import logo from '../assets/Favicon.gif';
 import { MdOutlineEnergySavingsLeaf } from "react-icons/md";
 import { TbMapSearch } from "react-icons/tb";
 import {LinkContainer} from 'react-router-bootstrap';
@@ -27,7 +27,7 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav class="ms-auto">
-                            <LinkContainer to="/City"><Nav.Link href='../City.html'><b><TbMapSearch className='navbar-icons'/><br/><p>Bengaluru</p></b></Nav.Link></LinkContainer>
+                            <LinkContainer to="/cities"><Nav.Link href='../City.html'><b><TbMapSearch className='navbar-icons'/><br/><p>Bengaluru</p></b></Nav.Link></LinkContainer>
                             <LinkContainer to="/trips"><Nav.Link><b><FaTimeline className='navbar-icons'/>{
                                 recentTrips.length>0 && (
                                     <Badge id='trip-count' bg='black'>

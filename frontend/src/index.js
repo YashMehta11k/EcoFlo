@@ -15,6 +15,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import HomeScreen from './screens/HomeScreen';
 import TransportScreen from './screens/TransportScreen';
+import RecentTripsScreen from './screens/RecentTripsScreen';
+import ChooseCityScreen from './screens/ChooseCityScreen';
 
 
 const router=createBrowserRouter(
@@ -22,6 +24,8 @@ const router=createBrowserRouter(
       <Route path="/" element={<App />}>
         <Route index={true} path="/" element={<HomeScreen/>}/>
         <Route path='/transport/:id' element={<TransportScreen/>}/>
+        <Route path='/trips' element={<RecentTripsScreen/>}/>
+        <Route path='/cities' element={<ChooseCityScreen/>}/>
       </Route>
     )
 )

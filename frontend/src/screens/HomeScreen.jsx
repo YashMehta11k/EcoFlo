@@ -26,7 +26,7 @@ const HomeScreen = () => {
         <Message variant='danger'>{error.data?.message || error.error}</Message>
       ):(
         <>
-          <h1 id="home-head">Sustainable transports on your way</h1>
+          <h1 className="screen-head">Sustainable transports on your way</h1>
           <Row>
             {transports.map((transport) => (
               <Col key={transport._id} sm={5} md={5} lg={5} xl={5}>

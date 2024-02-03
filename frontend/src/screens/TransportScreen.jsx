@@ -45,9 +45,8 @@ const TransportScreen = () => {
   
   return(
   <>
-    <Link className="prev-page" to='/'>
-      <TbArrowBadgeLeft  id="arrow-icon"/> Go Back
-    </Link>
+    <Link className="prev-page" to='/'><TbArrowBadgeLeft  id="arrow-icon"/> Go Back</Link>
+
     {isLoading||!showContent?(
       <Loader/>
     ):error?(
@@ -114,7 +113,7 @@ const TransportScreen = () => {
             </Card>   
           )}  
           {confirmationMade &&(
-              <Link to={transport.LINK}>
+              <Link to={transport.LINK} target="_blank">
               <Button type="button" id="book-transport" onClick={addtoRecentTripHandler}>
                 Book Transport
                 <ul>
