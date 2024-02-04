@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 
-import city1Image from './Bengaluru.jpg'; // Adjust the path based on your project structure
-import city2Image from './Dehli.avif';
-import city3Image from './Hamburg.jpg';
-import city4Image from './Frankfurt.jpg';
+import city1Image from '../assets/Bengaluru.jpg'; // Adjust the path based on your project structure
+import city2Image from '../assets/Dehli.avif';
+import city3Image from '../assets/Hamburg.jpeg';
+import city4Image from '../assets/Frankfurt.jpg';
 
 const cities = [
   { name: 'Bengaluru', imageUrl: city1Image },

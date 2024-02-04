@@ -423,6 +423,260 @@ body {
   margin-bottom: 0.75rem;
 }
 
+.prev-page{
+  background-color: #000000;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 0.75rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.4rem;
+  font-family: 'Handjet';
+  font-size: 1.75rem;
+  font-weight: 700;
+  position: relative;
+  top: 0rem;
+  margin-left: 1.2rem;
+}
+
+.prev-page:hover{
+  background-color: rgb(255, 255, 255);
+  color:black;
+  border: 3px solid #4646ff;
+}
+
+#arrow-icon{
+  font-size: 2rem;
+  margin-right: -0.35rem;
+  margin-top: -0.1rem;
+}
+
+
+.img-fluid {
+  width: 30rem;
+  height: 30rem;
+  border-radius: 2rem;
+}  
+
+.img-thumbnail {
+  padding: 0.25rem;
+  background-color: var(--bs-body-bg);
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  box-shadow: var(--bs-box-shadow-sm);
+  max-width: 100%;
+  height: auto;
+}
+
+.figure {
+  display: inline-block;
+}
+
+.figure-img {
+  margin-bottom: 0.6rem;
+  line-height: 1;
+}
+
+.figure-caption {
+  font-size: 0.875em;
+  color: var(--bs-secondary-color);
+}
+
+.screen-head{
+  font-size: 2rem;
+  font-family: "Unica One";
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  color: black;
+  font-weight: 900;
+  text-align: center;
+  width: inherit;
+  text-decoration: underline;
+  text-emphasis: white;
+  text-shadow: 3px 1px rgb(175, 203, 255);
+}
+
+#trips-img{
+  width: 15rem;
+  height: 14rem;
+}
+
+#recent-mode{
+  font-family: "Bebas Neue";
+  font-size: 1.6rem;
+  text-align: center;
+  color: #004b69;
+  margin: 0.5rem;
+  background: #71ffeb;
+  border-radius: 0.75rem;
+  height: 4.35rem;
+  width: 8rem;
+  align-items: center;
+  display: grid;
+  opacity: 0.85;
+  padding: 0.2rem;
+}
+
+#trips-app{
+  font-size: 2rem;
+  font-family: "Monoton";
+  color: #3f64a9;
+  margin: 0.5rem;
+  margin-top: 2.75rem;
+  font-weight: 600;
+}
+
+#recent-trip-container{
+  margin: 1rem 0;
+  border: none;
+  padding: 0;
+  background-color: rgba(255, 240, 245, 0);
+  display: inline-flex;
+  height: 35vh;
+  margin-left: -25px;
+}
+
+#recent-trip-row{
+  border-radius: 1rem;
+  background-color: #ffffff82;
+  margin: 0px;
+  padding: 0px;
+  margin-left: 4rem;
+  width: 100%;
+}
+
+.trip-name{
+  font-family: "Alumni Sans";
+  font-size: 1.25rem;
+  width: 12rem;
+}
+
+.trip-details{
+  padding-top: 2rem;
+  font-family: "Alumni Sans";
+  font-size: 1.25rem;
+  width: 6rem;
+  margin: 1rem 0 0 0;
+}
+
+.trip-details h4{
+  font-size: 1.6rem;
+  margin: 0.25rem 0 0 0;
+  color: #000000;
+}
+
+#rem-trip{
+  position: absolute;
+  top: 82%;
+  width: 22%;
+  background: #ff968b;
+  border: none;
+}
+
+#rem-trip:hover::after{
+  content: " Did not use the transport?";
+  font-family: "Alumni Sans";
+  font-size: 1.25rem;
+  transition: 0.8s;
+  padding: 0.5rem;
+  top: 80%;
+}
+
+.trip-details h5{
+  font-family: "Handjet";
+  font-size: 1.75rem;
+  background: #cfcfff;
+  text-align: center;
+  border-radius: 1rem;
+  height: 3.75rem;
+  color: teal;
+  line-height: 3.75rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.trip-details:nth-child(3) h5{
+  background-color: #2a937e;
+  color: white;
+}
+
+.trip-details:nth-child(4) h5{
+  color: black;
+  font-weight: 600;
+  height: 11.75rem;
+  font-size: 2rem;
+  font-family: "Bebas Neue";
+}
+
+.trip-details:nth-child(5) h5{
+  color: rgb(134, 173, 74);
+  height: 11.75rem;
+  font-size: 1.5rem;
+  font-family: "Homenaje";
+  background-color: #000000;
+}
+
+.trip-details:nth-child(5) h6{
+  color: greenyellow;
+  font-size: 2.7rem;
+  font-family: "Handjet";
+  background-color: #000000;
+}
+
+.trip-details:nth-child(6) h5{
+  color: black;
+  height: 3.75rem;
+  font-size: 1.1rem;
+  font-family: "Homenaje";
+  width: 10rem;
+  margin-right: 0.5rem;
+  margin-top: 1rem;
+  background-color: rgba(255, 255, 255, 0);
+}  
+
+.trip-details:nth-child(6) h6{
+  color:#eec900;
+  font-size: 2.25rem;
+  font-family: "Bebas Neue";
+  margin-bottom: -1.75rem;
+  margin-top: -1rem;
+}
+
+.trip-details h6{
+  font-family: "Homenaje";
+  font-size: 1.3rem;
+}
+
+#background-container{
+  position: fixed;
+  background-image: url("../../assets/recent.png");
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-size: 100%;
+  z-index: -1;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+}
+
+#upload-proof{
+  background: white;
+  border: dashed 2px #5a5aff;
+  color: darkblue;
+  font-size: 2rem;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.25rem 0;
+}
+
+#upload-proof:hover{
+  background-color: rgb(98, 98, 255);
+  color: white;
+  font-weight: 600;
+
+}
+
 #Transport-desc{
   margin-top: 2rem;
 }
@@ -470,7 +724,7 @@ body {
   height: 72px;
   margin-top: -0.15%;
   margin-left: 0.5%;
-  margin-right: -1%;
+  margin-right: -2%;
 }
 hr {
   margin: 1.2rem 0;
@@ -513,7 +767,11 @@ hr {
   position: absolute;
   margin: 0.5rem;
   color: lightseagreen;
-  font-family: "Audiowide";
+  font-family: "Protest Guerrilla";
+}
+
+#trip-img-background{
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .uno {
@@ -1179,100 +1437,6 @@ progress {
   content: '— ';
 }
 
-.prev-page{
-  background-color: #000000;
-  color: white;
-  padding: 0.25rem;
-  border-radius: 0.75rem;
-  padding-right: 0.5rem;
-  padding-bottom: 0.4rem;
-  font-family: 'Handjet';
-  font-size: 1.75rem;
-  font-weight: 700;
-  position: relative;
-  top: 0rem;
-  margin-left: 1.2rem;
-}
-
-.prev-page:hover{
-  background-color: rgb(255, 255, 255);
-  color:black;
-  border: 3px solid #4646ff;
-}
-
-#arrow-icon{
-  font-size: 2rem;
-  margin-right: -0.35rem;
-  margin-top: -0.1rem;
-}
-
-
-.img-fluid {
-  width: 30rem;
-  height: 30rem;
-  border-radius: 2rem;
-}  
-
-.img-thumbnail {
-  padding: 0.25rem;
-  background-color: var(--bs-body-bg);
-  border: var(--bs-border-width) solid var(--bs-border-color);
-  border-radius: var(--bs-border-radius);
-  box-shadow: var(--bs-box-shadow-sm);
-  max-width: 100%;
-  height: auto;
-}
-
-.figure {
-  display: inline-block;
-}
-
-.figure-img {
-  margin-bottom: 0.6rem;
-  line-height: 1;
-}
-
-.figure-caption {
-  font-size: 0.875em;
-  color: var(--bs-secondary-color);
-}
-
-.screen-head{
-  font-size: 2rem;
-  font-family: "Unica One";
-  margin-left: 21rem;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-}
-
-#trips-img{
-  width: 15rem;
-  height: 12rem;
-  margin: 1rem 0;
-}
-
-#recent-mode{
-  font-family: "Kanit";
-  font-size: 1.6rem;
-  text-align: center;
-  color: teal;
-  margin: 0.5rem;
-  background: #71ffeb;
-  border-radius: 0.75rem;
-  height: 4rem;
-  width: 8rem;
-  align-items: center;
-  display: grid;
-  opacity: 0.85;
-}
-
-#trips-app{
-  font-size: 1.75rem;
-  font-family: "Bungee";
-  color: #3f64a9;
-  margin: 0.5rem;
-  margin-top: 1.5rem;
-}
 
 .container,
 .container-fluid,
@@ -4586,15 +4750,16 @@ fieldset:disabled .btn {
   padding-top: var(--bs-navbar-brand-padding-y);
   padding-bottom: var(--bs-navbar-brand-padding-y);
   margin-right: -8.5rem;
-  font-size: 3.25rem;
+  font-size: 4.25rem;
   color: rgb(0, 140, 107);
   text-decoration: none;
   white-space: nowrap;
-  content: "EFlo";
-  font-family: "Silkscreen";
+  content: "E-Flo";
+  font-family: "Zilla Slab Highlight";
   padding-right: 5rem;
-  margin-left: -1.25rem;
-}  
+  margin-left: -0.25rem;
+}
+
 
 
 .navbar-brand:hover::before,

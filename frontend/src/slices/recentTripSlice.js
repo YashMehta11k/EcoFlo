@@ -1,4 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
+import moment from "moment-timezone";
+
+moment.tz.setDefault("Asia/Kolkata");
 
 const initialState=localStorage.getItem("recentTrip")?JSON.parse(localStorage.getItem("recentTrip")):{recentTrips:[]};
 
@@ -8,15 +11,22 @@ const recentTripSlice=createSlice({
     reducers:{
         addtoRecentTrip:(state,action)=>{
             const trip=action.payload;
-            state.recentTrips=[...state.recentTrips,trip];
+            const tripDistance=4;
+            
+            const newTrip={...trip,bookTime:moment().format("HH:mm:ss"),bookDate:moment().format("YYYY-MM-DD"),tripDistance}
 
-            //state.tripCO2=state.recentTrips.reduce((acc,trip)=>acc+trip.CARBON_INDEX_PER_KM*5,0);
-
+            state.recentTrips=[...state.recentTrips,newTrip];
             localStorage.setItem('recentTrip',JSON.stringify(state));
+        },
+
+        removefromRecentTrip:(state,action)=>{
+            state.recentTrips=state.recentTrips.filter((x)=>x._id!==action.payload);
+            localStorage.setItem('recentTrip',JSON.stringify(state));
+            
         }
     },
 });
 
-export const{addtoRecentTrip}=recentTripSlice.actions;
+export const{addtoRecentTrip,removefromRecentTrip}=recentTripSlice.actions;
 
 export default recentTripSlice.reducer;

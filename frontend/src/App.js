@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 
 const App = () => {
   return (
-    <>
+    <div>
       <Header/>
       <main className="py-3">
         <Container>
@@ -15,7 +15,7 @@ const App = () => {
         </Container>  
       </main>
       <Footer/>
-    </>
+    </div>
   )
 }
 
