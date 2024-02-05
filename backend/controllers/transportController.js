@@ -1,6 +1,10 @@
 import asyncHandler from "../middleware/asyncHandler.js";
 import Transport from "../models/transportModels.js";
 
+//@desc fetch all products
+//@route GET/api/products
+//@access Public
+
 const getTransport=asyncHandler(async(req,res)=>{
     const transports=await Transport.find({});
     res.json(transports);

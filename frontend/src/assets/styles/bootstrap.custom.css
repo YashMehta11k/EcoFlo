@@ -508,7 +508,7 @@ body {
   margin: 0.5rem;
   background: #71ffeb;
   border-radius: 0.75rem;
-  height: 4.35rem;
+  height: 5.75rem;
   width: 8rem;
   align-items: center;
   display: grid;
@@ -523,6 +523,7 @@ body {
   margin: 0.5rem;
   margin-top: 2.75rem;
   font-weight: 600;
+  text-shadow: 1px 1px rgb(0, 209, 143);
 }
 
 #recent-trip-container{
@@ -567,7 +568,7 @@ body {
 #rem-trip{
   position: absolute;
   top: 82%;
-  width: 22%;
+  width: 20.5%;
   background: #ff968b;
   border: none;
 }
