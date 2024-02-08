@@ -517,13 +517,13 @@ body {
 }
 
 #trips-app{
-  font-size: 2rem;
-  font-family: "Monoton";
-  color: #3f64a9;
+  font-size: 2.5rem;
+  font-family: "Luckiest Guy";
+  color: #b0ff36;
   margin: 0.5rem;
-  margin-top: 2.75rem;
+  margin-top: 1.5rem;
   font-weight: 600;
-  text-shadow: 1px 1px rgb(0, 209, 143);
+  text-shadow: 4px 4px rgb(0, 209, 143);
 }
 
 #recent-trip-container{
@@ -541,8 +541,9 @@ body {
   background-color: #ffffff82;
   margin: 0px;
   padding: 0px;
-  margin-left: 4rem;
+  margin-left: 3rem;
   width: 100%;
+  color:#565656;
 }
 
 .trip-name{
@@ -568,7 +569,7 @@ body {
 #rem-trip{
   position: absolute;
   top: 82%;
-  width: 20.5%;
+  width: 18.5%;
   background: #ff968b;
   border: none;
 }
@@ -675,7 +676,7 @@ body {
   background-color: rgb(98, 98, 255);
   color: white;
   font-weight: 600;
-
+  transition: 0.8sec;
 }
 
 #Transport-desc{

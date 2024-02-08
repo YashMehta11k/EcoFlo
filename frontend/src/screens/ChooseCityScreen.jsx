@@ -15,7 +15,7 @@ const cities = [
 
 const ChooseCityScreen = () => {
     const [selectedCity, setSelectedCity] = useState(null);
-    const [showModal, setShowModal] = useState(false);
+    const [,setShowModal] = useState(false);
   
     const handleCityClick = (city) => {
       setSelectedCity(city);
@@ -23,9 +23,9 @@ const ChooseCityScreen = () => {
     };
   
     return (
-      <div style={{ position: 'relative', height: '83vh',marginLeft:'-5rem',marginRight:'-5rem'}}>
+      <div style={{ height: '90vh'}}>
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: selectedCity ? `url(${selectedCity.imageUrl})` : 'black', backgroundSize: 'cover'}}>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '85%',fontFamily:'Monoton',fontWeight:700,fontSize:'2rem'}}>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '97%',fontFamily:'Luckiest Guy',fontWeight:700,fontSize:"2rem",marginTop:"4.5rem"}}>
             {cities.map((city, index) => (
               <button className='city-buttons'
                 key={index}
@@ -34,13 +34,16 @@ const ChooseCityScreen = () => {
                   backgroundImage: `url(${city.imageUrl})`,
                   backgroundSize: 'cover',
                   width: '300px',
-                  height: '200px',
-                  marginRight: '30px',
-                  opacity: selectedCity === city ? 0.5 : 1,
+                  height: '250px',
+                  marginRight: '15px',
+                  opacity: selectedCity === city ? 0.25 : 0.75,
                   border: 'none',
+                  borderRadius:"0.4rem",
+                  color:'black',
                   outline: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0px 2px 25px 15px rgba(0, 0, 0, 1)'
+                  boxShadow: '0px 2px 25px 15px rgba(0, 0, 0, 1)',
+                  textShadow: '2px 2px 6px white'
                 }}
               >
                 {city.name}
@@ -48,7 +51,8 @@ const ChooseCityScreen = () => {
             ))}
           </div>
         </div>
-  
+
+          
         {selectedCity && (
           <div style={{ position: 'fixed', bottom: '52px', right: '30px', padding: '20px', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '10px', textAlign: 'center' }}>
             <p>Are you sure you want to choose {selectedCity.name}?</p>

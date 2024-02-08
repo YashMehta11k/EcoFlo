@@ -18,7 +18,6 @@ import TransportScreen from './screens/TransportScreen';
 import RecentTripsScreen from './screens/RecentTripsScreen';
 import ChooseCityScreen from './screens/ChooseCityScreen';
 
-
 const router=createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<App />}>
