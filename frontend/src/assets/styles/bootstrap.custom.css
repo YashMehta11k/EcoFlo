@@ -241,6 +241,21 @@ body {
     margin-top: 0.2rem;
 }
 
+#username{
+  color: white;
+  font-family: "Righteous";
+  margin-top: 0.2rem;
+}
+
+#drop-items{
+  background-color: #0e715e;
+}
+
+#drop-icons{
+  color: turquoise;
+  margin-left: 1.5rem;
+}
+
 .emmision-saved{
     position: absolute;
     right: 4%;
@@ -257,6 +272,44 @@ body {
 
 .card-body strong{
     font-size: larger;
+}
+
+.sign-body{
+  width: 80%;
+  margin: 0rem 0rem;
+  font-family: "Advent Pro";
+  height: 4rem;
+  font-size: 1.25rem;
+}
+
+#sign-button{
+  background: #07a285;
+  border: 0;
+  box-shadow: 4px 4px turquoise;
+  font-size: 1.75rem;
+  margin-bottom: -5rem;
+  margin-left: 12.5rem;
+}
+
+#sign-change{
+  position: absolute;
+  background: white;
+  padding: 1.25rem 2rem;
+  border-radius: 1rem;
+  top: 22%;
+  right: 49%;
+  font-family: "Monoton";
+}
+
+#sign-change:hover{
+  color:teal;
+  transition: 0.4s;
+  font-size: 1.85rem;
+}
+
+#sign-button:hover{
+  background: #53e1c7;
+  transition: 0.55s;
 }
 
 #transport-confirm .list-group-item{
@@ -2827,7 +2880,7 @@ progress {
   display: block;
   width: 100%;
   padding: 0.675rem 0.75rem;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.5;
   color: var(--bs-body-color);
@@ -4429,6 +4482,10 @@ fieldset:disabled .btn {
 
 .dropdown-menu.show {
   display: block;
+  background: black;
+  font-family: "Righteous";
+  margin: 1rem;
+  padding: 0.25rem;
 }
 
 .dropdown-header {

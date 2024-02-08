@@ -17,6 +17,8 @@ import HomeScreen from './screens/HomeScreen';
 import TransportScreen from './screens/TransportScreen';
 import RecentTripsScreen from './screens/RecentTripsScreen';
 import ChooseCityScreen from './screens/ChooseCityScreen';
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
 
 const router=createBrowserRouter(
     createRoutesFromElements(
@@ -25,6 +27,8 @@ const router=createBrowserRouter(
         <Route path='/transport/:id' element={<TransportScreen/>}/>
         <Route path='/trips' element={<RecentTripsScreen/>}/>
         <Route path='/cities' element={<ChooseCityScreen/>}/>
+        <Route path='/login' element={<LoginScreen/>}/>
+        <Route path='/register' element={<RegisterScreen/>}/>
       </Route>
     )
 )
