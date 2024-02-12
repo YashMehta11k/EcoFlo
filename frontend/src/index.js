@@ -20,6 +20,7 @@ import ChooseCityScreen from './screens/ChooseCityScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import UploadScreen from './screens/UploadScreen';
+import PrivateRoute from './screens/PrivateRoute';
 
 const router=createBrowserRouter(
     createRoutesFromElements(
@@ -30,7 +31,10 @@ const router=createBrowserRouter(
         <Route path='/cities' element={<ChooseCityScreen/>}/>
         <Route path='/login' element={<LoginScreen/>}/>
         <Route path='/register' element={<RegisterScreen/>}/>
-        <Route path='/upload-proof/:tripId' element={<UploadScreen/>}/>
+
+        <Route path='' element={<PrivateRoute/>}>
+          <Route path='/upload-proof/:tripId' element={<UploadScreen/>}/>
+        </Route>
       </Route>
     )
 )

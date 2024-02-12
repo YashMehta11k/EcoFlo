@@ -1,23 +1,33 @@
 import { useState } from 'react';
-import { Form, Button, Container, Col } from 'react-bootstrap';
-import sideImage from '../assets/upload-proof.png';
-import { useDispatch } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Form, Button, Container, Col, Image } from 'react-bootstrap';
+import defaultImage from '../assets/upload-proof.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link,useNavigate, useParams } from 'react-router-dom';
 import { saveTravelProof } from '../slices/recentTripSlice';
+import { TbArrowBadgeLeft } from "react-icons/tb";
 
 const UploadScreen = () => {
     const { tripId } = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const recentTrip = useSelector(state => state.recentTrip);
+    const { recentTrips } = recentTrip;
     const [file, setFile] = useState(null);
+
+    const existingTrip = recentTrips.find(trip => trip._id === tripId);
+    const proofUrl = existingTrip?.travelProof;
+
+    const handleFileChange = (e) => {
+        setFile(e.target.files[0]);
+    };
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        if (!file) {
+        if (!file && !proofUrl) {
             alert('Please select a file.');
             return;
         }
-        
+
         const formData = new FormData();
         formData.append('file', file);
 
@@ -36,15 +46,14 @@ const UploadScreen = () => {
             // Handle error, e.g., show error message to the user
         }
     };
-
-    const handleFileChange = (e) => {
-        setFile(e.target.files[0]);
-    };
+    const buttonText = proofUrl ? "Change Proof" : "Upload";
 
     return (
+        <>
+        <Link className="prev-page" to='/trips'><TbArrowBadgeLeft  id="arrow-icon"/> Go Back</Link>
         <Container>
-            <Col style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", margin: "1rem", padding: 0, height: "80vh", boxShadow: "0 0 10px 4px rgb(0, 140, 107)", borderRadius: "10px" }}>
-                <img alt="" src={sideImage} style={{ width: "50%", marginLeft: "-22px", borderRadius: "10px" }}></img>
+            <Col style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", margin: "1rem", padding: 0, height: "70vh", boxShadow: "0 0 10px 4px rgb(0, 140, 107)", borderRadius: "10px" }}>
+                <Image src={proofUrl || defaultImage} alt="Selected Image" style={{ width: "50%", marginLeft: "-22px", borderRadius: "10px" }}></Image>
                 <Col xs={12} md={6} style={{ padding: "3rem 0 0 5rem", marginLeft: "-2.75rem", fontFamily: "Unica One", color: "black", fontSize: "1.4rem", fontWeight: "400", paddingRight: "3rem" }}>
                     <h1 className="my-3" style={{ fontFamily: "Monoton", color: "#5e86ff" }}>Travel Proof</h1>
 
@@ -56,11 +65,12 @@ const UploadScreen = () => {
                                 onChange={handleFileChange}
                             ></Form.Control>
                         </Form.Group>
-                        <Button type='submit' id='sign-button'>Upload</Button>
+                        <Button type='submit' id='sign-button'>{buttonText}</Button>
                     </Form>
                 </Col>
             </Col>
         </Container>
+        </>
     );
 }
 
