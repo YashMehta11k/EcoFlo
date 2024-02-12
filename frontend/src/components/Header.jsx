@@ -1,7 +1,7 @@
 import {Badge,Navbar,Nav,Container, NavDropdown} from 'react-bootstrap';
 import { RiAccountPinBoxLine } from "react-icons/ri";
 import {FaTimeline} from 'react-icons/fa6';
-import logo from '../assets/Favicon.gif';
+import logo from '../assets/EFlo-logo.png';
 import { MdOutlineEnergySavingsLeaf } from "react-icons/md";
 import { TbMapSearch } from "react-icons/tb";
 import {LinkContainer} from 'react-router-bootstrap';
@@ -14,16 +14,29 @@ import {logout} from '../slices/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { BiUserPin } from "react-icons/bi";
 import { TbLogout } from "react-icons/tb";
+import { useEffect,useState } from 'react';
 
 const Header = () => {
 
-  const{recentTrips}=useSelector((state)=>state.recentTrip); 
-  const{userInfo}=useSelector((state)=>state.auth); 
-  const dispatch=useDispatch();
-  const navigate=useNavigate();
+    const{recentTrips}=useSelector((state)=>state.recentTrip); 
+    const{userInfo}=useSelector((state)=>state.auth); 
+    const dispatch=useDispatch();
+    const navigate=useNavigate();
+    const[points,setPoints]=useState(0);
 
+    
+    useEffect(() => {
+        if (userInfo) {
+            const interval = setInterval(() => {
+                if (points < userInfo.points) {
+                    setPoints(prevPoints => prevPoints + 1);
+                }
+            }, 5);
+            return () => clearInterval(interval);
+        }
+    }, [userInfo, points]);
+    
     const [logoutApiCall]=useLogoutMutation();
-
     const logoutHandler=async()=>{
         try{
             await logoutApiCall().unwrap();
@@ -72,7 +85,9 @@ const Header = () => {
                             )}
                         </Nav>
                     </Navbar.Collapse>
-                    <div class="navbar-points"><MdOutlineEnergySavingsLeaf className='navbar-point-icon'/><h2>0</h2></div>
+                    <div class="navbar-points"><MdOutlineEnergySavingsLeaf className='navbar-point-icon'/>
+                        {userInfo?(<h2 id='user-points'>{points}</h2>):(<h2 id='user-points'>-</h2>)}
+                    </div>
                 </Container>
             </Navbar>
         </div>    

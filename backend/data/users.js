@@ -15,13 +15,15 @@ const users=[
     {
         name:'User1',
         email:'user1@gmail.com',
-        password:bcrypt.hashSync('userpassword',10),
+        password:bcrypt.hashSync('123456',10),
+        points:150,
         isAdmin:false,
     },
     {
         name:'User2',
         email:'user2@gmail.com',
-        password:bcrypt.hashSync('userpassword',10),
+        password:bcrypt.hashSync('123456',10),
+        points:40,
         isAdmin:false,
     }
 ];

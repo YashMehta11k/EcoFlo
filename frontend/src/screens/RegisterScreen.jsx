@@ -48,7 +48,7 @@ const RegisterScreen = () => {
 
     return (
         <FormContainer style={{height:"100vh"}}>
-            <h1 style={{fontFamily:"Monoton",color:"#77f",fontWeight:"1000",textAlign:"center",marginTop:"0rem",marginBottom:"2rem"}}>SIGN UP</h1>
+            <h1 style={{fontFamily:"Monoton",color:"#77f",fontWeight:"1000",marginLeft:"3.35rem",marginTop:"0rem",marginBottom:"1rem",fontSize:"2.25rem"}}>REGISTER</h1>
             <Form onSubmit={submitHandler}>
                 <Form.Group controlId="name" className="my-3">
                     <Form.Label>Full Name</Form.Label>
@@ -92,9 +92,9 @@ const RegisterScreen = () => {
                 </Form.Group>
                 <Button type='submit' id='sign-button' disabled={isLoading}>Register</Button>
                 {isLoading && <Loader/>}
-                <h2 style={{color:"turquoise",fontSize:"1.25rem",marginTop:"6rem",textAlign:"center"}}>Evenryday Traveller? Login and keep on travelling greener with us</h2>
+                <h2 style={{color:"#2292d6",fontSize:"1.35rem",marginTop:"5rem",textAlign:"center"}}>Evenryday Traveller? Login and keep on travelling greener with us</h2>
             </Form>
-            <Link to={redirect?`/login?redirect=${redirect}`:'/login'} id="sign-change">Sign In</Link>
+            <Link to={redirect?`/login?redirect=${redirect}`:'/login'} id="sign-change">\ Sign In</Link>
         </FormContainer>
     )
 }

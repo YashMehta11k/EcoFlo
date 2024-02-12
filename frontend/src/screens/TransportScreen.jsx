@@ -20,13 +20,18 @@ const TransportScreen = () => {
   
   const distance=4;
 
-  useEffect(()=>{
+    useEffect(()=>{
     const timer=setTimeout(()=>{
       setShowContent(true);
-    },1500);
-
+    },5000);
     return()=>clearTimeout(timer);
-  },[]);
+    },[]);
+
+    useEffect(()=>{
+      if(showContent){
+        window.scrollTo(0,0);
+      }
+    },[showContent])
 
   const{id: transportId }=useParams();
   const dispatch=useDispatch();

@@ -45,8 +45,8 @@ const RecentTripsScreen = () => {
     }
   };
 
-  const proofHandler=()=>{
-    navigate('/login?redirect=/trips');
+  const proofHandler=(tripId)=>{
+    navigate(`/login?redirect=/upload-proof/${tripId}`);
   }
   return (
     <>
@@ -119,7 +119,7 @@ const RecentTripsScreen = () => {
                       </Col>
                       <Col className='trip-details'>
                         <h4>Points:</h4><h5><h6>{item.REWARD_POINTS} pts</h6>after we verify your ride</h5>
-                        <Button type='button' id='upload-proof' onClick={proofHandler}><TiUpload/><br/>Upload Proof<br/></Button>
+                        <Button type='button' id='upload-proof' onClick={() => proofHandler(item._id)}><TiUpload/><br/>Upload Proof<br/></Button>
                       </Col>
                     </Row>
                   </ListGroup.Item>

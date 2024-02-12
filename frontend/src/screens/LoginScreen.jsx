@@ -44,7 +44,7 @@ const LoginScreen = () => {
 
     return (
         <FormContainer style={{}}>
-            <h1 style={{fontFamily:"Monoton",color:"#77f",fontWeight:"1000",textAlign:"center",marginTop:"3rem",marginBottom:"3rem"}}>SIGN IN</h1>
+            <h1 style={{fontFamily:"Monoton",color:"#77f",fontWeight:"1000",textAlign:"right",marginRight:"5rem",marginTop:"0rem",marginBottom:"3rem"}}>SIGN IN</h1>
             <Form onSubmit={submitHandler}>
                 <Form.Group controlId="email" className="my-3">
                     <Form.Label>Email Address</Form.Label>
@@ -68,9 +68,9 @@ const LoginScreen = () => {
                 </Form.Group>
                 <Button type='submit' id='sign-button' disabled={isLoading}>Sign In</Button>
                 {isLoading && <Loader/>}
-                <h2 style={{color:"turquoise",fontSize:"1.25rem",marginTop:"8rem",textAlign:"center"}}>New Traveller? Resgister and you have got our back</h2>
+                <h2 style={{color:"#2292d6",fontSize:"1.5rem",marginTop:"7rem",textAlign:"center"}}>New Traveller? Resgister and you have got our back</h2>
             </Form>
-            <Link to={redirect?`/register?redirect=${redirect}`:'/register'} id="sign-change">Register</Link>
+            <Link to={redirect?`/register?redirect=${redirect}`:'/register'} id="register-change">Register/</Link>
         </FormContainer>
     )
 }

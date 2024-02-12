@@ -276,10 +276,10 @@ body {
 
 .sign-body{
   width: 80%;
-  margin: 0rem 0rem;
-  font-family: "Advent Pro";
-  height: 4rem;
-  font-size: 1.25rem;
+  margin: -0.5rem 0rem;
+  font-family: "Kanit";
+  height: 3rem;
+  font-size: 1.1rem;
 }
 
 #sign-button{
@@ -293,18 +293,42 @@ body {
 
 #sign-change{
   position: absolute;
-  background: white;
   padding: 1.25rem 2rem;
   border-radius: 1rem;
-  top: 22%;
-  right: 49%;
+  top: 18.35%;
+  right: 16%;
   font-family: "Monoton";
+  font-size: 1.75rem;
+}
+
+#register-change{
+  position: absolute;
+  padding: 1.25rem 2rem;
+  border-radius: 1rem;
+  top: 18.5%;
+  right: 29%;
+  font-family: "Monoton";
+  font-size: 1.75rem;
 }
 
 #sign-change:hover{
-  color:teal;
-  transition: 0.4s;
-  font-size: 1.85rem;
+  color:rgb(53, 181, 168);
+  transition: 0.25s;
+  font-size: 2rem;
+}
+
+#register-change:hover{
+  color:rgb(53, 181, 168);
+  transition: 0.25s;
+  font-size: 2rem;
+}
+
+#user-points{
+  font-family: "Handjet";
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-top: -0.25rem;
+  margin-left: -0.4rem;
 }
 
 #sign-button:hover{
@@ -704,7 +728,7 @@ body {
 
 #background-container{
   position: fixed;
-  background-image: url("../../assets/recent.png");
+  background-image: url("../../assets/login2.jpg");
   height: 100%;
   width: 100%;
   left: 0;
@@ -712,7 +736,7 @@ body {
   background-size: 100%;
   z-index: -1;
   background-repeat: no-repeat;
-  opacity: 0.7;
+  opacity: 0.99;
 }
 
 #upload-proof{
@@ -776,10 +800,11 @@ body {
 }
 .headerdiv img{
   position: relative;
-  height: 72px;
-  margin-top: -0.15%;
-  margin-left: 0.5%;
-  margin-right: -2%;
+  height: 123px;
+  margin-top: 0.85%;
+  margin-left: -1.65%;
+  margin-right: -6.25%;
+  width: 10%;
 }
 hr {
   margin: 1.2rem 0;
@@ -798,6 +823,12 @@ hr {
   display: flex;
   justify-content: center;
   margin-bottom: 5rem;
+  background-color: rgba(255, 255, 255, 0.479);
+  border-radius: 2rem;
+  height: 30vh;
+  width: 55vh;
+  padding-top: 3rem;
+  padding-bottom: -3rem;
 }
 
 .dash {

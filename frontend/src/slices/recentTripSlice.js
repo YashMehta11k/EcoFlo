@@ -12,8 +12,12 @@ const recentTripSlice=createSlice({
         addtoRecentTrip:(state,action)=>{
             const trip=action.payload;
             const tripDistance=4;
+            const locPoints={
+                start:"A",
+                end:"B" 
+            }
             
-            const newTrip={...trip,bookTime:moment().format("HH:mm:ss"),bookDate:moment().format("YYYY-MM-DD"),tripDistance}
+            const newTrip={...trip,bookTime:moment().format("HH:mm:ss"),bookDate:moment().format("YYYY-MM-DD"),tripDistance,locPoints}
 
             state.recentTrips=[...state.recentTrips,newTrip];
             localStorage.setItem('recentTrip',JSON.stringify(state));
@@ -23,10 +27,19 @@ const recentTripSlice=createSlice({
             state.recentTrips=state.recentTrips.filter((x)=>x._id!==action.payload);
             localStorage.setItem('recentTrip',JSON.stringify(state));
             
+        },
+
+        saveTravelProof: (state, action) => {
+            const { tripId, proofUrl } = action.payload;
+            const tripIndex = state.recentTrips.findIndex(trip => trip._id === tripId);
+            if (tripIndex !== -1) {
+                state.recentTrips[tripIndex].travelProof = proofUrl;
+                localStorage.setItem('recentTrip', JSON.stringify(state));
+            }
         }
-    },
+     },
 });
 
-export const{addtoRecentTrip,removefromRecentTrip}=recentTripSlice.actions;
+export const{addtoRecentTrip,removefromRecentTrip,saveTravelProof}=recentTripSlice.actions;
 
 export default recentTripSlice.reducer;
