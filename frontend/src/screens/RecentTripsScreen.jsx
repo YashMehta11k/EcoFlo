@@ -8,7 +8,8 @@ import { useEffect,useState } from 'react';
 import Loader from '../components/Loader';
 import { FaTrash } from 'react-icons/fa';
 import { removefromRecentTrip } from '../slices/recentTripSlice';
-import { TiUpload } from "react-icons/ti";
+import { GiConfirmed } from "react-icons/gi";
+import TripSteps from '../components/TripSteps';
 
 const RecentTripsScreen = () => {
 
@@ -46,7 +47,7 @@ const RecentTripsScreen = () => {
   };
 
   const proofHandler=(tripId)=>{
-    navigate(`/login?redirect=/upload-proof/${tripId}`);
+    navigate(`/login?redirect=/confirm-trip/${tripId}`);
   }
   return (
     <>
@@ -58,6 +59,7 @@ const RecentTripsScreen = () => {
         <Row>
           <Col md={12}>
             <Link className="prev-page" to='/'><TbArrowBadgeLeft  id="arrow-icon"/> Go Back</Link>
+            <TripSteps step1 step2 step3/>
             <h1 className='screen-head'>Your Recent trips</h1>
             {recentTrips.length===0?(
               <Message>
@@ -119,7 +121,7 @@ const RecentTripsScreen = () => {
                       </Col>
                       <Col className='trip-details'>
                         <h4>Points:</h4><h5><h6>{item.REWARD_POINTS} pts</h6>after we verify your ride</h5>
-                        <Button type='button' id='upload-proof' onClick={() => proofHandler(item._id)}><TiUpload/><br/>Upload Proof<br/></Button>
+                        <Button type='button' id='upload-proof' onClick={() => proofHandler(item._id)}><GiConfirmed/><br/>Confirm Trip<br/></Button>
                       </Col>
                     </Row>
                   </ListGroup.Item>

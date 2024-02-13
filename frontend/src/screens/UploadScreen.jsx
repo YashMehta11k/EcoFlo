@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import { Form, Button, Container, Col, Image } from 'react-bootstrap';
 import defaultImage from '../assets/upload-proof.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link,useNavigate, useParams } from 'react-router-dom';
 import { saveTravelProof } from '../slices/recentTripSlice';
 import { TbArrowBadgeLeft } from "react-icons/tb";
+import TripSteps from '../components/TripSteps';
 
 const UploadScreen = () => {
     const { tripId } = useParams();
@@ -20,6 +21,12 @@ const UploadScreen = () => {
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
     };
+
+    useEffect(()=>{
+        if(existingTrip?.confirmStatus==='not comfirmed'){
+            navigate(`/confirm-trip/${tripId}`);
+        }
+    },[existingTrip.confirmStatus,navigate,tripId])
 
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -51,6 +58,7 @@ const UploadScreen = () => {
     return (
         <>
         <Link className="prev-page" to='/trips'><TbArrowBadgeLeft  id="arrow-icon"/> Go Back</Link>
+        <TripSteps step1 step2 step3 step4/>
         <Container>
             <Col style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", margin: "1rem", padding: 0, height: "70vh", boxShadow: "0 0 10px 4px rgb(0, 140, 107)", borderRadius: "10px" }}>
                 <Image src={proofUrl || defaultImage} alt="Selected Image" style={{ width: "50%", marginLeft: "-22px", borderRadius: "10px" }}></Image>

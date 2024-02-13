@@ -16,8 +16,9 @@ const recentTripSlice=createSlice({
                 start:"A",
                 end:"B" 
             }
-            
-            const newTrip={...trip,bookTime:moment().format("HH:mm:ss"),bookDate:moment().format("YYYY-MM-DD"),tripDistance,locPoints}
+            const confirmStatus='not comfirmed'
+            const proofStatus='not uploaded'
+            const newTrip={...trip,bookTime:moment().format("HH:mm:ss"),bookDate:moment().format("YYYY-MM-DD"),tripDistance,locPoints,confirmStatus,proofStatus}
 
             state.recentTrips=[...state.recentTrips,newTrip];
             localStorage.setItem('recentTrip',JSON.stringify(state));
@@ -29,6 +30,16 @@ const recentTripSlice=createSlice({
             
         },
 
+        confirmTrip: (state, action) => {
+            const { tripId, review } = action.payload;
+            const tripIndex = state.recentTrips.findIndex(trip => trip._id === tripId);
+            if (tripIndex !== -1) {
+                state.recentTrips[tripIndex].confirmStatus = 'confirmed';
+                state.recentTrips[tripIndex].review = review;
+                localStorage.setItem('recentTrip', JSON.stringify(state));
+            }
+        },
+
         saveTravelProof: (state, action) => {
             const { tripId, proofUrl } = action.payload;
             const tripIndex = state.recentTrips.findIndex(trip => trip._id === tripId);
@@ -37,6 +48,7 @@ const recentTripSlice=createSlice({
                 const currentTime = moment();
                 const proofUploadTime = currentTime.diff(bookTime, 'hours', true); // Difference in hours
                 state.recentTrips[tripIndex].travelProof = proofUrl;
+                state.recentTrips[tripIndex].proofStatus='uploaded';
                 state.recentTrips[tripIndex].proofUploadTime = proofUploadTime;
                 localStorage.setItem('recentTrip', JSON.stringify(state));
             }
@@ -44,6 +56,6 @@ const recentTripSlice=createSlice({
      },
 });
 
-export const{addtoRecentTrip,removefromRecentTrip,saveTravelProof}=recentTripSlice.actions;
+export const{addtoRecentTrip,removefromRecentTrip,confirmTrip,saveTravelProof}=recentTripSlice.actions;
 
 export default recentTripSlice.reducer;

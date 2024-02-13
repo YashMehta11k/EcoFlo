@@ -11,6 +11,7 @@ import { useGetTransportDetailsQuery } from "../slices/transportsApiSlice";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { addtoRecentTrip } from "../slices/recentTripSlice";
+import TripSteps from "../components/TripSteps";
 
 
 const TransportScreen = () => {
@@ -51,6 +52,7 @@ const TransportScreen = () => {
   return(
   <>
     <Link className="prev-page" to='/'><TbArrowBadgeLeft  id="arrow-icon"/> Go Back</Link>
+    <TripSteps step1 step2/>
 
     {isLoading||!showContent?(
       <Loader/>

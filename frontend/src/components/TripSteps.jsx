@@ -1,9 +1,9 @@
 import {Nav} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
-const TripSteps = ({step1,step2,step3,step4,step5}) => {
+const TripSteps = ({step1,step2,step3,step4,step5,step6}) => {
   return (
-    <Nav className='justify-content-center mb-4' style={{fontFamily:"Kanit"}}>
+    <Nav className='justify-content-center mb-4' style={{fontFamily:"Kanit",background:"white",borderRadius:"2rem",paddingBottom:"0.7rem"}}>
         <Nav.Item>
             {step1?(
                 <LinkContainer to='/login'>
@@ -34,6 +34,15 @@ const TripSteps = ({step1,step2,step3,step4,step5}) => {
         <Nav.Item>
             {step4?(
                 <LinkContainer to='/trips'>
+                    <Nav.Link>Confim Trip</Nav.Link>
+                </LinkContainer>
+            ):(
+                <Nav.Link as='div' disabled>Confirm Trip</Nav.Link>
+            )}
+        </Nav.Item>
+        <Nav.Item>
+            {step5?(
+                <LinkContainer to='/trips'>
                     <Nav.Link>Upload Proof</Nav.Link>
                 </LinkContainer>
             ):(
@@ -41,7 +50,7 @@ const TripSteps = ({step1,step2,step3,step4,step5}) => {
             )}
         </Nav.Item>
         <Nav.Item>
-            {step5?(
+            {step6?(
                 <LinkContainer to='/profile'>
                     <Nav.Link>Get Rewards</Nav.Link>
                 </LinkContainer>
