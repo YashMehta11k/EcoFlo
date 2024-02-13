@@ -1,0 +1,7 @@
+MONGO_URL
+JWT_SECRET
+S3_KEY
+S3_SECRET
+mongodb+srv://YashMehta11k:2241164@transports.mgycjlq.mongodb.net/EcoFlow?retryWrites=true&w=majority
+AKIA5SKFQT32UWA3NCEE
+9r06Bc1Khmino9WDUUx7xencu+OlMMgEtRDxWW29
