@@ -1,53 +1,84 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const travelLogSchema=new mongoose.Schema({
-    user:{
-        type:mongoose.Schema.Types.ObjectId,
-        required:true,
-        ref:"User",
+const travelLogSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  type_of_transport: [{
+    transport: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'Transport'
     },
-    travels:[{
-        name:{type:String,required:true},
-        image:{type:String,required:true},
-        transport:{
-            type:mongoose.Schema.Types.ObjectId,
-            required:true,
-            ref:"Transport",
-        },
-    }],
-    startpoint:{
-        type:String,
-        required:true,
+    APPS: {
+      type: String,
+      required: true
     },
-    destination:{
-        type:String,
-        required:true,
+    CARBON_INDEX_PER_KM: {
+      type: Number,
+      required: true
     },
-    dateOfTravel:{
-        type:Date,
-        default:Date.now()
+    GREEN_POWER: {
+      type: Boolean,
+      default: false
     },
-    duration:{
-        type:Number,
-        required:true
+    MODE_OF_TRANSPORT: {
+      type: String,
+      required: true
     },
-    city:{
-        type:String,
-        required:true
-    },
-    verify:{
-        status:{type:String},
-        upload_time:{type:String},
-        image:{type:String},
-    },
-    isVefified:{
-        type:Boolean,
-        default:false,
-        required:true,
+    REWARD_POINTS: {
+        type: Number,
+        required: true
     }
+  }],
+  locPoints: {
+    start: {
+      type: String,
+      required: true
+    },
+    end: {
+      type: String,
+      required: true
+    }
+  },
+  bookTime: {
+    type: String,
+    required: true
+  },
+  bookDate: {
+    type: String,
+    required: true
+  },
+  tripDistance: {
+    type: Number,
+    required: true
+  },
+  confirmStatus: {
+    type: String,
+    required: true
+  },
+  proofStatus: {
+    type: String,
+    required: true
+  },
+  review: {
+    type: String,
+    required: true
+  },
+  travelProof: {
+    type: String,
+    required: true
+  },
+  proofUploadTime: {
+    type: Number,
+    required: true
+  }
 },{
-    timestamps:true,
+    timestamps: true,
 });
 
-const TravelLog=mongoose.model("TravelLog",travelLogSchema);
+const TravelLog = mongoose.model('TravelLog', travelLogSchema);
+
 export default TravelLog;

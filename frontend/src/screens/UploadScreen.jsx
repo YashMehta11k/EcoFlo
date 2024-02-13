@@ -71,6 +71,7 @@ const UploadScreen = () => {
                             <Form.Control
                                 type='file'
                                 onChange={handleFileChange}
+                                style={{fontFamily:"Kanit"}}
                             ></Form.Control>
                         </Form.Group>
                         <Button type='submit' id='sign-button'>{buttonText}</Button>

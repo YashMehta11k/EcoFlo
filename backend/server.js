@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import transportRoutes from './routes/transportRoutes.js';
 import { notFound,errorHandler } from './middleware/errorMiddleware.js';
 import userRoutes from './routes/userRoutes.js';
+import TravelLogRoutes from  "./routes/TravelLogRoutes.js";
 import AWS from 'aws-sdk';
 import fileUpload from 'express-fileupload';
 
@@ -63,7 +64,8 @@ app.post('/upload', async (req, res) => {
 
 
 app.use('/api/transports',transportRoutes);
-app.use('/api/users',userRoutes); 
+app.use('/api/users',userRoutes);
+app.use('/api/travelLog',TravelLogRoutes); 
 
 app.use(notFound);
 app.use(errorHandler);

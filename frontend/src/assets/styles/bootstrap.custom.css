@@ -347,7 +347,7 @@ body {
 
 #transport-confirm .col{
   font-family: 'Koulen';
-  font-size: 1.15rem;
+  font-size: 1.075rem;
 }
 
 #transport-confirm{
@@ -519,6 +519,7 @@ body {
   background-color: rgb(255, 255, 255);
   color:black;
   border: 3px solid #4646ff;
+  top: 14%;
 }
 
 #arrow-icon{
@@ -569,7 +570,7 @@ body {
   width: inherit;
   text-decoration: underline;
   text-emphasis: white;
-  text-shadow: 3px 1px rgb(175, 203, 255);
+  text-shadow:3px 1px rgb(209, 214, 255);
 }
 
 #trips-img{
@@ -757,7 +758,7 @@ body {
 }
 
 #Transport-desc{
-  margin-top: 5rem;
+  margin-top: 0rem;
 }
 
 #Transport-desc h3{

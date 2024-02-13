@@ -38,6 +38,7 @@ const ConfirmTripScreen = () => {
                                 rows={4}
                                 value={review}
                                 onChange={(e) => setReview(e.target.value)}
+                                style={{fontFamily:"Kanit"}}
                             ></Form.Control>
                         </Form.Group>
                         <Button type='submit' id='sign-button' style={{marginTop:"2rem"}}><TiUpload/><br/>Confirm</Button>
