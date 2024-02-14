@@ -5,22 +5,73 @@ import TravelLog from '../models/travelLogModel.js';
 //@route POST/api/travelLog
 //@access Private
 const addTrips=asyncHandler(async(req,res)=>{
-    res.send('add Confirmed Trips');
-})
+    const {
+        transport,
+        user,
+        APPS,
+        CARBON_INDEX_PER_KM,
+        GREEN_POWER,
+        MODE_OF_TRANSPORT,
+        REWARD_POINTS,
+        locPoints,
+        bookTime,
+        bookDate,
+        tripDistance,
+        confirmStatus,
+        proofStatus,
+        review,
+        travelProof,
+        proofUploadTime
+    } = req.body;
+
+    try {
+        const newTrip = new TravelLog({ // Assuming you have user authentication and req.user contains user details
+            transport,
+            user, // You need to populate this with the corresponding transport ObjectId
+            APPS,
+            CARBON_INDEX_PER_KM,
+            GREEN_POWER,
+            MODE_OF_TRANSPORT,
+            REWARD_POINTS,
+            locPoints,
+            bookTime,
+            bookDate,
+            tripDistance,
+            confirmStatus,
+            proofStatus,
+            review,
+            travelProof,
+            proofUploadTime
+        });
+
+        const createdTrip = await newTrip.save();
+        res.status(201).json(createdTrip);
+    } catch (error) {
+        console.error('Error creating new trip:', error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+});
 
 //@desc Get logged in user's TravelLog
 //@route GET/api/travelLog/myTrips
 //@access Private
 const getMyTravelLog=asyncHandler(async (req,res) => {
-    res.send('get Trips by the User logged in');
-})
+    const Trip=await TravelLog.find({user:req.user._id});
+    res.status(200).json(Trip);
+});
 
 //@desc Get TravelLog by Id
 //@route GET/api/travelLog/:id
 //@access Private
 const getTravelLogById=asyncHandler(async (req,res) => {
-    res.send('get Trips by Id');
-})
+    const Trip=await TravelLog.findById(req.params.id).populate('name','email');
+    if(!Trip){
+        res.status(200).json(Trip);
+    }else{
+        res.status(404);
+        throw new Error('Trip not found');
+    }
+});
 
 //@desc Update trip to proof uploaded
 //@route GET/api/travelLog/:id/upload

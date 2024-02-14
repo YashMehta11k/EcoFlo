@@ -1,23 +1,54 @@
-import { useState } from 'react';
+import { useState} from 'react';
 import { Form, Button, Container, Col ,Image} from 'react-bootstrap';
-import { useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { Link,useNavigate, useParams } from 'react-router-dom';
-import { confirmTrip } from '../slices/recentTripSlice';
 import { TiUpload } from "react-icons/ti";
 import { TbArrowBadgeLeft } from "react-icons/tb";
 import TripSteps from '../components/TripSteps';
+import { removeConfirmedTrip } from '../slices/recentTripSlice';
 import sideImage from '../assets/confirm-sideImage.jpg'
+import { useCreateTravelLogMutation } from '../slices/travelLogApiSlice';
+import Loader from '../components/Loader';
+import {toast} from 'react-toastify';
+import Message from '../components/Message';
 
 const ConfirmTripScreen = () => {
     const { tripId } = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [review, setReview] = useState('');
+    const recentTrip = useSelector(state => state.recentTrip);
+    const { recentTrips } = recentTrip;
+    const existingTrip = recentTrips.find(trip => trip._id === tripId);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(confirmTrip({ tripId, review }));
-        navigate(`/upload-proof/${tripId}`);
+    const [createTravelLog,{isLoading,error}]=useCreateTravelLogMutation();
+
+    const handleSubmit = async(e) => {
+        try{
+            e.preventDefault();
+            const res=await createTravelLog({
+                transport:existingTrip._id,
+                user:existingTrip.user,
+                APPS:existingTrip.APPS,
+                CARBON_INDEX_PER_KM:existingTrip.CARBON_INDEX_PER_KM,
+                GREEN_POWER:existingTrip.GREEN_POWER,
+                MODE_OF_TRANSPORT:existingTrip.MODE_OF_TRANSPORT,
+                REWARD_POINTS:existingTrip.REWARD_POINTS,
+                locPoints:existingTrip.locPoints,
+                bookTime:existingTrip.bookTime,
+                bookDate:existingTrip.bookDate,
+                tripDistance:existingTrip.tripDistance,
+                confirmStatus:'Confirmed',
+                proofStatus:'Not uploaded',
+                review:review,
+                travelProof:existingTrip.travelProof,
+                proofUploadTime :existingTrip.proofUploadTime
+            }).unwrap();
+            dispatch(removeConfirmedTrip({ tripId: existingTrip._id }));
+            navigate(`/travelLog/${res._id}`);
+        }catch(error){
+            toast.error(error);
+        }
     };
 
     return (
@@ -40,8 +71,10 @@ const ConfirmTripScreen = () => {
                                 onChange={(e) => setReview(e.target.value)}
                                 style={{fontFamily:"Kanit"}}
                             ></Form.Control>
+                            {error && <Message variant='danger'>{error}</Message>}
                         </Form.Group>
                         <Button type='submit' id='sign-button' style={{marginTop:"2rem"}}><TiUpload/><br/>Confirm</Button>
+                        {isLoading && <Loader/>}
                     </Form>
                 </Col>
             </Col>

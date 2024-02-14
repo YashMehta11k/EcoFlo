@@ -1,7 +1,7 @@
 //import { Spinner } from "react-bootstrap";
 import React from 'react';
 
-const Loader = () => {
+const Loader = ({message}) => {
 
     
   return (
@@ -10,7 +10,7 @@ const Loader = () => {
         <div class="dash dos"></div>
         <div class="dash tres"></div>
         <div class="dash cuatro"></div>
-        <div id='load-text'>Bringing transport your way</div>
+        <div id='load-text'>{message?message:"Bringing transport your way"}</div>
     </div>
   )
 }

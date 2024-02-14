@@ -6,33 +6,31 @@ const travelLogSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  type_of_transport: [{
-    transport: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: 'Transport'
-    },
-    APPS: {
-      type: String,
-      required: true
-    },
-    CARBON_INDEX_PER_KM: {
+  transport: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'Transport'
+  },
+  APPS: {
+    type: String,
+    required: true
+  },
+  CARBON_INDEX_PER_KM: {
+    type: Number,
+    required: true
+  },
+  GREEN_POWER: {
+    type: Boolean,
+    default: false
+  },
+  MODE_OF_TRANSPORT: {
+    type: String,
+    required: true
+  },
+  REWARD_POINTS: {
       type: Number,
       required: true
-    },
-    GREEN_POWER: {
-      type: Boolean,
-      default: false
-    },
-    MODE_OF_TRANSPORT: {
-      type: String,
-      required: true
-    },
-    REWARD_POINTS: {
-        type: Number,
-        required: true
-    }
-  }],
+  },
   locPoints: {
     start: {
       type: String,
@@ -65,14 +63,14 @@ const travelLogSchema = new mongoose.Schema({
   },
   review: {
     type: String,
-    required: true
+    required: false
   },
   travelProof: {
     type: String,
-    required: true
+    required: false
   },
   proofUploadTime: {
-    type: Number,
+    type: Date,
     required: true
   }
 },{

@@ -115,7 +115,7 @@ const TransportScreen = () => {
                     <Col><strong>{transport.CARBON_INDEX_PER_KM<=50?'Yes, it is very environmental friendly, we prefer you to use this transport':'No, it pollutes out environment ,we prefer you to not use this transport'}</strong></Col>
                   </Row>
                 </ListGroup.Item>
-                <Button id="confirm-transport" type="button" onClick={handleConfirmRide}>Comfirm Ride</Button>
+                <Button id="confirm-transport" type="button" onClick={handleConfirmRide}>Book Transport</Button>
               </ListGroup>
             </Card>   
           )}  

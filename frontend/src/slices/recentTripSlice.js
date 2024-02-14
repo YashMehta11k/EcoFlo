@@ -5,6 +5,7 @@ moment.tz.setDefault("Asia/Kolkata");
 
 const initialState=localStorage.getItem("recentTrip")?JSON.parse(localStorage.getItem("recentTrip")):{recentTrips:[]};
 
+
 const recentTripSlice=createSlice({
     name:"recentTrip",
     initialState,
@@ -16,9 +17,12 @@ const recentTripSlice=createSlice({
                 start:"A",
                 end:"B" 
             }
-            const confirmStatus='not comfirmed'
-            const proofStatus='not uploaded'
-            const newTrip={...trip,bookTime:moment().format("HH:mm:ss"),bookDate:moment().format("YYYY-MM-DD"),tripDistance,locPoints,confirmStatus,proofStatus}
+            const confirmStatus='not comfirmed';
+            const proofStatus='not uploaded';
+            const review='example';
+            const travelProof='url';
+            const proofUploadTime=moment();
+            const newTrip={...trip,bookTime:moment().format("HH:mm:ss"),bookDate:moment().format("YYYY-MM-DD"),tripDistance,locPoints,confirmStatus,proofStatus,review,travelProof,proofUploadTime}
 
             state.recentTrips=[...state.recentTrips,newTrip];
             localStorage.setItem('recentTrip',JSON.stringify(state));
@@ -29,15 +33,13 @@ const recentTripSlice=createSlice({
             localStorage.setItem('recentTrip',JSON.stringify(state));
             
         },
-
-        confirmTrip: (state, action) => {
-            const { tripId, review } = action.payload;
-            const tripIndex = state.recentTrips.findIndex(trip => trip._id === tripId);
-            if (tripIndex !== -1) {
-                state.recentTrips[tripIndex].confirmStatus = 'confirmed';
-                state.recentTrips[tripIndex].review = review;
-                localStorage.setItem('recentTrip', JSON.stringify(state));
-            }
+        removeConfirmedTrip: (state, action) => {
+            const { tripId } = action.payload;
+            const recentTrips = localStorage.getItem("recentTrip")
+                ? JSON.parse(localStorage.getItem("recentTrip")).recentTrips
+                : [];
+            const updatedRecentTrips = recentTrips.filter((trip) => trip._id !== tripId);
+            localStorage.setItem("recentTrip", JSON.stringify({ recentTrips: updatedRecentTrips }));
         },
 
         saveTravelProof: (state, action) => {
@@ -56,6 +58,6 @@ const recentTripSlice=createSlice({
      },
 });
 
-export const{addtoRecentTrip,removefromRecentTrip,confirmTrip,saveTravelProof}=recentTripSlice.actions;
+export const{addtoRecentTrip,removefromRecentTrip,removeConfirmedTrip,saveTravelProof}=recentTripSlice.actions;
 
 export default recentTripSlice.reducer;

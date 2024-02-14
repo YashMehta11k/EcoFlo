@@ -25,7 +25,7 @@ const TripSteps = ({step1,step2,step3,step4,step5,step6}) => {
         <Nav.Item>
             {step3?(
                 <LinkContainer to='/'>
-                    <Nav.Link>Book Tansport</Nav.Link>
+                    <Nav.Link>Book Transport</Nav.Link>
                 </LinkContainer>
             ):(
                 <Nav.Link as='div' disabled>Book Transport</Nav.Link>
