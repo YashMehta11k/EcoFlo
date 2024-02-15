@@ -11,7 +11,7 @@ const recentTripSlice=createSlice({
     initialState,
     reducers:{
         addtoRecentTrip:(state,action)=>{
-            const trip=action.payload;
+            const {user,...trip}=action.payload;
             const tripDistance=4;
             const locPoints={
                 start:"A",
@@ -19,10 +19,13 @@ const recentTripSlice=createSlice({
             }
             const confirmStatus='not comfirmed';
             const proofStatus='not uploaded';
+            const verifyStatus='not verified';
+            const approveStatus='pending';
             const review='example';
             const travelProof='url';
+            const adminProofReview='';
             const proofUploadTime=moment();
-            const newTrip={...trip,bookTime:moment().format("HH:mm:ss"),bookDate:moment().format("YYYY-MM-DD"),tripDistance,locPoints,confirmStatus,proofStatus,review,travelProof,proofUploadTime}
+            const newTrip={...trip,user,bookTime:moment().format("HH:mm:ss"),bookDate:moment().format("YYYY-MM-DD"),tripDistance,locPoints,confirmStatus,proofStatus,review,travelProof,proofUploadTime,verifyStatus,approveStatus,confirmedAt:moment(),adminProofReview}
 
             state.recentTrips=[...state.recentTrips,newTrip];
             localStorage.setItem('recentTrip',JSON.stringify(state));

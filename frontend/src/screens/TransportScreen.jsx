@@ -3,7 +3,7 @@ import {useState,useEffect} from "react";
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Row,Col,Image,ListGroup,Card,Button, ListGroupItem} from 'react-bootstrap';
-import { useDispatch } from "react-redux";
+import { useDispatch ,useSelector} from "react-redux";
 //import axios from 'axios';
 import Rating from '../components/Rating';
 import { TbArrowBadgeLeft } from "react-icons/tb";
@@ -18,6 +18,7 @@ const TransportScreen = () => {
 
   const [confirmationMade, setConfirmationMade] = useState(false);
   const [showContent,setShowContent]=useState(false);
+  const{userInfo}=useSelector((state)=>state.auth); 
   
   const distance=4;
 
@@ -45,7 +46,7 @@ const TransportScreen = () => {
   const {data:transport,isLoading,error}=useGetTransportDetailsQuery(transportId);
 
   const addtoRecentTripHandler=()=>{
-    dispatch(addtoRecentTrip({...transport,distance}));
+    dispatch(addtoRecentTrip({...transport,distance,user: userInfo._id}));
     navigate("/trips");
   };
   

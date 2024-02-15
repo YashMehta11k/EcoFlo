@@ -396,6 +396,41 @@ body {
   box-shadow: 0px 0px 36px teal;
 }
 
+
+.trip-detail-heading{
+  font-family: "Monoton";
+  color: #55d0ae;
+}
+
+#trip-details{
+  font-family: "Teko";
+  font-size: 1.575rem;
+  margin: 1rem;
+}
+
+#trip-summary{
+  font-family: 'Koulen';
+  font-size: 1.075rem;
+}
+
+#trip-summary .list-group-item {
+  background-color: #7575f4;
+  color: white;
+  width: 120%;
+  border-radius: 1rem;
+  margin-top: 0.7rem;
+}
+
+#trip-details strong{
+  font-size: 1.25rem;
+  margin: 1rem;
+  color: #3333d2;
+  text-align: center;
+  font-family: 'Unica One';
+  line-height: 2.25rem;
+}
+
+
 .card a img{
     height: 175px;
   width: 250px;

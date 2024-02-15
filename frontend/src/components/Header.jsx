@@ -12,9 +12,9 @@ import { TbListDetails } from "react-icons/tb";
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import {logout} from '../slices/authSlice';
 import { useNavigate } from 'react-router-dom';
-import { BiUserPin } from "react-icons/bi";
 import { TbLogout } from "react-icons/tb";
 import { useEffect,useState } from 'react';
+import { LuUserCheck } from "react-icons/lu";
 
 const Header = () => {
 
@@ -72,7 +72,7 @@ const Header = () => {
                             }<br/><p>Recent Trips</p></b></Nav.Link></LinkContainer>
                             <LinkContainer to="/about"><Nav.Link ><b><TbInfoHexagon className='navbar-icons'/><br/><p>About Us</p></b></Nav.Link></LinkContainer>
                             {userInfo?(
-                                <b style={{textAlign:"center"}}><BiUserPin className='navbar-icons' style={{marginTop:"13px"}}/>
+                                <b style={{textAlign:"center"}}><LuUserCheck className='navbar-icons' style={{marginTop:"13px"}}/>
                                 <NavDropdown title={userInfo.name} id='username'>
                                     <LinkContainer to='/profile'>
                                         <NavDropdown.Item>Profile<TbListDetails id='drop-icons'/></NavDropdown.Item>

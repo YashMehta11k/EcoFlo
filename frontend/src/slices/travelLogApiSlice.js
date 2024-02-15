@@ -9,8 +9,14 @@ export const travelLogApiSlice=apiSlice.injectEndpoints({
                 method:'POST',
                 body:{...trip}
             })
+        }),
+        getTravelLogDetails:builder.query({
+            query:(tripId)=>({
+                url:`${TRAVELLOG_URL}/${tripId}`
+            }),
+            keepUnusedDataFor:5
         })
     })
 });
 
-export const {useCreateTravelLogMutation}=travelLogApiSlice ;
+export const {useCreateTravelLogMutation,useGetTravelLogDetailsQuery}=travelLogApiSlice ;

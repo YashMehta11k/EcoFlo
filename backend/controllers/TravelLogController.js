@@ -21,7 +21,11 @@ const addTrips=asyncHandler(async(req,res)=>{
         proofStatus,
         review,
         travelProof,
-        proofUploadTime
+        proofUploadTime,
+        verifyStatus,
+        approveStatus,
+        confirmedAt,
+        adminProofReview
     } = req.body;
 
     try {
@@ -41,8 +45,12 @@ const addTrips=asyncHandler(async(req,res)=>{
             proofStatus,
             review,
             travelProof,
-            proofUploadTime
-        });
+            proofUploadTime,
+            verifyStatus,
+            approveStatus,
+            confirmedAt,
+            adminProofReview
+    });
 
         const createdTrip = await newTrip.save();
         res.status(201).json(createdTrip);
@@ -64,9 +72,9 @@ const getMyTravelLog=asyncHandler(async (req,res) => {
 //@route GET/api/travelLog/:id
 //@access Private
 const getTravelLogById=asyncHandler(async (req,res) => {
-    const Trip=await TravelLog.findById(req.params.id).populate('name','email');
-    if(!Trip){
-        res.status(200).json(Trip);
+    const trip=await TravelLog.findById(req.params.id).populate('user','name email');
+    if(trip){
+        res.status(200).json(trip);
     }else{
         res.status(404);
         throw new Error('Trip not found');

@@ -72,6 +72,22 @@ const travelLogSchema = new mongoose.Schema({
   proofUploadTime: {
     type: Date,
     required: true
+  },
+  confirmedAt: {
+    type: Date,
+    required: true
+  },
+  verifyStatus: {
+    type: String,
+    required: true
+  },
+  approveStatus: {
+    type: String,
+    required: true
+  },
+  adminProofReview:{
+    type:String,
+    required:false
   }
 },{
     timestamps: true,

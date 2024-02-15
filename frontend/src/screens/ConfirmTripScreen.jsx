@@ -11,6 +11,9 @@ import { useCreateTravelLogMutation } from '../slices/travelLogApiSlice';
 import Loader from '../components/Loader';
 import {toast} from 'react-toastify';
 import Message from '../components/Message';
+import moment from "moment-timezone";
+
+moment.tz.setDefault("Asia/Kolkata");
 
 const ConfirmTripScreen = () => {
     const { tripId } = useParams();
@@ -42,7 +45,11 @@ const ConfirmTripScreen = () => {
                 proofStatus:'Not uploaded',
                 review:review,
                 travelProof:existingTrip.travelProof,
-                proofUploadTime :existingTrip.proofUploadTime
+                proofUploadTime :existingTrip.proofUploadTime,
+                verifyStatus:existingTrip.verifyStatus,
+                approveStatus:existingTrip.approveStatus,
+                confirmedAt:moment(),
+                adminProofReview:existingTrip.adminProofReview
             }).unwrap();
             dispatch(removeConfirmedTrip({ tripId: existingTrip._id }));
             navigate(`/travelLog/${res._id}`);
