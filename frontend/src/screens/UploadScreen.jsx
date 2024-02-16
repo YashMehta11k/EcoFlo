@@ -5,7 +5,7 @@ import { TbArrowBadgeLeft } from "react-icons/tb";
 import {toast} from 'react-toastify';
 import { useUploadTravelProofMutation } from '../slices/travelLogApiSlice';
 import defaultImage from '../assets/upload-proof.png';
-import Loader from '../components/Loader';
+//import Loader from '../components/Loader';
 import TripSteps from '../components/TripSteps';
 
 const UploadScreen = () => {

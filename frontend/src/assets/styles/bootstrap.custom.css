@@ -421,6 +421,62 @@ body {
   margin-top: 0.7rem;
 }
 
+#profile-side-image{
+  width: 127%;
+  margin: -1rem 0rem 0 2rem;
+  border-radius: 2rem;
+  height: 113%;
+}
+
+#more-details{
+  background-color: #000000;
+  color: lavenderblush;
+  font-family: "Unica One";
+  font-size: 1.2rem;
+}
+
+.user-trips tr{
+  color: #009168;
+  font-family: "Righteous";
+  height: 6rem;
+  font-size: 1.2rem;
+  line-height: 2.25rem;
+  background: #eaeaff;
+}
+
+#more-details:hover{
+  background-color: white;
+  color: blueviolet;
+  transition: 0.3s;
+}
+
+.my-trips{
+  background: #5a5aff;
+  color: white;
+  font-size: 1.25rem;
+  font-family: "Luckiest Guy";
+  height: 3rem;
+  line-height: 3rem;
+}
+
+#profile-head{
+  font-family: "Monoton";
+  color: #4242ff;
+  margin-left: 1rem;
+  margin-top: 3rem;
+  font-size: 1.75rem;
+}
+
+#profile-data{
+  font-family: "Silkscreen";
+  font-size: 9rem;
+  color: greenyellow;
+  margin-top: -2.5rem;
+  margin-left: 2rem;
+  text-shadow: 7px 7px 1px #bbbbfb;
+  text-align: center;
+}
+
 #trip-details strong{
   font-size: 1.25rem;
   margin: 1rem;

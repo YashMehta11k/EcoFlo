@@ -66,8 +66,8 @@ const addTrips=asyncHandler(async(req,res)=>{
 //@route GET/api/travelLog/myTrips
 //@access Private
 const getMyTravelLog=asyncHandler(async (req,res) => {
-    const Trip=await TravelLog.find({user:req.user._id});
-    res.status(200).json(Trip);
+    const Trips=await TravelLog.find({user:req.user._id});
+    res.status(200).json(Trips);
 });
 
 //@desc Get TravelLog by Id

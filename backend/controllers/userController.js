@@ -17,6 +17,7 @@ const authUser=asyncHandler(async(req,res)=>{
             name:user.name,
             email:user.email,
             points:user.points,
+            co2saved:user.co2saved,
             isAdmin:user.isAdmin,
         });
     }else{
@@ -50,6 +51,7 @@ const registerUser=asyncHandler(async(req,res)=>{
             name:user.name,
             email:user.email,
             points:user.points,
+            co2saved:user.co2saved,
             isAdmin:user.isAdmin,
         });
     }else{
@@ -84,6 +86,7 @@ const getUserProfile=asyncHandler(async(req,res)=>{
             name:user.name,
             email:user.email,
             points:user.points,
+            co2saved:user.co2saved,
             isAdmin:user.isAdmin,
         });
     }else{
@@ -112,6 +115,7 @@ const updateUserProfile=asyncHandler(async(req,res)=>{
             name:updateUser.name,
             email:updateUser.email,
             points:updateUser.points,
+            co2saved:updateUser.co2saved,
             isAdmin:updateUser.isAdmin
         });
     }else{

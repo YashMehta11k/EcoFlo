@@ -17,6 +17,7 @@ const users=[
         email:'user1@gmail.com',
         password:bcrypt.hashSync('123456',10),
         points:150,
+        co2saved:2175,
         isAdmin:false,
     },
     {
@@ -24,6 +25,7 @@ const users=[
         email:'user2@gmail.com',
         password:bcrypt.hashSync('123456',10),
         points:40,
+        co2saved:743,
         isAdmin:false,
     }
 ];

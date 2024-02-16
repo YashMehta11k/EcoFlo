@@ -1,12 +1,12 @@
 import {Link,useParams} from 'react-router-dom';
-import {Row,Col,ListGroup,Form,Button,Cart, Card} from 'react-bootstrap';
+import {Row,Col,ListGroup,Card} from 'react-bootstrap';
 import Message from '../components/Message';
 import  Loader from '../components/Loader';
 import { useGetTravelLogDetailsQuery } from '../slices/travelLogApiSlice';
 
 const TripScreen = () => {
     const {id:tripId} = useParams();
-    console.log('tripId:', tripId);
+    
     const {data:trip,refetch,isLoading, error} = useGetTravelLogDetailsQuery(tripId);
 
     const calculateTimeDifference = (startTime, endTime) => {

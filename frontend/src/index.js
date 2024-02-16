@@ -23,6 +23,7 @@ import UploadScreen from './screens/UploadScreen';
 import PrivateRoute from './screens/PrivateRoute';
 import ConfirmTripScreen from './screens/ConfirmTripScreen';
 import TripScreen from './screens/TripScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 const router=createBrowserRouter(
     createRoutesFromElements(
@@ -38,6 +39,7 @@ const router=createBrowserRouter(
           <Route path='/confirm-trip/:tripId' element={<ConfirmTripScreen/>}/>
           <Route path='/travelLog/:id/upload' element={<UploadScreen/>}/>
           <Route path='/travelLog/:id' element={<TripScreen/>}/>
+          <Route path='/profile' element={<ProfileScreen/>}/>
         </Route>
       </Route>
     )
