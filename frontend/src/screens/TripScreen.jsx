@@ -6,7 +6,15 @@ import { useGetTravelLogDetailsQuery } from '../slices/travelLogApiSlice';
 
 const TripScreen = () => {
     const {id:tripId} = useParams();
+    console.log('tripId:', tripId);
     const {data:trip,refetch,isLoading, error} = useGetTravelLogDetailsQuery(tripId);
+
+    const calculateTimeDifference = (startTime, endTime) => {
+        const difference = new Date(endTime) - new Date(startTime);
+        const hours = Math.floor(difference / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        return `${hours} hours ${minutes} minutes`;
+    };
 
     return isLoading?<Loader/>:error?<Message variant='danger'/>
     :(
@@ -52,13 +60,13 @@ const TripScreen = () => {
                         <ListGroup variant='flush'>
                         <ListGroup.Item>
                                 <Row>
-                                    <Col md={3}>Points </Col>
+                                    <Col md={3} style={{color:"black"}}>Points </Col>
                                     <Col md={8}>{trip.REWARD_POINTS}</Col>
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>
-                                    <Col md={3}>Confirm Status</Col>
+                                    <Col md={3} style={{color:"black"}}>Confirm Status</Col>
                                     <Col md={8}>{trip.confirmStatus==='Confirmed'?(
                                         <Message variant='success'>The trip is already confirmed</Message>
                                     ):(
@@ -68,23 +76,30 @@ const TripScreen = () => {
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>
-                                    <Col md={3}>Proof Uploaded Status</Col>
-                                    <Col md={8}>{trip.uploadStatus==='Uploaded'?(
+                                    <Col md={3} style={{color:"black"}}>Proof Uploaded Status</Col>
+                                    <Col md={8}>{trip.proofStatus==='Uploaded'?(
                                         <Message variant='success'>Already uploaded the proof for verification</Message>
                                     ):(
-                                        <Message variant='danger'>Proof not uploaded.<Link to={`/trips`}> Please upload the proof</Link></Message>
+                                        <Message variant='danger'>Proof not uploaded.</Message>
+                                    )}</Col>
+                                </Row>
+                                <Row style={{marginTop:"0.55rem",marginBottom:"2rem"}}>
+                                    <Col md={12}>{trip.proofStatus!=='Uploaded'?(
+                                        <Link to={`/travelLog/${tripId}/upload`} style={{padding:"0.25rem",backgroundColor:"turquoise",color:"black",width:"150%",fontSize:"1.5rem",marginLeft:"2rem"}}>Upload Proof</Link>
+                                    ):(
+                                        <Link to={`/travelLog/${tripId}/upload`} style={{padding:"0.25rem",backgroundColor:"turquoise",color:"black",width:"150%",fontSize:"1.5rem",marginLeft:"2rem"}}>Change Proof</Link>
                                     )}</Col>
                                 </Row>
                                 <Row>
-                                    <Col md={2}>Proof Link</Col>
-                                    <Col md={4}>{trip.travelProof!=='url'?(
-                                        <Link to={trip.travelProof}>Click me to see the proof</Link>
+                                    <Col md={2} style={{color:"black"}} >Proof Link</Col>
+                                    <Col md={4} >{trip.travelProof!=='url'?(
+                                        <Link to={trip.travelProof} style={{color:"greenyellow",fontFamily:"Unica One",fontSize:"1.5rem",fontWeight:"600"}}>Click me</Link>
                                     ):(
                                         <p>-</p>
                                     )}</Col>
-                                    <Col md={2}>Uploaded At</Col>
-                                    <Col md={4}>{trip.uploadStatus==='Uploaded'?(
-                                        <p>{trip.proofUploadTime}</p>
+                                    <Col md={2} style={{color:"black"}}>Uploaded At</Col>
+                                    <Col md={4}>{trip.proofStatus==='Uploaded'?(
+                                        <p>{calculateTimeDifference(trip.confirmedAt, trip.proofUploadTime)}</p>
                                     ):(
                                         <p>-</p>
                                     )}</Col>
@@ -95,14 +110,14 @@ const TripScreen = () => {
                             ):(
                                 <ListGroup.Item>
                                     <Row>
-                                        <Col md={3}>Traveller's Review</Col>
+                                        <Col md={3} style={{color:"black"}}>Traveller's Review</Col>
                                         <Col md={8}>{trip.review}</Col>
                                     </Row>
                                 </ListGroup.Item>
                             )}
                             <ListGroup.Item>
                                 <Row>
-                                    <Col md={3}>Verification</Col>
+                                    <Col md={3} style={{color:"black"}}>Verification</Col>
                                     <Col md={8}>{trip.verifyStatus==='Verified'?(
                                         <Message variant='success'>The admins have verified the trip details and uploaded proofs.</Message>
                                     ):(
@@ -112,7 +127,7 @@ const TripScreen = () => {
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>
-                                    <Col md={3}>Rewards Approval</Col>
+                                    <Col md={3} style={{color:"black"}} >Rewards Approval</Col>
                                     <Col md={8}>{trip.approveStatus==='pending'?(
                                         <Message>Trip is in a verification Stage</Message>
                                     ):trip.approveStatus==='rejected'? (
@@ -127,7 +142,7 @@ const TripScreen = () => {
                             ):(
                                 <ListGroup.Item>
                                     <Row>
-                                        <Col md={3}>Verifier's message</Col>
+                                        <Col md={3} style={{color:"black"}}>Verifier's message</Col>
                                         <Col md={8}>{trip.adminProofReview}</Col>
                                     </Row>
                                 </ListGroup.Item>

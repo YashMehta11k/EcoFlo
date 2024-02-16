@@ -36,7 +36,7 @@ const router=createBrowserRouter(
 
         <Route path='' element={<PrivateRoute/>}>
           <Route path='/confirm-trip/:tripId' element={<ConfirmTripScreen/>}/>
-          <Route path='/upload-proof/:tripId' element={<UploadScreen/>}/>
+          <Route path='/travelLog/:id/upload' element={<UploadScreen/>}/>
           <Route path='/travelLog/:id' element={<TripScreen/>}/>
         </Route>
       </Route>

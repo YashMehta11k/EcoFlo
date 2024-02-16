@@ -25,7 +25,7 @@ const TransportScreen = () => {
     useEffect(()=>{
     const timer=setTimeout(()=>{
       setShowContent(true);
-    },5000);
+    },2500);
     return()=>clearTimeout(timer);
     },[]);
 

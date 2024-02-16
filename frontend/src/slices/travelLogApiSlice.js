@@ -15,8 +15,15 @@ export const travelLogApiSlice=apiSlice.injectEndpoints({
                 url:`${TRAVELLOG_URL}/${tripId}`
             }),
             keepUnusedDataFor:5
+        }),
+        uploadTravelProof:builder.mutation({
+            query:({tripId,details})=>({
+                url:`${TRAVELLOG_URL}/${tripId}/upload`,
+                method:'PUT',
+                body:{...details},
+            })
         })
     })
 });
 
-export const {useCreateTravelLogMutation,useGetTravelLogDetailsQuery}=travelLogApiSlice ;
+export const {useCreateTravelLogMutation,useGetTravelLogDetailsQuery,useUploadTravelProofMutation}=travelLogApiSlice ;

@@ -1,5 +1,7 @@
+import moment from 'moment-timezone';
 import asyncHandler from '../middleware/asyncHandler.js';
 import TravelLog from '../models/travelLogModel.js';
+moment.tz.setDefault("Asia/Kolkata");
 
 //@desc Create new Travel Log
 //@route POST/api/travelLog
@@ -82,17 +84,43 @@ const getTravelLogById=asyncHandler(async (req,res) => {
 });
 
 //@desc Update trip to proof uploaded
-//@route GET/api/travelLog/:id/upload
-//@access Private/Admin
+//@route PUT/api/travelLog/:id/upload
+//@access Private
 const updateTripToProofUploaded=asyncHandler(async (req,res) => {
-    res.send('Update trips to proof uploaded');
+    
+    try {
+        const {travelProof}=req.body;
+        const trip = await TravelLog.findById(req.params.id);
+        if (!trip) {
+            res.status(404);
+            throw new Error('Trip not found');
+        }else{
+            trip.proofStatus = 'Uploaded';
+            trip.proofUploadTime = moment(); // Set proof upload time
+            trip.travelProof = travelProof; // Set travel proof URL
+            const updatedTrip =await trip.save();
+
+            res.status(200).json(updatedTrip);
+        }
+
+    } catch (error) {
+        console.error('Error updating trip:', error.message);
+        res.status(500).json({ message: 'Server Error' });
+    }
 })
 
 //@desc Update trip to Verified
-//@route GET/api/travelLog/:id/verify
+//@route PUT/api/travelLog/:id/verify
 //@access Private/Admin
 const updateTripToVerified=asyncHandler(async (req,res) => {
-    res.send('Update trips to verified');
+
+})
+
+//@desc Update trip to Verified
+//@route PUT/api/travelLog/:id/verify
+//@access Private/Admin
+const updateTripToApproved=asyncHandler(async (req,res) => {
+    res.send('Update trips to Approved');
 })
 
 //@desc Get all trips
@@ -110,6 +138,7 @@ export{
     getTravelLogById,
     updateTripToProofUploaded,
     updateTripToVerified,
+    updateTripToApproved,
     getTravelLog,
     getMyTravelLog
 };
