@@ -127,7 +127,8 @@ const updateTripToApproved=asyncHandler(async (req,res) => {
 //@route GET/api/travelLog
 //@access Private/Admin
 const getTravelLog=asyncHandler(async (req,res) => {
-    res.send('Get all trips');
+    const trips=await TravelLog.find({}).populate('user','id name');
+    res.status(200).json(trips);
 })
 
 

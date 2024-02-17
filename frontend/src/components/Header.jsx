@@ -74,7 +74,8 @@ const Header = () => {
                                     </Badge>
                                 )
                             }<br/><p>Recent Trips</p></b></Nav.Link></LinkContainer>
-                            {userInfo.isAdmin===false &&(<LinkContainer to="/about"><Nav.Link ><b><TbInfoHexagon className='navbar-icons'/><br/><p>About Us</p></b></Nav.Link></LinkContainer>)}
+                            {userInfo && userInfo.isAdmin===false &&(<LinkContainer to="/about"><Nav.Link ><b><TbInfoHexagon className='navbar-icons'/><br/><p>About Us</p></b></Nav.Link></LinkContainer>)}
+                            {!userInfo &&(<LinkContainer to="/about"><Nav.Link ><b><TbInfoHexagon className='navbar-icons'/><br/><p>About Us</p></b></Nav.Link></LinkContainer>)}
                             {userInfo?(
                                 <b style={{textAlign:"center"}}><LuUserCheck className='navbar-icons' style={{marginTop:"13px"}}/>
                                 <NavDropdown title={userInfo.name} id='username'>

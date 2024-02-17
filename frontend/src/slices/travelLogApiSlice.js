@@ -28,8 +28,14 @@ export const travelLogApiSlice=apiSlice.injectEndpoints({
                 url:`${TRAVELLOG_URL}/myTrips`
             }),
             keepUnusedDataFor:5,
+        }),
+        getTravelLogList:builder.query({
+            query:()=>({
+                url:TRAVELLOG_URL,
+            }),
+            keepUnusedDataFor:5,
         })
     })
 });
 
-export const {useCreateTravelLogMutation,useGetTravelLogDetailsQuery,useUploadTravelProofMutation,useGetMyTripsQuery}=travelLogApiSlice ;
+export const {useCreateTravelLogMutation,useGetTravelLogDetailsQuery,useUploadTravelProofMutation,useGetMyTripsQuery,useGetTravelLogListQuery}=travelLogApiSlice ;
