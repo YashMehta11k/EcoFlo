@@ -24,6 +24,8 @@ import PrivateRoute from './screens/PrivateRoute';
 import ConfirmTripScreen from './screens/ConfirmTripScreen';
 import TripScreen from './screens/TripScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import AdminRoute from './screens/AdminRoute';
+import TripListScreen from './screens/TripListScreen';
 
 const router=createBrowserRouter(
     createRoutesFromElements(
@@ -40,6 +42,10 @@ const router=createBrowserRouter(
           <Route path='/travelLog/:id/upload' element={<UploadScreen/>}/>
           <Route path='/travelLog/:id' element={<TripScreen/>}/>
           <Route path='/profile' element={<ProfileScreen/>}/>
+        </Route>
+
+        <Route path='' element={<AdminRoute/>}>
+          <Route path='/admin/triplist' element={<TripListScreen/>}/>
         </Route>
       </Route>
     )

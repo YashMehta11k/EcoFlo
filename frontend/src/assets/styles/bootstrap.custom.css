@@ -247,6 +247,18 @@ body {
   margin-top: 0.2rem;
 }
 
+#adminmenu{
+  color: white;
+  font-family: "Righteous";
+  margin-top: 0.1rem;
+}
+
+#admin-icon{
+  font-size: 2.6rem;
+  margin-top: 12px;
+  margin-left: -16px;
+}
+
 #drop-items{
   background-color: #0e715e;
 }

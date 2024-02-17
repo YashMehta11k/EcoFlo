@@ -15,6 +15,10 @@ import { useNavigate } from 'react-router-dom';
 import { TbLogout } from "react-icons/tb";
 import { useEffect,useState } from 'react';
 import { LuUserCheck } from "react-icons/lu";
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import { LuListChecks } from "react-icons/lu";
+import { PiCarSimpleBold } from "react-icons/pi";
+import { FaUsersLine } from "react-icons/fa6";
 
 const Header = () => {
 
@@ -70,7 +74,7 @@ const Header = () => {
                                     </Badge>
                                 )
                             }<br/><p>Recent Trips</p></b></Nav.Link></LinkContainer>
-                            <LinkContainer to="/about"><Nav.Link ><b><TbInfoHexagon className='navbar-icons'/><br/><p>About Us</p></b></Nav.Link></LinkContainer>
+                            {userInfo.isAdmin===false &&(<LinkContainer to="/about"><Nav.Link ><b><TbInfoHexagon className='navbar-icons'/><br/><p>About Us</p></b></Nav.Link></LinkContainer>)}
                             {userInfo?(
                                 <b style={{textAlign:"center"}}><LuUserCheck className='navbar-icons' style={{marginTop:"13px"}}/>
                                 <NavDropdown title={userInfo.name} id='username'>
@@ -82,6 +86,21 @@ const Header = () => {
                                 </b>
                             ):(
                                 <LinkContainer to="/login"><Nav.Link href="/user" ><b><RiAccountPinBoxLine className='navbar-icons'/><br/><p>Sign In</p></b></Nav.Link></LinkContainer>
+                            )}
+                            {userInfo && userInfo.isAdmin &&(
+                                <b style={{textAlign:"center"}} id='admin-func'><MdOutlineAdminPanelSettings className='navbar-icons' id='admin-icon' style={{}}/>
+                                <NavDropdown title='Admin' id='adminmenu'>
+                                    <LinkContainer to='/admin/triplist'>
+                                        <NavDropdown.Item>Travel Log<LuListChecks id='drop-icons'/></NavDropdown.Item> 
+                                    </LinkContainer>
+                                    <LinkContainer to='/admin/userlist'>
+                                        <NavDropdown.Item>EFlo Users<FaUsersLine id='drop-icons'/></NavDropdown.Item> 
+                                    </LinkContainer>
+                                    <LinkContainer to='/admin/transportlist'>
+                                        <NavDropdown.Item>Transports<PiCarSimpleBold id='drop-icons'/></NavDropdown.Item> 
+                                    </LinkContainer>
+                                </NavDropdown>
+                                </b>
                             )}
                         </Nav>
                     </Navbar.Collapse>
