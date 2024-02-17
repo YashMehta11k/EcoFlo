@@ -3,7 +3,7 @@ import {Table,Button} from 'react-bootstrap';
 import {FaTimes} from 'react-icons/fa';
 import Message from '../components/Message';
 import Loader from  '../components/Loader';
-import { useGetTravelLogListQuery } from '../slices/travelLogApiSlice';
+import { useGetTravelLogListQuery} from '../slices/travelLogApiSlice';
 import {Link} from 'react-router-dom';
 
 const TripListScreen = () => {

@@ -1,13 +1,18 @@
 import {Link,useParams} from 'react-router-dom';
-import {Row,Col,ListGroup,Card} from 'react-bootstrap';
+import { useState } from 'react';
+import {Row,Col,ListGroup,Card,Button} from 'react-bootstrap';
 import Message from '../components/Message';
 import  Loader from '../components/Loader';
-import { useGetTravelLogDetailsQuery } from '../slices/travelLogApiSlice';
+import { useGetTravelLogDetailsQuery,useVerifyTripMutation} from '../slices/travelLogApiSlice';
+import { useSelector } from 'react-redux';
+import {toast} from 'react-toastify';
 
 const TripScreen = () => {
     const {id:tripId} = useParams();
     
     const {data:trip,refetch,isLoading, error} = useGetTravelLogDetailsQuery(tripId);
+    const {userInfo}=useSelector((state)=>state.auth);
+    const [verifyTrip]=useVerifyTripMutation();
 
     const calculateTimeDifference = (startTime, endTime) => {
         const difference = new Date(endTime) - new Date(startTime);
@@ -15,11 +20,56 @@ const TripScreen = () => {
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         return `${hours} hours ${minutes} minutes`;
     };
+    const [approvalStatus, setApprovalStatus] = useState('');
+    const [adminReview, setAdminReview] = useState('');
+    var co2saved = (200 - trip?.CARBON_INDEX_PER_KM) * trip?.tripDistance;
+
+    const verifySubmitHandler = async () => {
+        try{
+            await verifyTrip({ tripId, details:{approveStatus:approvalStatus,adminReview:adminReview,userid:trip.user._id,points:trip.REWARD_POINTS,co2saved:co2saved} });
+            refetch();
+            toast.success('Trip Verified Succesfully');
+        }catch(error){
+            toast.error(error.message);
+        }
+    };
 
     return isLoading?<Loader/>:error?<Message variant='danger'/>
     :(
         <>
             <h1 className="screen-head">Trip: {trip._id}</h1>
+            {userInfo && userInfo.isAdmin &&(
+                <>
+                    <Row style={{backgroundColor:'lavender',borderRadius:"1.5rem",margin:"4rem",padding:"2rem",paddingBottom:"0"}}>
+                    <Col id='trip-details'>
+                        <Row md={3} style={{ color: "teal",fontSize:"1.95rem",fontWeight:"600",marginBottom:"3.5rem"}} className='trip-detail-heading'>Approval Status</Row>
+                        <Row md={8}>
+                            <div style={{marginTop:"-2.5rem"}}>
+                                <strong><input type="radio" id="approved" name="approvalStatus" value="Approved" onChange={(e) => setApprovalStatus(e.target.value)}/></strong>
+                                <strong><label htmlFor="approved" style={{ marginRight: '1rem',fontSize:"1.7rem" }}>Approve</label></strong>
+                                <strong><input type="radio" id="rejected" name="approvalStatus" value="Rejected" onChange={(e) => setApprovalStatus(e.target.value)} /></strong>
+                                <strong><label htmlFor="rejected" style={{ marginRight: '1rem',fontSize:"1.7rem" }}>Reject</label></strong>
+                            </div>
+                        </Row>
+                    </Col>
+                    <Col id='trip-details'>
+                        <Row md={3} style={{ color: "teal",fontSize:"1.95rem",fontWeight:"600" }} className='trip-detail-heading'>Admin Review</Row>
+                        <strong><Row md={8}>
+                            <textarea
+                                rows="3"
+                                cols="60"
+                                value={adminReview}
+                                onChange={(e) => setAdminReview(e.target.value)}
+                                style={{fontFamily:"Kanit"}}
+                            ></textarea>
+                        </Row></strong>
+                    </Col>
+                    <Row>
+                     <Button onClick={verifySubmitHandler} disabled={!approvalStatus} id='book-transport' style={{width:"20%",fontSize:"2.7rem",position:"absolute",top:"50%",left:"19%"}}>Verify Trip</Button>
+                    </Row>
+                </Row>
+                </>
+            )}
             <Row>
                 <Col md={5} id='trip-details'>
                     <ListGroup variant='flush'>
@@ -121,7 +171,7 @@ const TripScreen = () => {
                                     <Col md={8}>{trip.verifyStatus==='Verified'?(
                                         <Message variant='success'>The admins have verified the trip details and uploaded proofs.</Message>
                                     ):(
-                                        <Message>Verification of trip details and proof is being processed by the admin team. Please check the approvals after sometime</Message>
+                                        <Message variant='danger'>Verification of trip details and proof is being processed by the admin team. Please check the approvals after sometime</Message>
                                     )}</Col>
                                 </Row>
                             </ListGroup.Item>
@@ -130,7 +180,7 @@ const TripScreen = () => {
                                     <Col md={3} style={{color:"black"}} >Rewards Approval</Col>
                                     <Col md={8}>{trip.approveStatus==='pending'?(
                                         <Message>Trip is in a verification Stage</Message>
-                                    ):trip.approveStatus==='rejected'? (
+                                    ):trip.approveStatus==='Rejected'? (
                                         <Message variant='danger'>Travel Proof Rejected. No points given , please try better next time.</Message>
                                     ):(
                                         <Message variant='success'>Travel Proof Accepted. Points given , keep going and earn big rewards</Message>

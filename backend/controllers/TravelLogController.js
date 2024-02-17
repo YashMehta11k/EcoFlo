@@ -1,6 +1,7 @@
 import moment from 'moment-timezone';
 import asyncHandler from '../middleware/asyncHandler.js';
 import TravelLog from '../models/travelLogModel.js';
+import User from '../models/userModel.js';
 moment.tz.setDefault("Asia/Kolkata");
 
 //@desc Create new Travel Log
@@ -76,7 +77,7 @@ const getMyTravelLog=asyncHandler(async (req,res) => {
 const getTravelLogById=asyncHandler(async (req,res) => {
     const trip=await TravelLog.findById(req.params.id).populate('user','name email');
     if(trip){
-        res.status(200).json(trip);
+        res.json(trip);
     }else{
         res.status(404);
         throw new Error('Trip not found');
@@ -113,14 +114,39 @@ const updateTripToProofUploaded=asyncHandler(async (req,res) => {
 //@route PUT/api/travelLog/:id/verify
 //@access Private/Admin
 const updateTripToVerified=asyncHandler(async (req,res) => {
+    try {
+        const trip = await TravelLog.findById(req.params.id);
+        const { approveStatus, points, co2saved, adminReview, userid } = req.body;
 
-})
+        if (!trip) {
+            res.status(404);
+            console.log('trip not found')
+            throw new Error('Trip not found');
+        }
 
-//@desc Update trip to Verified
-//@route PUT/api/travelLog/:id/verify
-//@access Private/Admin
-const updateTripToApproved=asyncHandler(async (req,res) => {
-    res.send('Update trips to Approved');
+        const user = await User.findById(userid);
+        if (!user) {
+            res.status(404);
+            console.log('user not found')
+            throw new Error('User not found');
+        }
+
+        trip.verifyStatus = "Verified";
+        trip.approveStatus = approveStatus;
+        trip.adminProofReview = adminReview;
+
+        user.points += points;
+        user.co2saved += co2saved;
+
+        // Save both trip and user
+        const updatedTrip = await trip.save();
+        await user.save();
+
+        res.status(200).json({ updatedTrip});
+    } catch (error) {
+        console.error('Error updating trip:', error.message);
+        res.status(500).json({ message: 'Server Error' });
+    }
 })
 
 //@desc Get all trips
@@ -139,7 +165,6 @@ export{
     getTravelLogById,
     updateTripToProofUploaded,
     updateTripToVerified,
-    updateTripToApproved,
     getTravelLog,
     getMyTravelLog
 };
