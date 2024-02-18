@@ -131,7 +131,7 @@ const ProfileScreen = () => {
                                     <FaTimes style={{color:"red",fontSize:"1.25rem"}}/>
                                 )}</td>
                                 <td>{trip.verifyStatus==='Verified'?(
-                                    <p style={{color:"lightgreen",fontFamily:"Unica One",fontSize:"1.5rem",fontWeight:"600"}}>Verified</p>
+                                    <p style={{color:"turquoise",fontFamily:"Unica One",fontSize:"1.5rem",fontWeight:"600"}}>Verified</p>
                                 ):(
                                     <FaTimes style={{color:"red",fontSize:"1.25rem"}}/>
                                 )}</td>
@@ -140,7 +140,7 @@ const ProfileScreen = () => {
                                 ):trip.approveStatus==='rejected'?(
                                     <p style={{color:"red",fontFamily:"Unica One",fontSize:"1.5rem",fontWeight:"600"}}>Rejected</p>
                                 ):(
-                                    <p style={{color:"yellow",fontFamily:"Unica One",fontSize:"1.5rem",fontWeight:"600"}}>Accepted</p>
+                                    <p style={{color:"lightgreen",fontFamily:"Unica One",fontSize:"1.5rem",fontWeight:"600"}}>Accepted</p>
                                 )}</td>
                                 <td><LinkContainer to={`/travelLog/${trip._id}`}>
                                     <Button variant="light" id="more-details">More..</Button>

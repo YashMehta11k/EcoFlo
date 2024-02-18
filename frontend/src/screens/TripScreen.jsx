@@ -23,10 +23,14 @@ const TripScreen = () => {
     const [approvalStatus, setApprovalStatus] = useState('');
     const [adminReview, setAdminReview] = useState('');
     var co2saved = (200 - trip?.CARBON_INDEX_PER_KM) * trip?.tripDistance;
+    let points=0;
 
     const verifySubmitHandler = async () => {
+        if (approvalStatus === 'Approved') {
+            points = trip.REWARD_POINTS; // Set points to trip.REWARD_POINTS if approved
+        }
         try{
-            await verifyTrip({ tripId, details:{approveStatus:approvalStatus,adminReview:adminReview,userid:trip.user._id,points:trip.REWARD_POINTS,co2saved:co2saved} });
+            await verifyTrip({ tripId, details:{approveStatus:approvalStatus,adminReview:adminReview,userid:trip.user._id,points:points,co2saved:co2saved} });
             refetch();
             toast.success('Trip Verified Succesfully');
         }catch(error){
@@ -187,7 +191,7 @@ const TripScreen = () => {
                                     )}</Col>
                                 </Row>
                             </ListGroup.Item>
-                            {trip.adminProofreview!==''?(
+                            {trip.adminProofreview===''?(
                                 <></>
                             ):(
                                 <ListGroup.Item>
