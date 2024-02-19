@@ -3,7 +3,7 @@ import {Table,Button,Row,Col} from 'react-bootstrap';
 import {FaEdit,FaTrash} from 'react-icons/fa';
 import Message from '../components/Message';
 import Loader from  '../components/Loader';
-import { useGetTransportsQuery,useAddTransportMutation} from '../slices/transportsApiSlice';
+import { useGetTransportsQuery,useAddTransportMutation,useDeleteTransportMutation} from '../slices/transportsApiSlice';
 import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
 
@@ -20,8 +20,18 @@ const TransportListScreen = () => {
             }
         }    
     }
-    const deleteHandler=(id)=>{
 
+    const [deleteTransport,{isLoading:loadingDel}]=useDeleteTransportMutation();
+    const deleteHandler=async(id)=>{
+        if(window.confirm('Are you sure to delete this transport?')){
+            try{
+                await deleteTransport(id);
+                refetch();
+                toast.success( "Transport Deleted Successfully");
+            }catch(error){
+                toast.error(error?.message || "Error deleting the transport")
+            }
+        }
     }
     return (
         <>
@@ -34,6 +44,7 @@ const TransportListScreen = () => {
                 </Col>
             </Row>
             {loadingAdd && <Loader/>}
+            {loadingDel && <Loader/>}
             {isLoading?<Loader/>:error?<Message variant='danger'>{error.message}</Message>:(
                 <>
                 <Table hover responsive className="user-trips" variant='light' style={{fontSize:"0.75"}}>

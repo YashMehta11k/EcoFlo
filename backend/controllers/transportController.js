@@ -85,4 +85,25 @@ const updateTransport=asyncHandler(async(req,res)=>{
     }
 });
 
-export {getTransport,getTransportById,updateTransport,addTransport};
+//@desc delete a transport
+//@route DELETE/api/transport/:id
+//@access Private/Admin
+const deleteTransport=asyncHandler(async(req,res)=>{
+
+    try{
+        const transport=await Transport.findById(req.params.id);
+        if(transport){
+            await Transport.deleteOne({_id:transport._id});
+            res.status(200).json({Message:"Deleted Successfully"})
+            
+        }else{
+            res.status(404);
+            throw new Error('Transport not found');
+        }
+    }catch(error){
+        res.status(404);
+        console.log(error.message);
+    }
+});
+
+export {getTransport,deleteTransport,getTransportById,updateTransport,addTransport};
