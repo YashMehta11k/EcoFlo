@@ -24,7 +24,6 @@ const reviewSchema=mongoose.Schema({
 const transportSchema=new mongoose.Schema({
     user:{
         type:mongoose.Schema.Types.ObjectId,
-        required:true,
         ref:"User",
     },
     APPS:{

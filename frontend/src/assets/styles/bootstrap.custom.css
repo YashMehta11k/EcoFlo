@@ -414,6 +414,24 @@ body {
   color: #55d0ae;
 }
 
+#edit-transport{
+  background-color: black;
+  font-family: 'Handjet';
+  color: white;
+  font-size: 2rem;
+  border-radius: 1rem;
+  width: 50%;
+  margin: 1rem;
+}
+
+#edit-transport:hover{
+  background-color: white;
+  color: rgb(114, 114, 255);
+  transition: 0.275s ease-out;
+  border: 3px solid black;
+  box-shadow: 4px 4px 0px teal;
+}
+
 #trip-details{
   font-family: "Teko";
   font-size: 1.575rem;

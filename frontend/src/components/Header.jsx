@@ -28,7 +28,6 @@ const Header = () => {
     const navigate=useNavigate();
     const[points,setPoints]=useState(0);
 
-    
     useEffect(() => {
         if (userInfo) {
             const interval = setInterval(() => {

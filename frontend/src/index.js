@@ -26,6 +26,8 @@ import TripScreen from './screens/TripScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import AdminRoute from './screens/AdminRoute';
 import TripListScreen from './screens/TripListScreen';
+import TransportListScreen from './screens/TransportListScreen';
+import TransportEditScreen from './screens/TransportEditScreen';
 
 const router=createBrowserRouter(
     createRoutesFromElements(
@@ -46,6 +48,9 @@ const router=createBrowserRouter(
 
         <Route path='' element={<AdminRoute/>}>
           <Route path='/admin/triplist' element={<TripListScreen/>}/>
+          <Route path='/admin/transportlist' element={<TransportListScreen/>}/>
+          <Route path='/admin/transport' element={<TransportListScreen/>}/>
+          <Route path='/admin/transport/:id/edit' element={<TransportEditScreen/>}/>
         </Route>
       </Route>
     )
