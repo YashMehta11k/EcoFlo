@@ -4,10 +4,12 @@ import Transport from '../components/Transport';
 import { useGetTransportsQuery } from '../slices/transportsApiSlice';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import { useParams } from 'react-router-dom';
+import SearchBox from '../components/SearchBox';
 
 const HomeScreen = () => {
-  
-  const{data:transports,isLoading,error}=useGetTransportsQuery();
+  const {keyword}=useParams();
+  const{data:transports,isLoading,error}=useGetTransportsQuery({keyword});
   const [showContent,setShowContent]=useState(false);
 
   useEffect(()=>{
@@ -26,7 +28,8 @@ const HomeScreen = () => {
         <Message variant='danger'>{error.data?.message || error.error}</Message>
       ):(
         <>
-          <h1 className="screen-head">Sustainable transports on your way</h1>
+          <h1 className="screen-head" style={{width:"40%",marginLeft:"3rem"}}>Sustainable transports on your way</h1>
+          <SearchBox/>
           <Row>
             {transports.map((transport) => (
               <Col key={transport._id} sm={5} md={5} lg={5} xl={5}>

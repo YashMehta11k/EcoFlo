@@ -2,24 +2,25 @@ import { useParams,useNavigate} from "react-router-dom";
 import {useState,useEffect} from "react";
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Row,Col,Image,ListGroup,Card,Button, ListGroupItem} from 'react-bootstrap';
+import {Row,Col,Image,ListGroup,Card,Button, ListGroupItem,Form} from 'react-bootstrap';
 import { useDispatch ,useSelector} from "react-redux";
 //import axios from 'axios';
 import Rating from '../components/Rating';
 import { TbArrowBadgeLeft } from "react-icons/tb";
-import { useGetTransportDetailsQuery } from "../slices/transportsApiSlice";
+import { useGetTransportDetailsQuery,useCreateReviewMutation} from "../slices/transportsApiSlice";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { addtoRecentTrip } from "../slices/recentTripSlice";
 import TripSteps from "../components/TripSteps";
-
+import {toast} from 'react-toastify';
 
 const TransportScreen = () => {
 
   const [confirmationMade, setConfirmationMade] = useState(false);
   const [showContent,setShowContent]=useState(false);
-  const{userInfo}=useSelector((state)=>state.auth); 
-  
+  const [rating,setRating]=useState(0);
+  const [comment,setComment]=useState('');
+  const{userInfo}=useSelector((state)=>state.auth);   
   const distance=4;
 
     useEffect(()=>{
@@ -43,12 +44,31 @@ const TransportScreen = () => {
     setConfirmationMade(true);
   };
   
-  const {data:transport,isLoading,error}=useGetTransportDetailsQuery(transportId);
+  const {data:transport,isLoading,refetch,error}=useGetTransportDetailsQuery(transportId);
+
+  const [createReview,{isLoading:isReviewLoading}]=useCreateReviewMutation();
 
   const addtoRecentTripHandler=()=>{
     dispatch(addtoRecentTrip({...transport,distance,user: userInfo._id}));
     navigate("/trips");
   };
+
+  const submitReviewHandler=async(e)=>{
+    e.preventDefault();
+    try {
+      await createReview({
+        transportId,
+        rating,
+        comment
+      }).unwrap();
+      refetch();
+      toast.success("Review Submitted");
+      setRating(0);
+      setComment('');
+    } catch (error) {
+      toast.error(error?.data?.message);
+    }
+  }
   
   return(
   <>
@@ -60,6 +80,7 @@ const TransportScreen = () => {
     ):error?(
       <Message variant='danger'>{error?.data?.message || error.error}</Message>
     ):(
+      <>
       <Row id="Transport-desc">
         <Col md={5}>
             <Image src={transport.IMAGES} alt={transport.APPS} fluid />  
@@ -136,6 +157,55 @@ const TransportScreen = () => {
         </Col>
 
     </Row>
+    <Row className="review">
+      <Col md={6} style={{marginTop:"5rem"}}>
+        <h2 className="screen-head" style={{background:"white",border:"none",width:"100%"}}>Reviews</h2>
+        {transport.REVIEWS.length===0 &&(<Message style={{padding:"2rem",fontSize:"2.5rem"}}>No Reviews</Message>)}
+        <ListGroup variant="flush">
+          {transport.REVIEWS.map(review=>(
+            <ListGroup.Item key={review._id}>
+              <strong style={{fontFamily:"Unica One",color:"blue",fontSize:"1.5rem",marginBottom:"0.5rem"}}>{review.APPS}</strong>
+              <Rating value={review.RATINGS}/>
+              <p style={{fontFamily:"Bebas Neue",color:"black"}}>{review.createdAt.substring(0,10)}</p>
+              <p>{review.COMMENTS}</p> 
+            </ListGroup.Item>
+          ))} 
+        </ListGroup>
+      </Col>    
+      <Col md={6} style={{marginTop:"5rem"}}>
+        <ListGroup variant="flush">
+          <ListGroup.Item>
+            <h2 className="screen-head" style={{background:"white",border:"none",marginTop:"2rem"}}>Write a Travellor Review</h2>
+            {isReviewLoading && <Loader/>}
+            {userInfo ?(
+              <Form onSubmit={submitReviewHandler}>
+                <Form.Group controlId="rating" className="my-2">
+                        <Form.Label style={{fontFamily:"Bebas Neue",fontSize:"1.35rem",color:"#6262ff",margin:"0 0 -1rem 1rem"}}>Rating</Form.Label>
+                        <Form.Control as='select' value={rating} onChange={(e)=>setRating(Number(e.target.value))} style={{fontFamily:"Kanit",backgroundColor:"#40e0ca6e",boxShadow:"#21a687 5px 5px 0px",border:0,borderRadius:"0.5rem",margin:"0.15rem 0",height:"4.4rem",marginBottom:"1rem"}}>
+                          <option value=''>Select...</option>
+                          <option value='1'>1-Poor</option>
+                          <option value='2'>2-Fair</option>
+                          <option value='3'>3-Good</option>
+                          <option value='4'>4-Very Good</option>
+                          <option value='5'>5-Excellent</option>
+                        </Form.Control>
+                    </Form.Group>
+                
+                
+                    <Form.Group controlId="comment" className="my-2">
+                        <Form.Label style={{fontFamily:"Bebas Neue",fontSize:"1.35rem",color:"#6262ff",margin:"0 0 -1rem 1rem"}}>Comment</Form.Label>
+                        <Form.Control as='textarea' row='3' value={comment} onChange={(e)=>setComment(e.target.value)} style={{fontFamily:"Kanit",backgroundColor:"#40e0ca6e",boxShadow:"#21a687 5px 5px 0px",border:0,borderRadius:"0.5rem",margin:"0.15rem 0",height:"4.4rem",marginBottom:"1rem"}}></Form.Control>
+                    </Form.Group>
+                
+                <Button type="submit" variant="primary" className="my2" id="confirm-transport" style={{marginLeft:"3.5rem"}}>SUBMIT REVIEW</Button>
+              </Form>
+            ):(<Message>Please <Link to='/login'>Sign In</Link> to write a review</Message>)}
+          </ListGroup.Item>
+        </ListGroup>
+      </Col>
+
+    </Row>
+    </>
     )}
   </>)
       

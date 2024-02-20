@@ -5,7 +5,8 @@ import Transport from "../models/transportModels.js";
 //@route GET/api/transport
 //@access Public
 const getTransport=asyncHandler(async(req,res)=>{
-    const transports=await Transport.find({});
+    const keyword=req.query.keyword?{APPS:{$regex:req.query.keyword,$options:'i'}}:{};
+    const transports=await Transport.find({...keyword});
     res.json(transports);
 });
 
@@ -106,4 +107,34 @@ const deleteTransport=asyncHandler(async(req,res)=>{
     }
 });
 
-export {getTransport,deleteTransport,getTransportById,updateTransport,addTransport};
+//@desc create a review
+//@route POST/api/transport/:id/reviews
+//@access Private
+const createTransportReview=asyncHandler(async(req,res)=>{
+    const {rating,comment}=req.body;
+    try{
+        const transport=await Transport.findById(req.params.id);
+        const alreadyReviewed=transport.REVIEWS.find((review)=>review.user.toString===req.user._id.toString());
+        if(alreadyReviewed){
+            res.status(400);
+            throw new Error('Transport already reviewed');
+        }
+        const review={
+            APPS:req.user.name,
+            RATINGS:Number(rating),
+            COMMENTS:comment,
+            user:req.user._id
+        };
+        transport.REVIEWS.push(review);
+        transport.NUM_REVIEWS=transport.REVIEWS.length+transport.NUM_REVIEWS;
+        transport.RATINGS=transport.REVIEWS.reduce((acc,review)=>acc+review.RATINGS,0)/transport.REVIEWS.length;
+
+        await transport.save();
+        res.status(201).json({message:'Review Added'});
+    }catch(error){
+        res.status(404);
+        console.log(error.message);
+    }
+});
+
+export {getTransport,deleteTransport,getTransportById,updateTransport,addTransport,createTransportReview};

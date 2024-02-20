@@ -29,16 +29,19 @@ import TripListScreen from './screens/TripListScreen';
 import TransportListScreen from './screens/TransportListScreen';
 import TransportEditScreen from './screens/TransportEditScreen';
 import UserListScreen from './screens/UserListScreen';
+import AboutScreen from './screens/AboutScreen';
 
 const router=createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<App />}>
         <Route index={true} path="/" element={<HomeScreen/>}/>
+        <Route path='/search/:keyword' element={<HomeScreen/>}/>
         <Route path='/transport/:id' element={<TransportScreen/>}/>
         <Route path='/trips' element={<RecentTripsScreen/>}/>
         <Route path='/cities' element={<ChooseCityScreen/>}/>
         <Route path='/login' element={<LoginScreen/>}/>
         <Route path='/register' element={<RegisterScreen/>}/>
+        <Route path='/about' element={<AboutScreen/>}/>
 
         <Route path='' element={<PrivateRoute/>}>
           <Route path='/confirm-trip/:tripId' element={<ConfirmTripScreen/>}/>
