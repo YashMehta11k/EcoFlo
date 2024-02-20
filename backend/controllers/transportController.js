@@ -5,9 +5,30 @@ import Transport from "../models/transportModels.js";
 //@route GET/api/transport
 //@access Public
 const getTransport=asyncHandler(async(req,res)=>{
-    const keyword=req.query.keyword?{APPS:{$regex:req.query.keyword,$options:'i'}}:{};
-    const transports=await Transport.find({...keyword});
-    res.json(transports);
+    try {
+        let filters = {};
+        if (req.query.keyword) {
+          filters = { APPS: { $regex: req.query.keyword, $options: 'i' } };
+        }
+        if (req.query.weatherCompatible === 'true') {
+          filters.WEATHER = true;
+        }
+        let transports = await Transport.find(filters);
+    
+        if (req.query.sortBy === 'cost') {
+          transports.sort((a, b) => a.COST_PER_KM - b.COST_PER_KM);
+        } else if (req.query.sortBy === 'emission') {
+          transports.sort((a, b) => a.CARBON_INDEX_PER_KM - b.CARBON_INDEX_PER_KM);
+        } else if (req.query.sortBy === 'points') {
+          transports.sort((a, b) => b.POINTS_REWARDS - a.POINTS_REWARDS);
+        } else if (req.query.sortBy === 'points') {
+            transports.sort((a, b) => b.AVG_SPEED - a.AVG_SPEED);
+        }
+    
+        res.json(transports);
+      } catch (error) {
+        res.status(500).json({ message: 'Server Error' });
+      }
 });
 
 const getTransportById=asyncHandler(async(req,res)=>{

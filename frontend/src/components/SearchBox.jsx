@@ -18,9 +18,9 @@ const SearchBox = () => {
     }
 
     return (
-        <Form onSubmit={submitHandler} style={{display:"flex",flexDirection:"row",position:"absolute",top:"16%",width:"33%",left:"65%"}}>
-            <Form.Control type="text" name='q' value={keyword} onChange={(e)=>setKeyword(e.target.value)} placeholder="Search Transports..." style={{width:"85%",background:"black",color:"lavender",fontFamily:"Kanit",marginRight:"0.25rem"}}></Form.Control>
-            <Button type="submit" variant="outline-success"><TbListSearch style={{fontSize:"1.5rem"}}/></Button> 
+        <Form onSubmit={submitHandler} style={{display:"flex",flexDirection:"column",position:"fixed",top:"13%",width:"24.5%",left:"73%",}}>
+            <Form.Control type="text" name='q' value={keyword} onChange={(e)=>setKeyword(e.target.value)} placeholder="Search Transports..." style={{width:"100%",background:"black",color:"lavender",fontFamily:"Kanit",marginRight:"0.4rem",height:"6rem",borderRadius:"0.5rem",marginBottom:"0.5rem"}}></Form.Control>
+            <Button type="submit" variant="outline-success" style={{background:"lavender",height:"3rem"}}><TbListSearch style={{fontSize:"1.75rem"}}/></Button> 
         </Form>
     )
 }

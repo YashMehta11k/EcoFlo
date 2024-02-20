@@ -408,6 +408,17 @@ body {
   box-shadow: 0px 0px 36px teal;
 }
 
+.filter-box{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: fixed;
+  top: 36%;
+  left: 72%;
+  font-family: "Righteous";
+  font-size: 1.25rem;
+}
+
 
 .trip-detail-heading{
   font-family: "Monoton";
@@ -538,9 +549,9 @@ body {
 }
 
 .card-title h1{
-  font-size: 45px;
+  font-size: 40px;
   text-align: center;
-  width: 40%;
+  width: 9rem;
   margin: 1%;
     margin-right: 1%;
     margin-left: 1%;
@@ -565,17 +576,17 @@ body {
 #confirm-button{
   position: absolute;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   color: white;
   background: black;
   width: 26%;
-  height: 14%;
+  height: 17%;
   border-radius: 17px;
-  top: 40%;
-  right: 9.5%;
+  top: 10.5rem;
+  right: 8%;
   line-height: 125%;
   font-family: 'Handjet';
-  padding-top: 0.5rem;
+  padding-top: 0.75rem;
 }
 
 
@@ -906,15 +917,23 @@ body {
   line-height: 2.25rem;
 }
 
+.filter-option{
+  background: greenyellow;
+  padding: 1rem;
+  border-radius: 0.65rem;
+  width: 25%;
+  margin-bottom: 1rem;
+}
+
 .card-body h2{
-    font-size: 27px;
+  font-size: 24px;
   color: #6fffff;
   background: #1c3f91f5;
   width: 55%;
-  height: 12%;
-  border-radius: 1rem;
+  height: 9%;
+  border-radius: 0.5rem;
   text-align: center;
-  line-height: 3rem;
+  line-height: 2rem;
   margin-left: 2%;
   margin-bottom: 5%;
   margin-top: -15%;
@@ -2492,7 +2511,7 @@ progress {
     width: 46%;
     margin-bottom: 3%;
     margin-left: -2%;
-    margin-right: -5%;
+    margin-right: -6%;
   }
   .col-xl-6 {
     flex: 0 0 auto;
@@ -5393,7 +5412,7 @@ fieldset:disabled .btn {
   background-clip: border-box;
   border: none;
   box-shadow: 0px 2px 35px;
-  width: 82%;
+  width: 78.5%;
   margin: 4% 0 0 0;
   border-radius: 50px;
   height: 93%;
