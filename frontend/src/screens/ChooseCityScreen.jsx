@@ -5,6 +5,7 @@ import city1Image from '../assets/Bengaluru.jpg'; // Adjust the path based on yo
 import city2Image from '../assets/Dehli.avif';
 import city3Image from '../assets/Hamburg.jpeg';
 import city4Image from '../assets/Frankfurt.jpg';
+//import defImg from '../assets/def_city.png'
 
 const cities = [
   { name: 'Bengaluru', imageUrl: city1Image },
@@ -24,8 +25,9 @@ const ChooseCityScreen = () => {
   
     return (
       <div style={{ height: '90vh'}}>
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: selectedCity ? `url(${selectedCity.imageUrl})` : 'black', backgroundSize: 'cover'}}>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '97%',fontFamily:'Luckiest Guy',fontWeight:700,fontSize:"2rem",marginTop:"4.5rem"}}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: selectedCity ? `url(${selectedCity.imageUrl})`:"black", backgroundSize: '80%',marginLeft:"0.5rem",backgroundRepeat:"no-repeat",backgroundPositionX:"103%",backgroundPositionY:"118%"}}>
+          <h1 id='choose-city-head'>{selectedCity?' ': "Choose Your City" }</h1>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90%',fontFamily:'Barriecito',position:"absolute",fontWeight:900,fontSize:"2rem",flexDirection:"column",top:"9%"}}>
             {cities.map((city, index) => (
               <button className='city-buttons'
                 key={index}
@@ -36,13 +38,13 @@ const ChooseCityScreen = () => {
                   width: '300px',
                   height: '250px',
                   marginRight: '15px',
-                  opacity: selectedCity === city ? 0.25 : 0.75,
+                  opacity: selectedCity === city ? 0.5 : 1,
                   border: 'none',
                   borderRadius:"0.4rem",
                   color:'black',
                   outline: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0px 2px 25px 15px rgba(0, 0, 0, 1)',
+                  boxShadow: 'rgb(255, 255, 255) -2px -2px 0px 7.5px',
                   textShadow: '2px 2px 6px white'
                 }}
               >

@@ -1,4 +1,4 @@
-import { Row, Col, Form } from 'react-bootstrap';
+import { Row, Col, Form, Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import Transport from '../components/Transport';
 import { useGetTransportsQuery } from '../slices/transportsApiSlice';
@@ -12,10 +12,12 @@ const HomeScreen = () => {
   const { data: transports, isLoading, error } = useGetTransportsQuery({ keyword });
   const [showContent, setShowContent] = useState(false);
   const [weatherCompatible, setWeatherCompatible] = useState(false);
-  const [singleTravellor,setSingleTraveller]=useState(false);
-  const [family,setFamily]=useState(false);
-  const [electric,setElectric]=useState(false);
+  const [singleTravellor, setSingleTraveller] = useState(false);
+  const [family, setFamily] = useState(false);
+  const [electric, setElectric] = useState(false);
   const [sortBy, setSortBy] = useState('');
+  const [origin, setOrigin] = useState('');
+  const [destination, setDestination] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -29,16 +31,23 @@ const HomeScreen = () => {
     setSortBy(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Perform actions with origin and destination inputs
+    console.log('Origin:', origin);
+    console.log('Destination:', destination);
+  };
+
   const filteredTransports = transports?.filter((transport) => {
     if (weatherCompatible && !transport.WEATHER) {
       return false;
-    }else if(singleTravellor && transport.NUMBER_OF_SEATS >2){
+    } else if (singleTravellor && transport.NUMBER_OF_SEATS > 2) {
       return false;
-    }else if(family && transport.NUMBER_OF_SEATS <=2 ){
+    } else if (family && transport.NUMBER_OF_SEATS <= 2) {
       return false;
-    }else if(electric && !transport.GREEN_POWER) {
+    } else if (electric && !transport.GREEN_POWER) {
       return false;
-    }  
+    }
     return true;
   });
 
@@ -62,8 +71,39 @@ const HomeScreen = () => {
         <Message variant='danger'>{error.data?.message || error.error}</Message>
       ) : (
         <>
-          <h1 className="screen-head" style={{ width: "50%", marginLeft: "9rem" ,fontSize:"2.35rem"}}>Sustainable transports on your way</h1>
+          <h1 className="screen-head" style={{ width: "50%", marginLeft: "9rem", fontSize: "2.35rem" }}>Sustainable transports on your way</h1>
           <SearchBox />
+          <Form onSubmit={handleSubmit}>
+            <Row style={{display:"flex",flexDirection:"row",justifyContent:"flex-start",marginTop:"-1rem",marginBottom:"1.5rem"}}>
+              <Col>
+                <Form.Group controlId='origin'>
+                  <Form.Label style={{fontFamily:"Bebas Neue",color:"teal",fontSize:"1.25rem"}}>Origin</Form.Label>
+                  <Form.Control
+                    type='text'
+                    placeholder='Enter origin'
+                    value={origin}
+                    onChange={(e) => setOrigin(e.target.value)}
+                    style={{width:"75%",fontFamily:"Kanit"}}
+                  />
+                </Form.Group>
+              </Col>
+              <Col style={{marginLeft:"-6rem"}}>
+                <Form.Group controlId='destination'>
+                  <Form.Label style={{fontFamily:"Bebas Neue",color:"teal",fontSize:"1.25rem"}}>Destination</Form.Label>
+                  <Form.Control
+                    type='text'
+                    placeholder='Enter destination'
+                    value={destination}
+                    onChange={(e) => setDestination(e.target.value)}
+                    style={{width:"75%",fontFamily:"Kanit"}}
+                  />
+                </Form.Group>
+              </Col>
+              <Col>
+                <Button type='submit' id='add-loc'>Add Location</Button>
+              </Col>
+            </Row>
+          </Form>
           <Row>
             {filteredTransports.map((transport) => (
               <Col key={transport._id} sm={5} md={5} lg={5} xl={5}>
@@ -71,9 +111,9 @@ const HomeScreen = () => {
               </Col>
             ))}
             <Col className='filter-box'>
-              <h2 style={{fontFamily:"Monoton",color:"blue"}}>Filters</h2>
+              <h2 style={{ fontFamily: "Monoton", color: "blue" }}>Filters</h2>
               <Form.Group className='filter-option'>
-                <Form.Label><strong style={{color:"black"}}>Sort By:</strong></Form.Label>
+                <Form.Label><strong style={{ color: "black" }}>Sort By:</strong></Form.Label>
                 <Form.Control as="select" value={sortBy} onChange={handleSortChange} >
                   <option value="">Select</option>
                   <option value="cost">Cheapest</option>
@@ -119,7 +159,6 @@ const HomeScreen = () => {
           </Row>
         </>
       )}
-
     </>
   );
 };

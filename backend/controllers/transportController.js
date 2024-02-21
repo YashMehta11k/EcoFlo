@@ -8,7 +8,13 @@ const getTransport=asyncHandler(async(req,res)=>{
     try {
         let filters = {};
         if (req.query.keyword) {
-          filters = { APPS: { $regex: req.query.keyword, $options: 'i' } };
+            const keywordRegex = new RegExp(req.query.keyword, 'i');
+            filters = {
+            $or: [
+                { APPS: keywordRegex }, // Search by name
+                { MODE_OF_TRANSPORT: keywordRegex } // Search by mode of transport
+            ]
+            };
         }
         if (req.query.weatherCompatible === 'true') {
           filters.WEATHER = true;

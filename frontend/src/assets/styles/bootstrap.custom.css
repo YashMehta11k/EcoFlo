@@ -396,6 +396,17 @@ body {
   margin: 1rem;
 }
 
+#choose-city-head{
+  position: absolute;
+  font-family: "Monoton";
+  font-size: 10rem;
+  top: 18%;
+  left: 30%;
+  width: 45%;
+  color: #34795f;
+  text-shadow: 5px 5px 0px #b3b3ff;
+}
+
 #book-transport li{
   font-size: 1.5rem;
 }
@@ -416,6 +427,19 @@ body {
   top: 36%;
   left: 72%;
   font-family: "Righteous";
+  font-size: 1.25rem;
+  z-index: 9;
+}
+
+#add-loc{
+  position: absolute;
+  top: 30%;
+  right: 35%;
+  background: #9090ff;
+  border: 0;
+  height: 3.5rem;
+  font-family: "Bebas Neue";
+  width: 7rem;
   font-size: 1.25rem;
 }
 
