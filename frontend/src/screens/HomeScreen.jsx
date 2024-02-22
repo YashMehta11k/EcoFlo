@@ -6,18 +6,22 @@ import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { useParams } from 'react-router-dom';
 import SearchBox from '../components/SearchBox';
+import { useGoogleMaps } from 'react-hook-google-maps';
+import {toast} from 'react-toastify';
 
 const HomeScreen = () => {
   const { keyword } = useParams();
   const { data: transports, isLoading, error } = useGetTransportsQuery({ keyword });
+  const locData = JSON.parse(localStorage.getItem('locData'));
   const [showContent, setShowContent] = useState(false);
   const [weatherCompatible, setWeatherCompatible] = useState(false);
   const [singleTravellor, setSingleTraveller] = useState(false);
   const [family, setFamily] = useState(false);
   const [electric, setElectric] = useState(false);
   const [sortBy, setSortBy] = useState('');
-  const [origin, setOrigin] = useState('');
-  const [destination, setDestination] = useState('');
+  const [origin, setOrigin] = useState(locData?locData.origin:'');
+  const [destination, setDestination] = useState(locData?locData.destination:'');
+  const [distance, setDistance] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -31,12 +35,42 @@ const HomeScreen = () => {
     setSortBy(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform actions with origin and destination inputs
-    console.log('Origin:', origin);
-    console.log('Destination:', destination);
+  
+    try {
+      const response = await fetch('/api/distance', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ origin, destination })
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to fetch distance.');
+      }
+  
+      const data = await response.json();
+      const distanceText = data.rows[0].elements[0].distance.text;
+      const distance = parseFloat(distanceText.replace(' km', ''));
+  
+      // Update the state or local storage with origin, destination, and distance
+      setOrigin(origin);
+      setDestination(destination);
+      setDistance(distance);
+
+      const existingData=JSON.parse(localStorage.getItem('locData'))||{};
+      const newData={origin,destination,distance};
+      localStorage.setItem('locData',JSON.stringify({...existingData, ...newData}));
+      
+      toast.success("Location entered successfully!");
+    } catch (error) {
+      console.error('Error:', error.message);
+      toast.error("There was an issue entering your location.");
+    }
   };
+  
 
   const filteredTransports = transports?.filter((transport) => {
     if (weatherCompatible && !transport.WEATHER) {

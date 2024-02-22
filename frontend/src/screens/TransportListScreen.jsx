@@ -4,11 +4,13 @@ import {FaEdit,FaTrash} from 'react-icons/fa';
 import Message from '../components/Message';
 import Loader from  '../components/Loader';
 import { useGetTransportsQuery,useAddTransportMutation,useDeleteTransportMutation} from '../slices/transportsApiSlice';
-import {Link} from 'react-router-dom';
+import {Link,useParams} from 'react-router-dom';
 import {toast} from 'react-toastify';
 
 const TransportListScreen = () => {
-    const {isLoading,data:transports , error,refetch } = useGetTransportsQuery();
+    const { keyword } = useParams();
+    const { data: transports, isLoading, error,refetch } = useGetTransportsQuery({ keyword });
+    console.log(transports);
     const [addTransport,{isLoading:loadingAdd}]=useAddTransportMutation();
     const addTransportHandler=async()=>{
         if(window.confirm('Are you sure you want to add a Transport?')){

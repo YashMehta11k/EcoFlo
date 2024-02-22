@@ -12,10 +12,11 @@ const recentTripSlice=createSlice({
     reducers:{
         addtoRecentTrip:(state,action)=>{
             const {user,...trip}=action.payload;
-            const tripDistance=4;
+            const locData = JSON.parse(localStorage.getItem('locData'));
+            const tripDistance=locData?locData.distance:4;
             const locPoints={
-                start:"A",
-                end:"B" 
+                start:locData?locData.origin:"A",
+                end:locData?locData.destination:"B" 
             }
             const confirmStatus='not comfirmed';
             const proofStatus='not uploaded';
@@ -57,10 +58,11 @@ const recentTripSlice=createSlice({
                 state.recentTrips[tripIndex].proofUploadTime = proofUploadTime;
                 localStorage.setItem('recentTrip', JSON.stringify(state));
             }
-        }
+        },
+        resetTrips:(state)=>(state=initialState)
      },
 });
 
-export const{addtoRecentTrip,removefromRecentTrip,removeConfirmedTrip,saveTravelProof}=recentTripSlice.actions;
+export const{resetTrips,addtoRecentTrip,removefromRecentTrip,removeConfirmedTrip,saveTravelProof}=recentTripSlice.actions;
 
 export default recentTripSlice.reducer;

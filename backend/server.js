@@ -62,6 +62,21 @@ app.post('/upload', async (req, res) => {
     }
 });
 
+//google map distance api
+app.post('/api/distance', async (req, res) => {
+    const { origin, destination } = req.body;
+  
+    try {
+      const response = await fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${destination}&key=${process.env.GOOGLE_MAP_API_KEY}`);
+      const data = await response.json();
+      
+      res.json(data);
+    } catch (error) {
+      console.error('Error fetching distance:', error);
+      res.status(500).json({ error: 'Internal server error.' });
+    }
+});
+
 
 app.use('/api/transports',transportRoutes);
 app.use('/api/users',userRoutes);

@@ -19,6 +19,7 @@ import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import { LuListChecks } from "react-icons/lu";
 import { PiCarSimpleBold } from "react-icons/pi";
 import { FaUsersLine } from "react-icons/fa6";
+import { resetTrips } from '../slices/recentTripSlice';
 
 const Header = () => {
 
@@ -44,6 +45,7 @@ const Header = () => {
         try{
             await logoutApiCall().unwrap();
             dispatch(logout());
+            dispatch(resetTrips());
             navigate('/login');
         }catch(err){
             console.log(err);

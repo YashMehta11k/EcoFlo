@@ -20,6 +20,7 @@ const TransportScreen = () => {
   const [showContent,setShowContent]=useState(false);
   const [rating,setRating]=useState(0);
   const [comment,setComment]=useState('');
+  const locData = JSON.parse(localStorage.getItem('locData'));
   const{userInfo}=useSelector((state)=>state.auth);   
   const distance=4;
 
@@ -110,7 +111,7 @@ const TransportScreen = () => {
                 <ListGroup.Item>
                   <Row>
                     <Col>Price:</Col>
-                    <Col><strong>₹{transport.COST_PER_KM}</strong></Col>
+                    <Col><strong>₹{locData?transport.COST_PER_KM*locData.distance:transport.COST_PER_KM}</strong></Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
@@ -128,7 +129,7 @@ const TransportScreen = () => {
                 <ListGroup.Item>
                   <Row>
                     <Col>Distance</Col>
-                    <Col>{distance} Kms</Col>
+                    <Col>{locData?locData.distance:distance} Kms</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>

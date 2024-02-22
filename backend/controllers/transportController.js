@@ -19,7 +19,7 @@ const getTransport=asyncHandler(async(req,res)=>{
         if (req.query.weatherCompatible === 'true') {
           filters.WEATHER = true;
         }
-        let transports = await Transport.find(filters);
+        const transports = await Transport.find({...filters});
     
         if (req.query.sortBy === 'cost') {
           transports.sort((a, b) => a.COST_PER_KM - b.COST_PER_KM);
