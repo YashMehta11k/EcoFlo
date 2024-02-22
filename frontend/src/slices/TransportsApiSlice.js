@@ -4,14 +4,16 @@ import { apiSlice } from './apiSlice';
 export const transportApiSlice=apiSlice.injectEndpoints({
     endpoints:(builder)=>({
         getTransports:builder.query({
-            query:({keyword})=>({
-                url:TRANSPORT_URL,
-                params:{
-                    keyword,
-                }
+            query: ({ keyword, weatherCompatible, sortBy }) => ({
+                url: TRANSPORT_URL,
+                params: {
+                  keyword,
+                  weatherCompatible,
+                  sortBy,
+                },
             }),
-            providesTags:['Transports'],
-            keepUnusedDataFor:5
+            providesTags: ['Transports'],
+            keepUnusedDataFor: 5,
         }),
         getTransportDetails:builder.query({
             query:(transportId)=>({
