@@ -268,13 +268,60 @@ body {
   margin-left: 1.5rem;
 }
 
+.right-side {
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .emmision-saved{
     position: absolute;
-    right: 4%;
-    top: 63%;
+    right: 5.5%;
+    top: 67%;
     text-align: center;
     line-height: 25%;
     margin-top: 2%;
+}
+
+.right-side img {
+  background: url('../ti3.jpg');
+  margin-right: 20px;
+  float: left;
+  float: left;
+  height: 35rem;
+  width: 65%;
+  margin-left: -2rem;
+}
+
+.right-side h2 {
+  font-size: 40px;
+  text-align: center;
+  margin-top: 0;
+  margin-left: -10rem;
+}
+
+#last-about{
+  background:url('../Screenshot 2024-02-20 210748.png');
+  height: 33rem;
+  margin: 0 4rem;
+}
+
+#about-video{
+  background: url('../tiv1.mp4');
+}
+
+.additional-text {
+  float: left;
+  width: 33%;
+  margin-left: 20px;
+}
+
+.blur-image {
+  background: url("../tired2.jpg");
+  background-size: cover;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
 }
 
 .headerdiv{
@@ -563,8 +610,8 @@ body {
     color: black;
     font-weight: bolder;
     font-style: revert;
-    font-size: 37px;
-    margin-bottom: 9%;
+    font-size: 30px;
+    margin-bottom: 10%;
 }
 
 .card-body p{

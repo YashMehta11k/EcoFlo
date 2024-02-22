@@ -111,13 +111,13 @@ const TransportScreen = () => {
                 <ListGroup.Item>
                   <Row>
                     <Col>Price:</Col>
-                    <Col><strong>₹{locData?transport.COST_PER_KM*locData.distance:transport.COST_PER_KM}</strong></Col>
+                    <Col><strong>₹{locData?(transport.COST_PER_KM*locData.distance).toFixed(0):transport.COST_PER_KM}</strong></Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
                     <Col>Time Taken:</Col>
-                    <Col><strong>Distance/speed</strong></Col>
+                    <Col><strong>{locData && (locData.distance/transport.AVG_SPEED*100).toFixed(0)} mins</strong></Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
@@ -147,7 +147,7 @@ const TransportScreen = () => {
               <Button type="button" id="book-transport" onClick={addtoRecentTripHandler}>
                 Book Transport
                 <ul>
-                  <li>This will take you to the app to book your ride</li>
+                  <li>This will take you to the website to book your ride</li>
                   <li>You will get a span of 20 hours to upload the proof of your travel (can include bill invoice or a selfie in the transport)</li>
                   <li>Have a safe and green travel to your destination</li>
                 </ul>

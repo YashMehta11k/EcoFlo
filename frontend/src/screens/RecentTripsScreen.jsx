@@ -85,7 +85,7 @@ const RecentTripsScreen = () => {
                       <Col className='trip-details'>
                         Trip Tariff:<br/>
                         <h4>Distance:</h4><h5>{item.tripDistance}  KMs</h5>
-                        <h4>Travel Fee:</h4><h5>Rs. {item.tripDistance*item.COST_PER_KM}</h5>
+                        <h4>Travel Fee:</h4><h5>Rs. {(item.tripDistance*item.COST_PER_KM).toFixed(0)}</h5>
                       </Col>
                       <Col className='trip-details'>
                         <h4>Sustainability:</h4>
