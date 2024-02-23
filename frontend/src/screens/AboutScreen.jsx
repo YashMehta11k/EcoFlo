@@ -1,30 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 const AboutScreen = () => {
-    const [showAdditionalContent, setShowAdditionalContent] = React.useState(false);
-
-    React.useEffect(() => {
-      const additionalContent = document.getElementById('additionalContent');
-      setTimeout(() => {
-        additionalContent.classList.add('active');
-        const yOffset = additionalContent.getBoundingClientRect().top;
-        window.scrollTo({
-          top: yOffset,
-          behavior: 'smooth'
-        });
-      }, 2000);
-    }, []);
-
-    const toggleFullscreen = (element) => {
-      if (!document.fullscreenElement) {
-        element.requestFullscreen();
-      } else {
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        }
-      }
-    };
+    
   return (
     <div>
       <style>
@@ -94,10 +71,10 @@ const AboutScreen = () => {
     </div>
     </section>
 
-  <div id="additionalContent" className={showAdditionalContent ? 'additional-content active' : 'additional-content'}>
+  <div id="additionalContent">
     <div className="right-side">
       <h2 style={{marginLeft:0,fontFamily:"Bungee",fontSize:"3rem",color:"teal",marginTop:"5rem"}}>WHY CHOOSE EFLO?</h2>
-      <p style={{textAlign:"center",marginBottom:"2rem",fontFamily:"Kanit",fontSize:"1.5rem",backgroundColor:"lavender",color:"blue",padding:"3.5rem",width:"125%",marginLeft:"-7.5rem",borderRadius:"2rem",marginBottom:"7.5rem"}}>
+      <p style={{textAlign:"center",fontFamily:"Kanit",fontSize:"1.5rem",backgroundColor:"lavender",color:"blue",padding:"3.5rem",width:"125%",marginLeft:"-7.5rem",borderRadius:"2rem",marginBottom:"7.5rem"}}>
         Select our app for a seamless experience in navigating sustainable transport options with real-time insights into carbon emissions and fuel savings. Our personalized recommendation system considers your preferences and environmental concerns, while integrated weather and air quality data ensure safer and healthier journeys. With robust security measures in place, trust in us for both eco-conscious commuting and data protection.
       </p>
       <img alt="Description" style={{marginLeft:"-5rem",marginBottom:"10rem",borderRadius:"1.25rem"}}/>

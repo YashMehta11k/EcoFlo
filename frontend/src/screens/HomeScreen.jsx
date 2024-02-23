@@ -6,7 +6,7 @@ import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { useParams } from 'react-router-dom';
 import SearchBox from '../components/SearchBox';
-import { useGoogleMaps } from 'react-hook-google-maps';
+
 import {toast} from 'react-toastify';
 
 const HomeScreen = () => {
@@ -21,7 +21,7 @@ const HomeScreen = () => {
   const [sortBy, setSortBy] = useState('');
   const [origin, setOrigin] = useState(locData?locData.origin:'');
   const [destination, setDestination] = useState(locData?locData.destination:'');
-  const [distance, setDistance] = useState('');
+  var [distance, setDistance] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -53,7 +53,7 @@ const HomeScreen = () => {
   
       const data = await response.json();
       const distanceText = data.rows[0].elements[0].distance.text;
-      const distance = parseFloat(distanceText.replace(' km', ''));
+      distance = parseFloat(distanceText.replace(' km', ''));
   
       // Update the state or local storage with origin, destination, and distance
       setOrigin(origin);
